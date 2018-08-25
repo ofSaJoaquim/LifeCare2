@@ -1,0 +1,56 @@
+<resources>
+    <string name="app_name">LifeCare</string>
+
+
+    <string name="yes">Sim?</string>
+    <string name="no">Não?</string>
+    <string name="next">Próximo</string>
+    <string name="Ha_mais_de_um_ano">Há mais de um ano?</string>
+    <string name="Ha_menos_de_um_ano">Há menos de um ano?</string>
+    <string name="Outras">Outras</string>
+
+    <string name="formulario1_banner1">VAMOS LÁ! Clique no campo correspondente a resposta de cada questão</string>
+    <string name="formulario1_banner2">\n Vai levar só alguns instantes.</string>
+    <string name="formulario1_pergunta1">Você ficou internado no último ano?</string>
+    <string name="formulario1_pergunta2">Possui diabetes?</string>
+    <string name="formulario1_pergunta3">É acamado?</string>
+    <string name="formulario1_pergunta4">Realiza consulta médica regulamente?</string>
+    <string name="formulario1_pergunta5">Já realizou alguma cirugia?</string>
+    <string name="formulario1_pergunta6">Tem depressão?</string>
+    <!-- -->
+    <string name="formulario1_pergunta7">Realiza atividade física regularmente?</string>
+    <string name="vezes_por_semana">Vezes por semana</string>
+    <string name="minutos_por_dia">Minutos por dia</string>
+    <!-- -->
+    <string name="formulario1_pergunta8">Quais desses alimentos consome com mais frequência</string>
+    <string name="Arroz">Arroz</string>
+    <string name="Feijao">Feijão</string>
+    <string name="Massa">Massa</string>
+    <string name="Batata">Batata</string>
+    <string name="Acucar">Açucar</string>
+    <string name="Carne">Carne</string>
+    <string name="Ovos">Ovos</string>
+    <string name="Leite">Leite</string>
+    <string name="Queijo">Queijo</string>
+    <string name="Vegetais">Vegetais</string>
+    <string name="Sal">Sal</string>
+    <!-- -->
+    <string name="formulario1_pergunta9">Consome bebida alcoólica?</string>
+    <!-- -->
+    <string name="formulario1_pergunta10">Fuma?</string>
+    <string name="Cigarros_por_dia">Cigarros por dia?</string>
+    <!-- -->
+    <string name="formulario1_pergunta11">Tem interesse em parar de fumar?</string>
+    <string name="formulario1_pergunta12">Derrame (AVC)?</string>
+    <string name="formulario1_pergunta13">Infarto agudo do miocárdio?</string>
+    <!-- -->
+    <string name="formulario1_pergunta14">Você tem doença pulmonar?</string>
+    <string name="Doenca_pulmonar_cronica">Doença Pulmonar Obstrtiva Crônica?</string>
+    <string name="Bronquite">Bronquite?</string>
+    <string name="Asma">Asma?</string>
+
+    <!-- -->
+
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="add_widget">Add widget</string>
+</resources>
