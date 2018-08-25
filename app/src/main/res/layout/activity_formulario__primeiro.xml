@@ -19,7 +19,8 @@
         android:visibility="visible"
 
         app:layout_constraintBottom_toTopOf="@+id/scroll"
-        app:logo="@drawable/example_appwidget_preview"
+        app:logo="@drawable/lifecare"
+
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
         app:title="">
 
