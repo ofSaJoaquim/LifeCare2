@@ -2,8 +2,8 @@
     <string name="app_name">LifeCare</string>
 
 
-    <string name="yes">Sim?</string>
-    <string name="no">Não?</string>
+    <string name="yes">Sim</string>
+    <string name="no">Não</string>
     <string name="next">Próximo</string>
     <string name="Ha_mais_de_um_ano">Há mais de um ano?</string>
     <string name="Ha_menos_de_um_ano">Há menos de um ano?</string>
