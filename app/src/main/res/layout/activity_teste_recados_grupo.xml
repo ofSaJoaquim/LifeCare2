@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TesteRecadosGrupo">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+
+        android:visibility="visible"
+
+        app:layout_constraintBottom_toTopOf="@+id/scroll"
+
+
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:title="">
+
+    </android.support.v7.widget.Toolbar>
+    <ScrollView
+        android:id="@+id/scroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/my_toolbar"
+        app:layout_constraintTop_toBottomOf="@+id/my_toolbar">
+
+        <LinearLayout
+            android:id="@+id/layoutprincipal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+
+            android:orientation="vertical"
+
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/my_toolbar">
+
+            <LinearLayout
+
+                android:id="@+id/boasVindasForm"
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+                android:layout_marginEnd="@dimen/inicio_margem_centralizados"
+
+                android:layout_marginStart="@dimen/inicio_margem_centralizados"
+                android:layout_marginTop="15dp"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+
+                app:layout_constraintTop_toBottomOf="@id/my_toolbar">
+
+                <android.support.v7.widget.Toolbar
+                    android:id="@+id/my_toolbar2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/background_light"
+                    android:elevation="4dp"
+                    android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+
+                    android:visibility="visible"
+
+                    app:layout_constraintBottom_toTopOf="@+id/scroll"
+
+
+                    app:logo="@drawable/coala2"
+                    app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                    app:title="" />
+                <TextView
+                    android:id="@+id/boasVindasText1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Pessoal, vejam essa lista de alimentos com baixo teor de gordura. Tem ótimas receitas"
+                    android:textColor="@android:color/black"
+                    android:textStyle="bold"
+                    />
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:scaleType="centerCrop"
+                    app:srcCompat="@drawable/frutas" />
+
+                <TextView
+                    android:id="@+id/boasVindasText2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="202 receitas imperdíveis com ingredientes com baixa gordura"
+                    android:textStyle="bold"
+                    app:layout_constraintTop_toBottomOf="@+id/imageView" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</android.support.constraint.ConstraintLayout>
