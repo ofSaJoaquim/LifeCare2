@@ -8,5 +8,6 @@
 <color name="corTitulo1">#336423</color>
     <color name="corTitulo2">#ed8f0a</color>
     <color name="primary_dark_material_light_1">#872020</color>
+    <color name="branco">#FFFFFF</color>
 
 </resources>
