@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#32a922</color>
-    <color name="colorPrimaryDark">#3b991c</color>
+    <color name="colorPrimaryDark">#52c72e</color>
     <color name="colorAccent">#FF4081</color>
+
 
 <color name="corTitulo1">#336423</color>
     <color name="corTitulo2">#ed8f0a</color>
+    <color name="primary_dark_material_light_1">#872020</color>
+
 </resources>

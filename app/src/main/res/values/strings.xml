@@ -9,6 +9,14 @@
     <string name="Ha_menos_de_um_ano">Há menos de um ano?</string>
     <string name="Outras">Outras</string>
 
+    <string name="Pai">Pai</string>
+    <string name="Mae">Mãe</string>
+    <string name="Avô">Avô</string>
+    <string name="Avó">Avó</string>
+    <string name="Irmao">Irmão</string>
+    <string name="Irma">Irmã</string>
+
+
     <string name="formulario1_banner1">VAMOS LÁ! Clique no campo correspondente a resposta de cada questão</string>
     <string name="formulario1_banner2">\n Vai levar só alguns instantes.</string>
     <string name="formulario1_pergunta1">Você ficou internado no último ano?</string>
@@ -53,4 +61,14 @@
 
     <string name="appwidget_text">EXAMPLE</string>
     <string name="add_widget">Add widget</string>
+
+    <string name="formulario2_banner1">É tudo pergunta objetiva</string>
+    <string name="formulario2_banner2">Vai ser bem rapidinho</string>
+    <string name="formulario2_pergunta1">Caso de Diabétes na Família</string>
+    <string name="formulario2_pergunta2">Caso de Hipertenção Arterial na Família</string>
+    <string name="formulario2_pergunta3">Caso de Doenças Cardíacas na Família</string>
+    <string name="formulario2_pergunta4">Caso de Doença Neuro-Degenerativas na Fanília(Parkison/Alzheimer/epilepsia)?</string>
+    <string name="formulario2_pergunta5">Caso de Insuficiencia Renal na Família</string>
+    <string name="formulario2_pergunta6">Caso de DST na Família(Doença Seualmente Trasnmissível)?</string>
+    <string name="formulario2_pergunta7">Caso de Obesiedade na Família</string>
 </resources>
