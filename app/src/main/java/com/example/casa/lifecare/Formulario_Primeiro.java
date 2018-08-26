@@ -7,9 +7,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
-import android.view.Window;
 import android.widget.Button;
-import android.widget.Toast;
 
 public class Formulario_Primeiro extends AppCompatActivity {
 
@@ -35,13 +33,15 @@ proximoFormulario();
 
     }
     @Override
+    //infla o menu no toolbar
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu1, menu);
         return true;
     }
 public void proximoFormulario(){
-    Intent intent = new Intent(this, Formulario_segundo.class);
+   Intent intent = new Intent(this, Formulario_segundo.class);
     startActivity(intent);
+
 }
 }

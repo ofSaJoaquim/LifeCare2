@@ -3,22 +3,7 @@
 xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
-<item
-    android:id="@+id/menuSearch"
-    android:icon="@drawable/example_appwidget_preview"
-    android:orderInCategory="10"
-    android:title="Search"
-
-    app:actionViewClass="android.support.v7.widget.icon"
-    app:showAsAction="always" />
-<item
-    android:id="@+id/menuSearch2"
-    android:icon="@drawable/example_appwidget_preview"
-    android:orderInCategory="100"
-    android:title="Search"
-    app:actionViewClass="android.support.v7.widget.SearchView"
-    app:showAsAction="always" />
-<!-- "Mark Favorite", should appear as action button if possible -->
+    <!-- "Mark Favorite", should appear as action button if possible -->
 
 <item
     android:id="@+id/action_favorite"

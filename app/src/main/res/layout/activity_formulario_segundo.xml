@@ -64,7 +64,7 @@
                 android:id="@+id/boasVindasText1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/formulario1_banner1"
+                android:text="@string/formulario2_banner1"
                 android:textColor="@color/corTitulo1"
                 android:textStyle="bold" />
 
@@ -72,7 +72,8 @@
                 android:id="@+id/boasVindasText2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/formulario1_banner2"
+                android:layout_marginTop="@dimen/espaco_entre_componentes_primarios"
+                android:text="@string/formulario2_banner2"
                 android:textColor="@color/corTitulo2"
                 android:textStyle="bold" />
         </LinearLayout>
