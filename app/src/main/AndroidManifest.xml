@@ -29,7 +29,7 @@
                 android:resource="@xml/new_app_widget_info" />
         </receiver>
 
-        <activity android:name=".Formulario_segundo"></activity>
+        <activity android:name=".Formulario_segundo"   android:theme="@style/AppTheme" ></activity>
     </application>
 
 </manifest>

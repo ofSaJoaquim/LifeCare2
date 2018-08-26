@@ -914,7 +914,7 @@
 
 
             <Button
-                android:id="@+id/botaoForm1"
+                android:id="@+id/confirma"
 
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
