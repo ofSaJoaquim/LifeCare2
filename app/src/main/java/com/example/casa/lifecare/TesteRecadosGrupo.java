@@ -29,7 +29,7 @@ public class TesteRecadosGrupo extends AppCompatActivity {
             }
         } );
     }
-    //infla o menu no toolbar
+    //infla o menu no toolbar teste
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu2, menu);
