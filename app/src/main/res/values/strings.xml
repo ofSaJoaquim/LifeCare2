@@ -71,4 +71,10 @@
     <string name="formulario2_pergunta5">Caso de Insuficiencia Renal na Família</string>
     <string name="formulario2_pergunta6">Caso de DST na Família(Doença Seualmente Trasnmissível)?</string>
     <string name="formulario2_pergunta7">Caso de Obesiedade na Família</string>
+
+    <string name="esqueceu_senha">Esqueceu a senha?</string>
+    <string name="login">Login</string>
+    <string name="cadastro">CADASTRE-SE</string>
+    <string name="email">E-mail</string>
+    <string name="senha">Senha</string>
 </resources>

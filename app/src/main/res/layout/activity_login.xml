@@ -8,7 +8,7 @@
     tools:context=".Tela_login">
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/txt_email"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="61dp"
@@ -17,7 +17,7 @@
         android:layout_marginStart="61dp"
         android:layout_marginTop="205dp"
         android:ems="10"
-        android:hint="E-mail"
+        android:hint="@string/email"
         android:inputType="textEmailAddress"
         android:textAppearance="@style/TextAppearance.AppCompat"
         app:layout_constraintEnd_toEndOf="parent"
@@ -25,7 +25,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editText4"
+        android:id="@+id/txt_senha"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="61dp"
@@ -34,44 +34,44 @@
         android:layout_marginStart="61dp"
         android:layout_marginTop="38dp"
         android:ems="10"
-        android:hint="Senha"
+        android:hint="@string/senha"
         android:inputType="textEmailAddress"
         android:textAppearance="@style/TextAppearance.AppCompat"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText2" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_email" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btn_login"
         android:layout_width="167dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="59dp"
         android:background="@drawable/botao_customizado"
-        android:text="Login"
+        android:text="@string/login"
         android:textColor="#fff"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText4" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_senha" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btn_cadastro"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="81dp"
         android:background="@color/botao_cadastro"
-        android:text="Cadastre-se"
+        android:text="@string/cadastro"
         android:textColor="@color/background"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button"
+        app:layout_constraintTop_toBottomOf="@+id/btn_login"
         app:layout_constraintVertical_bias="1.0" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/img_logo"
         android:layout_width="132dp"
         android:layout_height="153dp"
         android:layout_marginBottom="24dp"
@@ -80,22 +80,22 @@
         android:layout_marginRight="126dp"
         android:layout_marginStart="126dp"
         android:layout_marginTop="28dp"
-        app:layout_constraintBottom_toTopOf="@+id/editText2"
+        app:layout_constraintBottom_toTopOf="@+id/txt_email"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logo" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/txt_esqueceu_senha"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="24dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="8dp"
-        android:text="Esqueceu a senha?"
+        android:text="@string/esqueceu_senha"
         android:textColor="#fff"
-        app:layout_constraintStart_toStartOf="@+id/button"
-        app:layout_constraintTop_toBottomOf="@+id/editText4" />
+        app:layout_constraintStart_toStartOf="@+id/btn_login"
+        app:layout_constraintTop_toBottomOf="@+id/txt_senha" />
 
 </android.support.constraint.ConstraintLayout>
