@@ -16,7 +16,7 @@
 
         android:visibility="visible"
 
-        app:layout_constraintBottom_toTopOf="@+id/scroll"
+        app:layout_constraintBottom_toTopOf="@+id/scroll3"
 
 
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
@@ -24,7 +24,7 @@
 
     </android.support.v7.widget.Toolbar>
     <ScrollView
-        android:id="@+id/scroll"
+        android:id="@+id/scroll3"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
 
@@ -71,7 +71,7 @@
 
                     android:visibility="visible"
 
-                    app:layout_constraintBottom_toTopOf="@+id/scroll"
+                    app:layout_constraintBottom_toTopOf="@+id/scroll3"
 
 
                     app:logo="@drawable/coala2"
@@ -105,4 +105,18 @@
 
         </LinearLayout>
     </ScrollView>
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="280dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="280dp"
+        android:layout_marginStart="16dp"
+        android:text="Button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 </android.support.constraint.ConstraintLayout>

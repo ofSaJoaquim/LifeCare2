@@ -33,7 +33,8 @@
         <activity
             android:name=".Formulario_segundo"
             android:theme="@style/AppTheme" />
-        <activity android:name=".TesteRecadosGrupo"></activity>
+        <activity android:name=".TesteRecadosGrupo" />
+        <activity android:name=".CadastroRemedio"></activity>
     </application>
 
 </manifest>

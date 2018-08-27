@@ -16,7 +16,7 @@
 
         android:visibility="visible"
 
-        app:layout_constraintBottom_toTopOf="@+id/scroll"
+        app:layout_constraintBottom_toTopOf="@+id/scroll3"
         app:logo="@drawable/lifecare"
 
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
@@ -24,7 +24,7 @@
 
     </android.support.v7.widget.Toolbar>
     <ScrollView
-        android:id="@+id/scroll"
+        android:id="@+id/scroll3"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
 
