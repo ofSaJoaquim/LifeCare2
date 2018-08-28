@@ -77,4 +77,5 @@
     <string name="cadastro">CADASTRE-SE</string>
     <string name="email">E-mail</string>
     <string name="senha">Senha</string>
+    <string name="title_activity_lista_basica">listaBasica</string>
 </resources>

@@ -36,9 +36,10 @@
         <activity
             android:name=".Formulario_Primeiro"
             android:theme="@style/AppTheme" />
-
         <activity android:name=".TesteRecadosGrupo" />
-        <activity android:name=".CadastroRemedio"/>
+        <activity android:name=".CadastroRemedio" />
+        <activity android:name=".TimeLineFront" />
+        <activity android:name=".Teste1"></activity>
     </application>
 
 </manifest>

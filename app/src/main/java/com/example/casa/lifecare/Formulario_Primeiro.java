@@ -42,6 +42,7 @@ proximoFormulario();
 public void proximoFormulario(){
    Intent intent = new Intent(this, Formulario_segundo.class);
     startActivity(intent);
-
+  /*  Intent intent = new Intent(this, Teste1.class);
+    startActivity(intent);*/
 }
 }
