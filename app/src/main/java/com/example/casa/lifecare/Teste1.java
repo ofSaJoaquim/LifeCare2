@@ -18,18 +18,18 @@ public class Teste1 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_teste1);
-/*
-        ListView lista = (ListView) findViewById(R.id.lista);
+
+       ListView lista = (ListView) findViewById(R.id.lista1);
         List<TimeLine> linhas = todosOsCursos();
         TimeLineAdptador adapter = new TimeLineAdptador(linhas, this);
         lista.setAdapter(adapter);
     }
 
-    /**
+    /*
      * Exemplo qualquer de devolução de uma lista de cursos.
      * Para esse exemplo será considerado um hard coded.
      *
-     * @return lista com todos os cursos
+     * @return lista com todos os cursos*/
 
     private List<TimeLine> todosOsCursos() {
         return new ArrayList<>(Arrays.asList(
@@ -38,7 +38,7 @@ public class Teste1 extends AppCompatActivity {
                 new TimeLine("Você já foi no banheiro hoje?"
                         , 0x7f07005d, "Perigos da falta de fibra na alimentação"),
                 new TimeLine("Você já foi no banheiro hoje?"
-                        , 0x7f07005d, "Perigos da falta de fibra na alimentação")));*/
+                        , 0x7f07005d, "Perigos da falta de fibra na alimentação")));
     }
 
 

@@ -43,16 +43,15 @@ private final Activity activity;
 
     @Override
     public View getView(int i, View convertView, ViewGroup viewGroup) {
-        View view = activity.getLayoutInflater().inflate(R.layout.activity_time_line_front, viewGroup);
+        View view = activity.getLayoutInflater().inflate(R.layout.activity_time_line_front, viewGroup,false);
 
-       /* TimeLine linhaAtual = linha.get(i);
+       TimeLine linhaAtual = linha.get(i);
 
         TextView nome = (TextView)
                 view.findViewById(R.id.titulo);
         TextView descricao = (TextView)
                 view.findViewById(R.id.noticia);
-        ImageView imagem = (ImageView)
-                view.findViewById(R.id.imagemNoticias);
+        ImageView imagem = (ImageView) view.findViewById(R.id.imagemNoticias);
 
         nome.setText(linhaAtual.getTitulo()        );
         descricao.setText(linhaAtual.getNoticia());
@@ -66,10 +65,10 @@ private final Activity activity;
         } else if (categoria.equals(Categoria.HTML)) {
             imagem.setImageResource(R.drawable.html);
         }*/
-       // imagem.setImageResource(R.drawable.coala);
+       imagem.setImageResource(R.drawable.coala);
 
-      //  return view;
-        return  null;
+       return view;
+
 
     }
 }
