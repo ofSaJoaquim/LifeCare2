@@ -1,7 +1,6 @@
 <resources>
     <string name="app_name">LifeCare</string>
 
-
     <string name="yes">Sim</string>
     <string name="no">Não</string>
     <string name="next">Próximo</string>
@@ -15,7 +14,6 @@
     <string name="Avó">Avó</string>
     <string name="Irmao">Irmão</string>
     <string name="Irma">Irmã</string>
-
 
     <string name="formulario1_banner1">VAMOS LÁ! Clique no campo correspondente a resposta de cada questão</string>
     <string name="formulario1_banner2">\n Vai levar só alguns instantes.</string>
@@ -72,10 +70,33 @@
     <string name="formulario2_pergunta6">Caso de DST na Família(Doença Seualmente Trasnmissível)?</string>
     <string name="formulario2_pergunta7">Caso de Obesiedade na Família</string>
 
+    <!-- Login-->
     <string name="esqueceu_senha">Esqueceu a senha?</string>
     <string name="login">Login</string>
     <string name="cadastro">CADASTRE-SE</string>
     <string name="email">E-mail</string>
     <string name="senha">Senha</string>
+
+    <!-- Cadastro -->
+    <string name="cadastro_nome">Nome</string>
+    <string name="cadastro_email">E-mail</string>
+    <string name="cadastro_cpf">CPF</string>
+    <string name="cadastro_nasc">Data de nascimento</string>
+    <string name="cadastro_senha">Senha</string>
+    <string name="cadastro_telefone">Telefone</string>
+    <string name="cadastro_sexo">Sexo</string>
+    <string name="cadastro_estado_civil">Estado civil</string>
+    <string name="cadastro_masculino">Masculino</string>
+    <string name="cadastro_feminino">Feminino</string>
+    <string name="cadastro_solteiro">Solteiro(a)</string>
+    <string name="cadastro_casado">Casado(a)</string>
+    <string name="cadastro_divorciado">Divorciado(a)</string>
+    <string name="cadastro_viuvo">Viúvo(a)</string>
+    <string name="cadastro_separado">Separado(a)</string>
+    <string name="cadastro_finalizar">Cadastrar</string>
+
+
     <string name="title_activity_lista_basica">listaBasica</string>
+
+
 </resources>
