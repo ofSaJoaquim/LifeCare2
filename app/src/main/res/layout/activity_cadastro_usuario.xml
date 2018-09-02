@@ -199,7 +199,7 @@
             android:layout_marginStart="@dimen/inicio_margem_centralizados"
             android:layout_marginEnd="@dimen/inicio_margem_centralizados"
             android:textColor="@android:color/black"
-            android:background="@color/colorPrimary"
+            android:background="@drawable/botao_customizado"
             android:text="@string/cadastro_finalizar" />
 
 

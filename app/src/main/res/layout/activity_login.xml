@@ -1,86 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background"
-    tools:context=".Tela_login">
+    tools:context=".Tela_login"
+    android:orientation="vertical"
+    tools:layout_editor_absoluteY="25dp">
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="match_parent"
+        android:layout_height="256dp"
+        android:scaleType="centerCrop"
+        app:srcCompat="@drawable/cabecalho_login" />
+
+
 
     <EditText
         android:id="@+id/txt_email"
-        android:layout_width="0dp"
+        android:layout_width="272dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="61dp"
-        android:layout_marginLeft="61dp"
-        android:layout_marginRight="61dp"
-        android:layout_marginStart="61dp"
-        android:layout_marginTop="205dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="75dp"
         android:ems="10"
         android:hint="@string/email"
         android:inputType="textEmailAddress"
-        android:textAppearance="@style/TextAppearance.AppCompat"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textAppearance="@style/TextAppearance.AppCompat" />
+
 
     <EditText
         android:id="@+id/txt_senha"
-        android:layout_width="0dp"
+        android:layout_width="272dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="61dp"
-        android:layout_marginLeft="61dp"
-        android:layout_marginRight="61dp"
-        android:layout_marginStart="61dp"
-        android:layout_marginTop="38dp"
+        android:layout_gravity="center"
         android:ems="10"
         android:hint="@string/senha"
         android:inputType="textEmailAddress"
-        android:textAppearance="@style/TextAppearance.AppCompat"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_email" />
+        android:textAppearance="@style/TextAppearance.AppCompat" />
 
-    <Button
-        android:id="@+id/btn_login"
-        android:layout_width="167dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="59dp"
-        android:background="@color/colorPrimary"
-        android:text="@string/login"
-
-        android:textColor="#fff"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_senha" />
-
-    <Button
-        android:id="@+id/btn_cadastro"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="81dp"
-        android:background="@color/botao_cadastro"
-        android:text="@string/cadastro"
-        android:textColor="@color/background"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_login"
-        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/txt_esqueceu_senha"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="24dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="8dp"
+        android:gravity="center"
         android:text="@string/esqueceu_senha"
-        android:textColor="#fff"
-        app:layout_constraintStart_toStartOf="@+id/btn_login"
-        app:layout_constraintTop_toBottomOf="@+id/txt_senha" />
+        android:textColor="#000000" />
 
-</android.support.constraint.ConstraintLayout>
+    <Button
+        android:id="@+id/btn_login"
+        android:layout_width="186dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/botao_customizado"
+        android:layout_marginTop="45dp"
+        android:layout_gravity="center"
+        android:text="@string/login"
+        android:textColor="#fff"
+        android:textStyle="bold" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/btn_cadastro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/botao_cadastro"
+            android:text="@string/cadastro"
+            android:layout_marginTop="30dp"
+            android:textColor="@color/background"
+            android:textStyle="bold"
+            android:layout_alignParentBottom="true"/>
+
+    </RelativeLayout>
+
+
+
+
+
+</LinearLayout>
