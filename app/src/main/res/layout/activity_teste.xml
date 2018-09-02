@@ -4,26 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/fundo"
-    android:focusable="true"
-    android:focusableInTouchMode="true"
-    tools:context=".teste">
-    <ScrollView
-        android:id="@+id/scroll3"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+    tools:context=".CadastroUsuario">
 
-
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0">
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical"
-        android:layout_marginTop="@dimen/espaco_entre_componentes_agrupados"
+        android:background="@drawable/fundo"
         >
-
         <EditText
             android:id="@+id/txtCadNome"
             android:layout_width="match_parent"
@@ -32,17 +20,6 @@
             android:layout_marginStart="@dimen/inicio_margem_centralizados"
             android:ems="10"
             android:hint="@string/cadastro_nome"
-            android:inputType="textPersonName"
-            android:textAppearance="@style/TextAppearance.AppCompat" />
-
-        <EditText
-            android:id="@+id/txtCadUsuario"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/inicio_margem_centralizados"
-            android:layout_marginStart="@dimen/inicio_margem_centralizados"
-            android:ems="10"
-            android:hint="User"
             android:inputType="textPersonName"
             android:textAppearance="@style/TextAppearance.AppCompat" />
 
@@ -66,7 +43,7 @@
             android:layout_marginStart="@dimen/inicio_margem_centralizados"
             android:ems="10"
             android:hint="@string/cadastro_cpf"
-            android:inputType="numberDecimal"
+            android:inputType="textPersonName"
             android:textAppearance="@style/TextAppearance.AppCompat" />
 
         <EditText
@@ -76,9 +53,8 @@
             android:layout_marginEnd="@dimen/inicio_margem_centralizados"
             android:layout_marginStart="@dimen/inicio_margem_centralizados"
             android:ems="10"
-            android:maxLength="10"
             android:hint="@string/cadastro_nasc"
-            android:inputType="date"
+            android:inputType="text|date"
             android:textAppearance="@style/TextAppearance.AppCompat" />
 
         <EditText
@@ -100,7 +76,7 @@
             android:layout_marginStart="@dimen/inicio_margem_centralizados"
             android:ems="10"
             android:hint="@string/cadastro_telefone"
-            android:inputType="phone"
+            android:inputType="textPersonName"
             android:textAppearance="@style/TextAppearance.AppCompat" />
 
         <TextView
@@ -111,9 +87,8 @@
             android:layout_marginStart="@dimen/inicio_margem_centralizados"
             android:text="@string/cadastro_sexo"
             android:textAppearance="@style/TextAppearance.AppCompat" />
-
         <RadioGroup
-            android:id="@+id/radioGroupCadSexo"
+            android:id="@+id/radioGroupCadUsuario"
             android:layout_width="match_parent"
             android:layout_height="53dp"
             android:layout_marginEnd="@dimen/inicio_margem_centralizados"
@@ -189,20 +164,5 @@
 
         </RadioGroup>
 
-        <Button
-            android:id="@+id/cadUsuarioConfirma"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:layout_marginTop="@dimen/espaco_entre_componentes_primarios"
-            android:layout_marginBottom="@dimen/espaco_entre_componentes_primarios"
-            android:layout_marginStart="@dimen/inicio_margem_centralizados"
-            android:layout_marginEnd="@dimen/inicio_margem_centralizados"
-            android:textColor="@android:color/black"
-            android:background="@color/colorPrimary"
-            android:text="@string/cadastro_finalizar" />
-
-
     </LinearLayout>
-    </ScrollView>
 </android.support.constraint.ConstraintLayout>

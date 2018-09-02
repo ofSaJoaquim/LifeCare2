@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class Formulario_segundo extends AppCompatActivity {
 
@@ -16,15 +17,16 @@ public class Formulario_segundo extends AppCompatActivity {
         proximo.setOnClickListener(new  View.OnClickListener(){
             @Override
             public  void  onClick(View v){
-               /* Toast.makeText(Formulario_Primeiro.this, "Hello World",
-                        Toast.LENGTH_LONG).show();*/
+                Toast.makeText(Formulario_segundo.this, "Congratulations your form is finish",
+                        Toast.LENGTH_LONG).show();
                 proximoFormulario();
+
 
             }
         } );
     }
     public void proximoFormulario(){
-        Intent intent = new Intent(this, TesteRecadosGrupo.class);
+        Intent intent = new Intent(this, Teste1.class);
         startActivity(intent);
 
     }

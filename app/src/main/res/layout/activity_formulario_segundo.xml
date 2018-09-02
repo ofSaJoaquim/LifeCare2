@@ -634,7 +634,7 @@
             android:layout_marginStart="@dimen/inicio_margem_centralizados"
             android:layout_marginTop="@dimen/espaco_entre_componentes_primarios"
             android:background="@color/colorPrimary"
-            android:text="@string/next"
+            android:text="Finish"
 
             android:textColor="@color/branco"
             app:layout_constraintTop_toBottomOf="@id/layout_radio7" />

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.casa.lifecare">
+    package="com.example.casa.lifecare"
+    android:name="com.orm.SugarApp">
 
     <application
         android:allowBackup="true"
@@ -9,10 +10,29 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        <meta-data
+            android:name="DATABASE"
+            android:value="lifecare1.db" />
+        <meta-data
+            android:name="VERSION"
+            android:value="1" />
+        <meta-data
+            android:name="QUERY_LOG"
+            android:value="true" />
+        <meta-data
+            android:name="DOMAIN_PACKAGE_NAME"
+            android:value="com.example.casa.lifecare" />
+
         <activity
             android:name=".Tela_login"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="stateUnchanged">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
 
         </activity>
 
@@ -31,17 +51,18 @@
             android:theme="@style/AppTheme" />
         <activity
             android:name=".Formulario_Primeiro"
-            android:theme="@style/AppTheme" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            android:theme="@style/AppTheme">
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
+
         <activity android:name=".TesteRecadosGrupo" />
         <activity android:name=".CadastroRemedio" />
         <activity android:name=".TimeLineFront" />
-        <activity android:name=".Teste1"></activity>
+        <activity android:name=".Teste1" />
+        <activity android:name=".teste"></activity>
+        <activity android:name=".CadastroUsuario" />
+
+
     </application>
 
 </manifest>

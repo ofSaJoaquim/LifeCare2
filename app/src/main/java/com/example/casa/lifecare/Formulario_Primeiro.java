@@ -9,7 +9,10 @@ import android.view.MenuInflater;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.casa.lifecare.entidades.Usuario;
+
 public class Formulario_Primeiro extends AppCompatActivity {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,9 +43,8 @@ proximoFormulario();
         return true;
     }
 public void proximoFormulario(){
-   /*Intent intent = new Intent(this, Formulario_segundo.class);
-    startActivity(intent);*/
-    Intent intent = new Intent(this, Teste1.class);
+   Intent intent = new Intent(this, Formulario_segundo.class);
     startActivity(intent);
+
 }
 }
