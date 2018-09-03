@@ -51,6 +51,10 @@
     <string name="formulario1_pergunta13">Infarto agudo do miocárdio?</string>
     <!-- -->
     <string name="formulario1_pergunta14">Você tem doença pulmonar?</string>
+
+    <string name="zerozero">00</string>
+    <string name="TERMINAR">TERMINAR</string>
+
     <string name="Doenca_pulmonar_cronica">Doença Pulmonar Obstrtiva Crônica?</string>
     <string name="Bronquite">Bronquite?</string>
     <string name="Asma">Asma?</string>
@@ -94,9 +98,16 @@
     <string name="cadastro_viuvo">Viúvo(a)</string>
     <string name="cadastro_separado">Separado(a)</string>
     <string name="cadastro_finalizar">Cadastrar</string>
+    <string name="confirmar">CONFIRMAR</string>
 
 
     <string name="title_activity_lista_basica">listaBasica</string>
 
 
+    <string name="cadMedStringInsiraPeriodo">Insira o periodo do Uso do medicamento</string>
+    <string name="numero_de_dias">Numero de dias</string>
+    <string name="intervalo_em_horas">Intervalo de uso em horas</string>
+    <string name="cadMedStringIntervaloUso">Insira o intervalo do Uso do medicamento</string>
+    <string name="cadMedStringDataInicial">Data Inicial do Tratamento</string>
+    <string name="cadMedStringTitulo">Controle de medicação</string>
 </resources>

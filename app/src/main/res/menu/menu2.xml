@@ -6,14 +6,14 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
     <!-- "Mark Favorite", should appear as action button if possible -->
 
 <item
-    android:id="@+id/action_favorite"
+    android:id="@+id/addRemedio"
     android:icon="@drawable/example_appwidget_preview"
-    android:title="oi"></item>
+    android:title="Adicionar Remédios"></item>
 <!--app:showAsAction="ifRoom"/>-->
 
 <item
-    android:id="@+id/action_favorite2"
+    android:id="@+id/meusRemedios"
     android:icon="@drawable/example_appwidget_preview"
-    android:title="ola"></item>
+    android:title="Remédios"></item>
 
 </menu>

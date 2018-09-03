@@ -55,12 +55,18 @@
 
         </activity>
 
-        <activity android:name=".TesteRecadosGrupo" />
-        <activity android:name=".CadastroRemedio" />
-        <activity android:name=".TimeLineFront" />
-        <activity android:name=".Teste1" />
-        <activity android:name=".teste"></activity>
-        <activity android:name=".CadastroUsuario" />
+        <activity android:name=".TesteRecadosGrupo"
+            android:theme="@style/AppTheme"/>
+        <activity android:name=".CadastroRemedio"
+            android:theme="@style/AppTheme"/>
+        <activity android:name=".TimeLineFront"
+            android:theme="@style/AppTheme"/>
+        <activity android:name=".Teste1"
+            android:theme="@style/AppTheme"/>
+        <activity android:name=".teste"
+            android:theme="@style/AppTheme"></activity>
+        <activity android:name=".CadastroUsuario"
+            android:theme="@style/AppTheme"/>
 
 
     </application>

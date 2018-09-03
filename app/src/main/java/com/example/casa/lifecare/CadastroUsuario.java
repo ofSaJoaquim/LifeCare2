@@ -26,7 +26,7 @@ public class CadastroUsuario extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro_usuario);
         final EditText nomeCampo = (EditText) findViewById(R.id.txtCadNome);
-        final EditText usuarioCampo = (EditText) findViewById(R.id.txtCadUsuario);
+
         final EditText senhaCampo = (EditText) findViewById(R.id.txt_senha);
         final EditText emailCampo = (EditText) findViewById(R.id.txtCadEmail);
         final EditText cpfCampo = (EditText) findViewById(R.id.txtCadCPF);
@@ -53,7 +53,7 @@ public class CadastroUsuario extends AppCompatActivity {
                         Toast.LENGTH_LONG).show();*/
                 //tem que criar uma validação antes de inserir
                 String nome = nomeCampo.getText().toString();
-                String usuarioLogin = usuarioCampo.getText().toString();
+                String usuarioLogin = emailCampo.getText().toString();
                 String senha = nomeCampo.getText().toString();
                 String email = emailCampo.getText().toString();
                String cpf = cpfCampo.getText().toString();

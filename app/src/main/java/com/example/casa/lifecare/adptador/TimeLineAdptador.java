@@ -65,7 +65,7 @@ private final Activity activity;
         } else if (categoria.equals(Categoria.HTML)) {
             imagem.setImageResource(R.drawable.html);
         }*/
-       imagem.setImageResource(R.drawable.coala);
+       imagem.setImageResource(linhaAtual.getIdImagem());
 
        return view;
 

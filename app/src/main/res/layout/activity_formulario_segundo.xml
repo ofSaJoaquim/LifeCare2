@@ -1,644 +1,685 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".Formulario_segundo">
 
     <android.support.v7.widget.Toolbar
-        android:id="@+id/my_toolbar"
+        android:id="@+id/segundoFormToolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorPrimary"
-        android:elevation="4dp"
         android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
 
         android:visibility="visible"
 
-        app:layout_constraintBottom_toTopOf="@+id/scroll3"
         app:logo="@drawable/lifecare"
 
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
         app:title="">
 
     </android.support.v7.widget.Toolbar>
+
     <ScrollView
         android:id="@+id/scroll3"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
 
 
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/my_toolbar"
-        app:layout_constraintTop_toBottomOf="@+id/my_toolbar">
-
-    <LinearLayout
-        android:id="@+id/layoutprincipal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="56dp"
-
-        android:orientation="vertical"
-
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/my_toolbar">
+        >
 
         <LinearLayout
-            android:id="@+id/boasVindasForm"
+            android:id="@+id/layoutprincipal"
             android:layout_width="match_parent"
-            android:layout_height="68dp"
-            android:layout_marginEnd="@dimen/inicio_margem_centralizados"
+            android:layout_height="wrap_content"
 
-            android:layout_marginStart="@dimen/inicio_margem_centralizados"
-            android:layout_marginTop="@dimen/espaco_entre_componentes_primarios"
+
             android:orientation="vertical"
-            app:layout_constraintEnd_toEndOf="parent"
 
-            app:layout_constraintTop_toBottomOf="@id/my_toolbar">
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/my_toolbar">
+
+            <LinearLayout
+                android:id="@+id/boasVindasForm"
+                android:layout_width="match_parent"
+                android:layout_height="68dp"
+                android:layout_marginEnd="@dimen/inicio_margem_centralizados"
+
+                android:layout_marginStart="@dimen/inicio_margem_centralizados"
+                android:layout_marginTop="@dimen/espaco_entre_componentes_primarios"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+
+                app:layout_constraintTop_toBottomOf="@id/segundoFormToolbar">
+
+                <TextView
+                    android:id="@+id/boasVindasText1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/formulario2_banner1"
+                    android:textColor="@color/corTitulo1"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/boasVindasText2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/espaco_entre_componentes_primarios"
+                    android:text="@string/formulario2_banner2"
+                    android:textColor="@color/corTitulo2"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/divider"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginEnd="@dimen/inicio_margem_centralizados"
+                android:layout_marginStart="@dimen/inicio_margem_centralizados"
+                android:layout_marginTop="@dimen/espaco_entre_componentes_primarios"
+                android:background="@color/colorPrimary"
+
+                app:layout_constraintTop_toBottomOf="@id/boasVindasForm" />
 
             <TextView
-                android:id="@+id/boasVindasText1"
+                android:id="@+id/textoPergunta1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/formulario2_banner1"
-                android:textColor="@color/corTitulo1"
-                android:textStyle="bold" />
+                android:layout_marginEnd="@dimen/inicio_margem_centralizados"
+                android:layout_marginStart="@dimen/inicio_margem_centralizados"
+                android:layout_marginTop="@dimen/espaco_entre_componentes_primarios"
+                android:text="@string/formulario2_pergunta1"
+                android:textColor="@android:color/black"
+                android:textStyle="bold"
+
+                app:layout_constraintTop_toBottomOf="@id/divider" />
+
+            <LinearLayout
+                android:id="@+id/layout_radio1"
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="@dimen/inicio_margem_centralizados"
+                android:layout_marginStart="@dimen/inicio_margem_centralizados"
+                android:layout_marginTop="@dimen/espaco_entre_componentes_agrupados"
+                android:orientation="horizontal"
+
+                app:layout_constraintTop_toBottomOf="@id/textoPergunta1">
+
+
+                <RadioButton
+                    android:id="@+id/radioDiabetesPai"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/Pai"
+                    android:textSize="@dimen/textoPequeno" />
+
+                <RadioButton
+                    android:id="@+id/radioDiabetesMae"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/Mae"
+                    android:textSize="@dimen/textoPequeno" />
+
+                <RadioButton
+                    android:id="@+id/radioDiabetesAvo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/Avô"
+                    android:textSize="@dimen/textoPequeno" />
+
+                <RadioButton
+                    android:id="@+id/radioDiabetesVo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/Avó"
+                    android:textSize="@dimen/textoPequeno" />
+
+                <RadioButton
+                    android:id="@+id/radioDiabetesIrmao"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/Irmao"
+                    android:textSize="@dimen/textoPequeno" />
+
+                <RadioButton
+                    android:id="@+id/radioDiabetesIrma"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/Irma"
+                    android:textSize="@dimen/textoPequeno" />
+
+                <RadioButton
+                    android:id="@+id/radioDiabetesNao"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/no"
+                    android:textSize="@dimen/textoPequeno" />
+            </LinearLayout>
 
             <TextView
-                android:id="@+id/boasVindasText2"
+                android:id="@+id/textoPergunta2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/inicio_margem_centralizados"
+                android:layout_marginStart="@dimen/inicio_margem_centralizados"
                 android:layout_marginTop="@dimen/espaco_entre_componentes_primarios"
-                android:text="@string/formulario2_banner2"
-                android:textColor="@color/corTitulo2"
-                android:textStyle="bold" />
-        </LinearLayout>
+                android:text="@string/formulario2_pergunta2"
+                android:textColor="@android:color/black"
+                android:textStyle="bold"
 
-        <View
-            android:id="@+id/divider"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/colorPrimary"
-            android:layout_marginTop="@dimen/espaco_entre_componentes_primarios"
-            android:layout_marginStart="@dimen/inicio_margem_centralizados"
-            android:layout_marginEnd="@dimen/inicio_margem_centralizados"
+                app:layout_constraintTop_toBottomOf="@id/layout_radio1" />
 
-            app:layout_constraintTop_toBottomOf="@id/boasVindasForm" />
+            <LinearLayout
+                android:id="@+id/layout_radio2"
 
-        <TextView
-            android:id="@+id/textoPergunta1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/formulario2_pergunta1"
-            android:textColor="@android:color/black"
-            android:textStyle="bold"
-            android:layout_marginStart="@dimen/inicio_margem_centralizados"
-             android:layout_marginEnd="@dimen/inicio_margem_centralizados"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="@dimen/inicio_margem_centralizados"
+                android:layout_marginStart="@dimen/inicio_margem_centralizados"
+                android:layout_marginTop="@dimen/espaco_entre_componentes_agrupados"
+                android:orientation="horizontal"
+
+                app:layout_constraintTop_toBottomOf="@id/textoPergunta2">
+
+
+                <RadioButton
+                    android:id="@+id/radioHipertencaoPai"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/Pai"
+                    android:textSize="@dimen/textoPequeno" />
+
+                <RadioButton
+                    android:id="@+id/radioHipertencaoMae"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/Mae"
+                    android:textSize="@dimen/textoPequeno" />
+
+                <RadioButton
+                    android:id="@+id/radioHipertencaoAvo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="@dimen/textoPequeno" />
+
+                <RadioButton
+                    android:id="@+id/radioHipertencaoVo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/Avó"
+                    android:textSize="@dimen/textoPequeno" />
+
+                <RadioButton
+                    android:id="@+id/radioHipertencaoIrmao"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/Irmao"
+                    android:textSize="@dimen/textoPequeno" />
+
+                <RadioButton
+                    android:id="@+id/radioHipertencaoIrma"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/Irma"
+                    android:textSize="@dimen/textoPequeno" />
+
+                <RadioButton
+                    android:id="@+id/radioHipertencaoNao"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/no"
+                    android:textSize="@dimen/textoPequeno" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/textoPergunta3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/inicio_margem_centralizados"
+                android:layout_marginStart="@dimen/inicio_margem_centralizados"
                 android:layout_marginTop="@dimen/espaco_entre_componentes_primarios"
+                android:text="@string/formulario2_pergunta3"
+                android:textColor="@android:color/black"
+                android:textStyle="bold"
 
-            app:layout_constraintTop_toBottomOf="@id/divider"/>
+                app:layout_constraintTop_toBottomOf="@id/layout_radio2" />
 
-        <LinearLayout
-            android:id="@+id/layout_radio1"
+            <LinearLayout
+                android:id="@+id/layout_radio3"
 
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:layout_marginStart="@dimen/inicio_margem_centralizados"
-            android:layout_marginEnd="@dimen/inicio_margem_centralizados"
-            android:layout_marginTop="@dimen/espaco_entre_componentes_agrupados"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="@dimen/inicio_margem_centralizados"
+                android:layout_marginStart="@dimen/inicio_margem_centralizados"
+                android:layout_marginTop="@dimen/espaco_entre_componentes_agrupados"
+                android:orientation="horizontal"
 
-            app:layout_constraintTop_toBottomOf="@id/textoPergunta1">
+                app:layout_constraintTop_toBottomOf="@id/textoPergunta3">
 
 
-            <RadioButton
-                android:id="@+id/radioDiabetesPai"
-                android:layout_width="wrap_content"
+                <RadioButton
+                    android:id="@+id/radioCardiacoPai"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/Pai"
+                    android:textSize="@dimen/textoPequeno" />
+
+                <RadioButton
+                    android:id="@+id/radioCardiacoMae"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/Mae"
+                    android:textSize="@dimen/textoPequeno" />
+
+                <RadioButton
+                    android:id="@+id/radioCardiacoAvo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/Avô"
+                    android:textSize="@dimen/textoPequeno" />
+
+                <RadioButton
+                    android:id="@+id/radioCardiacoVo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/Avó"
+                    android:textSize="@dimen/textoPequeno" />
+
+                <RadioButton
+                    android:id="@+id/radioCardiacoIrmao"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/Irmao"
+                    android:textSize="@dimen/textoPequeno" />
+
+                <RadioButton
+                    android:id="@+id/radioCardiacoIrma"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/Irma"
+                    android:textSize="@dimen/textoPequeno" />
+
+                <RadioButton
+                    android:id="@+id/radioCardiacoNao"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/no"
+                    android:textSize="@dimen/textoPequeno" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/textoPergunta4"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/Pai"
-                android:textSize="@dimen/texto_radios_alto_volume"/>
-            <RadioButton
-                android:id="@+id/radioDiabetesMae"
-                android:layout_width="wrap_content"
+                android:layout_marginEnd="@dimen/inicio_margem_centralizados"
+                android:layout_marginStart="@dimen/inicio_margem_centralizados"
+                android:layout_marginTop="@dimen/espaco_entre_componentes_primarios"
+                android:text="@string/formulario2_pergunta4"
+                android:textColor="@android:color/black"
+                android:textStyle="bold"
+
+                app:layout_constraintTop_toBottomOf="@id/layout_radio3" />
+
+            <LinearLayout
+                android:id="@+id/layout_radio4"
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="@dimen/inicio_margem_centralizados"
+                android:layout_marginStart="@dimen/inicio_margem_centralizados"
+                android:layout_marginTop="@dimen/espaco_entre_componentes_agrupados"
+                android:orientation="horizontal"
+
+                app:layout_constraintTop_toBottomOf="@id/textoPergunta4">
+
+
+                <RadioButton
+                    android:id="@+id/radioNeuroPai"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/Pai"
+                    android:textSize="@dimen/textoPequeno" />
+
+                <RadioButton
+                    android:id="@+id/radioNeuroMae"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/Mae"
+                    android:textSize="@dimen/textoPequeno" />
+
+                <RadioButton
+                    android:id="@+id/radioNeuroAvo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/Avô"
+                    android:textSize="@dimen/textoPequeno" />
+
+                <RadioButton
+                    android:id="@+id/radioNeuroVo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/Avó"
+                    android:textSize="@dimen/textoPequeno" />
+
+                <RadioButton
+                    android:id="@+id/radioNeuroIrmao"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/Irmao"
+                    android:textSize="@dimen/textoPequeno" />
+
+                <RadioButton
+                    android:id="@+id/radioNeuroIrma"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/Irma"
+                    android:textSize="@dimen/textoPequeno" />
+
+                <RadioButton
+                    android:id="@+id/radioNeuroNao"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/no"
+                    android:textSize="@dimen/textoPequeno" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/textoPergunta5"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/Mae"
-                android:textSize="@dimen/texto_radios_alto_volume"/>
-            <RadioButton
-                android:id="@+id/radioDiabetesAvo"
-                android:layout_width="wrap_content"
+                android:layout_marginEnd="@dimen/inicio_margem_centralizados"
+                android:layout_marginStart="@dimen/inicio_margem_centralizados"
+                android:layout_marginTop="@dimen/espaco_entre_componentes_primarios"
+                android:text="@string/formulario2_pergunta5"
+                android:textColor="@android:color/black"
+                android:textStyle="bold"
+
+                app:layout_constraintTop_toBottomOf="@id/layout_radio4" />
+
+            <LinearLayout
+                android:id="@+id/layout_radio5"
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="@dimen/inicio_margem_centralizados"
+                android:layout_marginStart="@dimen/inicio_margem_centralizados"
+                android:layout_marginTop="@dimen/espaco_entre_componentes_agrupados"
+                android:orientation="horizontal"
+
+                app:layout_constraintTop_toBottomOf="@id/textoPergunta5">
+
+
+                <RadioButton
+                    android:id="@+id/radioRenalPai"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/Pai"
+                    android:textSize="@dimen/textoPequeno" />
+
+                <RadioButton
+                    android:id="@+id/radioRenalMae"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/Mae"
+                    android:textSize="@dimen/textoPequeno" />
+
+                <RadioButton
+                    android:id="@+id/radioRenalAvo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/Avô"
+                    android:textSize="@dimen/textoPequeno" />
+
+                <RadioButton
+                    android:id="@+id/radioRenalVo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/Avó"
+                    android:textSize="@dimen/textoPequeno" />
+
+                <RadioButton
+                    android:id="@+id/radioRenalrmao"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/Irmao"
+                    android:textSize="@dimen/textoPequeno" />
+
+                <RadioButton
+                    android:id="@+id/radioNRenalIrma"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/Irma"
+                    android:textSize="@dimen/textoPequeno" />
+
+                <RadioButton
+                    android:id="@+id/radioRenalNao"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/no"
+                    android:textSize="@dimen/textoPequeno" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/textoPergunta6"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/Avô"
-                android:textSize="@dimen/texto_radios_alto_volume"/>
-            <RadioButton
-                android:id="@+id/radioDiabetesVo"
-                android:layout_width="wrap_content"
+                android:layout_marginEnd="@dimen/inicio_margem_centralizados"
+                android:layout_marginStart="@dimen/inicio_margem_centralizados"
+                android:layout_marginTop="@dimen/espaco_entre_componentes_primarios"
+                android:text="@string/formulario2_pergunta6"
+                android:textColor="@android:color/black"
+                android:textStyle="bold"
+
+                app:layout_constraintTop_toBottomOf="@id/layout_radio5" />
+
+            <LinearLayout
+                android:id="@+id/layout_radio6"
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="@dimen/inicio_margem_centralizados"
+                android:layout_marginStart="@dimen/inicio_margem_centralizados"
+                android:layout_marginTop="@dimen/espaco_entre_componentes_agrupados"
+                android:orientation="horizontal"
+
+                app:layout_constraintTop_toBottomOf="@id/textoPergunta6">
+
+
+                <RadioButton
+                    android:id="@+id/radioDSTPai"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/Pai"
+                    android:textSize="@dimen/textoPequeno" />
+
+                <RadioButton
+                    android:id="@+id/radioDSTMae"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/Mae"
+                    android:textSize="@dimen/textoPequeno" />
+
+                <RadioButton
+                    android:id="@+id/radioDSTAvo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/Avô"
+                    android:textSize="@dimen/textoPequeno" />
+
+                <RadioButton
+                    android:id="@+id/radioDSTVo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/Avó"
+                    android:textSize="@dimen/textoPequeno" />
+
+                <RadioButton
+                    android:id="@+id/radioDSTrmao"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/Irmao"
+                    android:textSize="@dimen/textoPequeno" />
+
+                <RadioButton
+                    android:id="@+id/radioDSTIrma"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/Irma"
+                    android:textSize="@dimen/textoPequeno" />
+
+                <RadioButton
+                    android:id="@+id/radioDSTNao"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/no"
+                    android:textSize="@dimen/textoPequeno" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/textoPergunta7"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/Avó"
-                android:textSize="@dimen/texto_radios_alto_volume"/>
-            <RadioButton
-                android:id="@+id/radioDiabetesIrmao"
-                android:layout_width="wrap_content"
+                android:layout_marginEnd="@dimen/inicio_margem_centralizados"
+                android:layout_marginStart="@dimen/inicio_margem_centralizados"
+                android:layout_marginTop="@dimen/espaco_entre_componentes_primarios"
+                android:text="@string/formulario2_pergunta7"
+                android:textColor="@android:color/black"
+                android:textStyle="bold"
+
+                app:layout_constraintTop_toBottomOf="@id/layout_radio6" />
+
+            <LinearLayout
+                android:id="@+id/layout_radio7"
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="@dimen/inicio_margem_centralizados"
+                android:layout_marginStart="@dimen/inicio_margem_centralizados"
+                android:layout_marginTop="@dimen/espaco_entre_componentes_agrupados"
+                android:orientation="horizontal"
+
+                app:layout_constraintTop_toBottomOf="@id/textoPergunta7">
+
+
+                <RadioButton
+                    android:id="@+id/radioObesidadePai"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/Pai"
+                    android:textSize="@dimen/textoPequeno" />
+
+                <RadioButton
+                    android:id="@+id/radioObesidadeMae"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/Mae"
+                    android:textSize="@dimen/textoPequeno" />
+
+                <RadioButton
+                    android:id="@+id/radioObesidadeAvo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/Avô"
+                    android:textSize="@dimen/textoPequeno" />
+
+                <RadioButton
+                    android:id="@+id/radioObesidadeVo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/Avó"
+                    android:textSize="@dimen/textoPequeno" />
+
+                <RadioButton
+                    android:id="@+id/radioObesidadermao"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/Irmao"
+                    android:textSize="@dimen/textoPequeno" />
+
+                <RadioButton
+                    android:id="@+id/radioObesidadeIrma"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/Irma"
+                    android:textSize="@dimen/textoPequeno" />
+
+                <RadioButton
+                    android:id="@+id/radioObesidadeNao"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/no"
+                    android:textSize="@dimen/textoPequeno" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/botaoFormulario"
+
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/Irmao"
-                android:textSize="@dimen/texto_radios_alto_volume"/>
-            <RadioButton
-                android:id="@+id/radioDiabetesIrma"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/Irma"
-                android:textSize="@dimen/texto_radios_alto_volume"/>
-            <RadioButton
-                android:id="@+id/radioDiabetesNao"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/no"
-                android:textSize="@dimen/texto_radios_alto_volume"/>
+                android:layout_marginBottom="@dimen/margem_inferior_ultimo_item"
+                android:layout_marginEnd="@dimen/inicio_margem_centralizados"
+                android:layout_marginStart="@dimen/inicio_margem_centralizados"
+                android:layout_marginTop="@dimen/espaco_entre_componentes_primarios"
+                android:background="@color/colorPrimary"
+                android:text="@string/TERMINAR"
+
+                android:textColor="@color/branco"
+                app:layout_constraintTop_toBottomOf="@id/layout_radio7" />
         </LinearLayout>
-
-        <TextView
-            android:id="@+id/textoPergunta2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/formulario2_pergunta2"
-            android:textColor="@android:color/black"
-            android:textStyle="bold"
-            android:layout_marginStart="@dimen/inicio_margem_centralizados"
-            android:layout_marginEnd="@dimen/inicio_margem_centralizados"
-            android:layout_marginTop="@dimen/espaco_entre_componentes_primarios"
-
-            app:layout_constraintTop_toBottomOf="@id/layout_radio1"/>
-
-        <LinearLayout
-            android:id="@+id/layout_radio2"
-
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:layout_marginStart="@dimen/inicio_margem_centralizados"
-            android:layout_marginEnd="@dimen/inicio_margem_centralizados"
-            android:layout_marginTop="@dimen/espaco_entre_componentes_agrupados"
-
-            app:layout_constraintTop_toBottomOf="@id/textoPergunta2">
-
-
-            <RadioButton
-                android:id="@+id/radioHipertencaoPai"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/Pai"
-                android:textSize="@dimen/texto_radios_alto_volume"/>
-            <RadioButton
-                android:id="@+id/radioHipertencaoMae"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/Mae"
-                android:textSize="@dimen/texto_radios_alto_volume"/>
-            <RadioButton
-                android:id="@+id/radioHipertencaoAvo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/Avô"
-                android:textSize="@dimen/texto_radios_alto_volume"/>
-            <RadioButton
-                android:id="@+id/radioHipertencaoVo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/Avó"
-                android:textSize="@dimen/texto_radios_alto_volume"/>
-            <RadioButton
-                android:id="@+id/radioHipertencaoIrmao"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/Irmao"
-                android:textSize="@dimen/texto_radios_alto_volume"/>
-            <RadioButton
-                android:id="@+id/radioHipertencaoIrma"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/Irma"
-                android:textSize="@dimen/texto_radios_alto_volume"/>
-            <RadioButton
-                android:id="@+id/radioHipertencaoNao"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/no"
-                android:textSize="@dimen/texto_radios_alto_volume"/>
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/textoPergunta3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/formulario2_pergunta3"
-            android:textColor="@android:color/black"
-            android:textStyle="bold"
-            android:layout_marginStart="@dimen/inicio_margem_centralizados"
-            android:layout_marginEnd="@dimen/inicio_margem_centralizados"
-            android:layout_marginTop="@dimen/espaco_entre_componentes_primarios"
-
-            app:layout_constraintTop_toBottomOf="@id/layout_radio2"/>
-
-        <LinearLayout
-            android:id="@+id/layout_radio3"
-
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:layout_marginStart="@dimen/inicio_margem_centralizados"
-            android:layout_marginEnd="@dimen/inicio_margem_centralizados"
-            android:layout_marginTop="@dimen/espaco_entre_componentes_agrupados"
-
-            app:layout_constraintTop_toBottomOf="@id/textoPergunta3">
-
-
-            <RadioButton
-                android:id="@+id/radioCardiacoPai"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/Pai"
-                android:textSize="@dimen/texto_radios_alto_volume"/>
-            <RadioButton
-                android:id="@+id/radioCardiacoMae"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/Mae"
-                android:textSize="@dimen/texto_radios_alto_volume"/>
-            <RadioButton
-                android:id="@+id/radioCardiacoAvo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/Avô"
-                android:textSize="@dimen/texto_radios_alto_volume"/>
-            <RadioButton
-                android:id="@+id/radioCardiacoVo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/Avó"
-                android:textSize="@dimen/texto_radios_alto_volume"/>
-            <RadioButton
-                android:id="@+id/radioCardiacoIrmao"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/Irmao"
-                android:textSize="@dimen/texto_radios_alto_volume"/>
-            <RadioButton
-                android:id="@+id/radioCardiacoIrma"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/Irma"
-                android:textSize="@dimen/texto_radios_alto_volume"/>
-            <RadioButton
-                android:id="@+id/radioCardiacoNao"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/no"
-                android:textSize="@dimen/texto_radios_alto_volume"/>
-        </LinearLayout>
-        <TextView
-            android:id="@+id/textoPergunta4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/formulario2_pergunta4"
-            android:textColor="@android:color/black"
-            android:textStyle="bold"
-            android:layout_marginStart="@dimen/inicio_margem_centralizados"
-            android:layout_marginEnd="@dimen/inicio_margem_centralizados"
-            android:layout_marginTop="@dimen/espaco_entre_componentes_primarios"
-
-            app:layout_constraintTop_toBottomOf="@id/layout_radio3"/>
-
-        <LinearLayout
-            android:id="@+id/layout_radio4"
-
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:layout_marginStart="@dimen/inicio_margem_centralizados"
-            android:layout_marginEnd="@dimen/inicio_margem_centralizados"
-            android:layout_marginTop="@dimen/espaco_entre_componentes_agrupados"
-
-            app:layout_constraintTop_toBottomOf="@id/textoPergunta4">
-
-
-            <RadioButton
-                android:id="@+id/radioNeuroPai"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/Pai"
-                android:textSize="@dimen/texto_radios_alto_volume"/>
-            <RadioButton
-                android:id="@+id/radioNeuroMae"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/Mae"
-                android:textSize="@dimen/texto_radios_alto_volume"/>
-            <RadioButton
-                android:id="@+id/radioNeuroAvo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/Avô"
-                android:textSize="@dimen/texto_radios_alto_volume"/>
-            <RadioButton
-                android:id="@+id/radioNeuroVo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/Avó"
-                android:textSize="@dimen/texto_radios_alto_volume"/>
-            <RadioButton
-                android:id="@+id/radioNeuroIrmao"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/Irmao"
-                android:textSize="@dimen/texto_radios_alto_volume"/>
-            <RadioButton
-                android:id="@+id/radioNeuroIrma"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/Irma"
-                android:textSize="@dimen/texto_radios_alto_volume"/>
-            <RadioButton
-                android:id="@+id/radioNeuroNao"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/no"
-                android:textSize="@dimen/texto_radios_alto_volume"/>
-        </LinearLayout>
-        <TextView
-            android:id="@+id/textoPergunta5"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/formulario2_pergunta5"
-            android:textColor="@android:color/black"
-            android:textStyle="bold"
-            android:layout_marginStart="@dimen/inicio_margem_centralizados"
-            android:layout_marginEnd="@dimen/inicio_margem_centralizados"
-            android:layout_marginTop="@dimen/espaco_entre_componentes_primarios"
-
-            app:layout_constraintTop_toBottomOf="@id/layout_radio4"/>
-
-        <LinearLayout
-            android:id="@+id/layout_radio5"
-
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:layout_marginStart="@dimen/inicio_margem_centralizados"
-            android:layout_marginEnd="@dimen/inicio_margem_centralizados"
-            android:layout_marginTop="@dimen/espaco_entre_componentes_agrupados"
-
-            app:layout_constraintTop_toBottomOf="@id/textoPergunta5">
-
-
-            <RadioButton
-                android:id="@+id/radioRenalPai"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/Pai"
-                android:textSize="@dimen/texto_radios_alto_volume"/>
-            <RadioButton
-                android:id="@+id/radioRenalMae"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/Mae"
-                android:textSize="@dimen/texto_radios_alto_volume"/>
-            <RadioButton
-                android:id="@+id/radioRenalAvo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/Avô"
-                android:textSize="@dimen/texto_radios_alto_volume"/>
-            <RadioButton
-                android:id="@+id/radioRenalVo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/Avó"
-                android:textSize="@dimen/texto_radios_alto_volume"/>
-            <RadioButton
-                android:id="@+id/radioRenalrmao"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/Irmao"
-                android:textSize="@dimen/texto_radios_alto_volume"/>
-            <RadioButton
-                android:id="@+id/radioNRenalIrma"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/Irma"
-                android:textSize="@dimen/texto_radios_alto_volume"/>
-            <RadioButton
-                android:id="@+id/radioRenalNao"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/no"
-                android:textSize="@dimen/texto_radios_alto_volume"/>
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/textoPergunta6"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/formulario2_pergunta6"
-            android:textColor="@android:color/black"
-            android:textStyle="bold"
-            android:layout_marginStart="@dimen/inicio_margem_centralizados"
-            android:layout_marginEnd="@dimen/inicio_margem_centralizados"
-            android:layout_marginTop="@dimen/espaco_entre_componentes_primarios"
-
-            app:layout_constraintTop_toBottomOf="@id/layout_radio5"/>
-
-        <LinearLayout
-            android:id="@+id/layout_radio6"
-
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:layout_marginStart="@dimen/inicio_margem_centralizados"
-            android:layout_marginEnd="@dimen/inicio_margem_centralizados"
-            android:layout_marginTop="@dimen/espaco_entre_componentes_agrupados"
-
-            app:layout_constraintTop_toBottomOf="@id/textoPergunta6">
-
-
-            <RadioButton
-                android:id="@+id/radioDSTPai"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/Pai"
-                android:textSize="@dimen/texto_radios_alto_volume"/>
-            <RadioButton
-                android:id="@+id/radioDSTMae"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/Mae"
-                android:textSize="@dimen/texto_radios_alto_volume"/>
-            <RadioButton
-                android:id="@+id/radioDSTAvo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/Avô"
-                android:textSize="@dimen/texto_radios_alto_volume"/>
-            <RadioButton
-                android:id="@+id/radioDSTVo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/Avó"
-                android:textSize="@dimen/texto_radios_alto_volume"/>
-            <RadioButton
-                android:id="@+id/radioDSTrmao"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/Irmao"
-                android:textSize="@dimen/texto_radios_alto_volume"/>
-            <RadioButton
-                android:id="@+id/radioDSTIrma"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/Irma"
-                android:textSize="@dimen/texto_radios_alto_volume"/>
-            <RadioButton
-                android:id="@+id/radioDSTNao"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/no"
-                android:textSize="@dimen/texto_radios_alto_volume"/>
-        </LinearLayout>
-        <TextView
-            android:id="@+id/textoPergunta7"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/formulario2_pergunta7"
-            android:textColor="@android:color/black"
-            android:textStyle="bold"
-            android:layout_marginStart="@dimen/inicio_margem_centralizados"
-            android:layout_marginEnd="@dimen/inicio_margem_centralizados"
-            android:layout_marginTop="@dimen/espaco_entre_componentes_primarios"
-
-            app:layout_constraintTop_toBottomOf="@id/layout_radio6"/>
-        <LinearLayout
-            android:id="@+id/layout_radio7"
-
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:layout_marginStart="@dimen/inicio_margem_centralizados"
-            android:layout_marginEnd="@dimen/inicio_margem_centralizados"
-            android:layout_marginTop="@dimen/espaco_entre_componentes_agrupados"
-
-            app:layout_constraintTop_toBottomOf="@id/textoPergunta7">
-
-
-            <RadioButton
-                android:id="@+id/radioObesidadePai"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/Pai"
-                android:textSize="@dimen/texto_radios_alto_volume"/>
-            <RadioButton
-                android:id="@+id/radioObesidadeMae"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/Mae"
-                android:textSize="@dimen/texto_radios_alto_volume"/>
-            <RadioButton
-                android:id="@+id/radioObesidadeAvo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/Avô"
-                android:textSize="@dimen/texto_radios_alto_volume"/>
-            <RadioButton
-                android:id="@+id/radioObesidadeVo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/Avó"
-                android:textSize="@dimen/texto_radios_alto_volume"/>
-            <RadioButton
-                android:id="@+id/radioObesidadermao"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/Irmao"
-                android:textSize="@dimen/texto_radios_alto_volume"/>
-            <RadioButton
-                android:id="@+id/radioObesidadeIrma"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/Irma"
-                android:textSize="@dimen/texto_radios_alto_volume"/>
-            <RadioButton
-                android:id="@+id/radioObesidadeNao"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/no"
-                android:textSize="@dimen/texto_radios_alto_volume"/>
-        </LinearLayout>
-
-        <Button
-            android:id="@+id/botaoFormulario"
-
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/margem_inferior_ultimo_item"
-            android:layout_marginEnd="@dimen/inicio_margem_centralizados"
-            android:layout_marginStart="@dimen/inicio_margem_centralizados"
-            android:layout_marginTop="@dimen/espaco_entre_componentes_primarios"
-            android:background="@color/colorPrimary"
-            android:text="Finish"
-
-            android:textColor="@color/branco"
-            app:layout_constraintTop_toBottomOf="@id/layout_radio7" />
-    </LinearLayout>
     </ScrollView>
 
-</android.support.constraint.ConstraintLayout>
+</LinearLayout>
