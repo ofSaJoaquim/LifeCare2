@@ -28,7 +28,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/inicio_margem_centralizados"
                 android:layout_marginStart="@dimen/inicio_margem_centralizados"
-                android:ems="10"
+                android:maxLength="30"
                 android:hint="@string/cadastro_nome"
                 android:inputType="textPersonName"
                 android:textAppearance="@style/TextAppearance.AppCompat" />
@@ -40,10 +40,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/inicio_margem_centralizados"
                 android:layout_marginStart="@dimen/inicio_margem_centralizados"
+                android:maxLength="3"
                 android:ems="10"
                 android:hint="@string/Idade"
                 android:inputType="date"
-                android:maxLength="10"
                 android:textAppearance="@style/TextAppearance.AppCompat" />
 
             <EditText

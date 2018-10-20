@@ -100,6 +100,7 @@
     <string name="cadastro_finalizar">Cadastrar</string>
     <string name="confirmar">CONFIRMAR</string>
     <string name="Idade">Idade</string>
+    <string name="campo_obrigatorio">Campo obrigatório</string>
 
 
     <string name="title_activity_lista_basica">listaBasica</string>
