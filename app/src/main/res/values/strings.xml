@@ -99,6 +99,7 @@
     <string name="cadastro_separado">Separado(a)</string>
     <string name="cadastro_finalizar">Cadastrar</string>
     <string name="confirmar">CONFIRMAR</string>
+    <string name="Idade">Idade</string>
 
 
     <string name="title_activity_lista_basica">listaBasica</string>
@@ -110,4 +111,31 @@
     <string name="cadMedStringIntervaloUso">Insira o intervalo do Uso do medicamento</string>
     <string name="cadMedStringDataInicial">Data Inicial do Tratamento</string>
     <string name="cadMedStringTitulo">Controle de medicação</string>
+
+    <string name="teste_notificacao_notification_title_template">Teste notificacao: %1$s</string>
+
+    <!-- TODO: remove this placeholder text -->
+    <string name="teste_notificacao_notification_placeholder_text_template">You said %1$s and lorem
+        ipsum dolor sit amet, consectetur adipiscing elit. Etiam non enim magna. Morbi dictum, velit
+        vel semper venenatis, magna odio volutpat velit, at ullamcorper nulla lacus sed turpis.
+        Pellentesque vitae metus elit, nec tincidunt tellus. Integer sed nisl sem, ullamcorper
+        ornare lacus. Duis ac mauris sed massa congue volutpat. Donec sed erat sit amet turpis
+        viverra rhoncus sit amet nec magna. Donec lacinia ligula at libero volutpat volutpat nec nec
+        tortor.
+    </string>
+
+    <string name="action_share">Share</string>
+    <string name="action_reply">Reply</string>
+
+    <string name="teste_nofiticacao_notification_title_template">Teste nofiticacao: %1$s</string>
+
+    <!-- TODO: remove this placeholder text -->
+    <string name="teste_nofiticacao_notification_placeholder_text_template">You said %1$s and lorem
+        ipsum dolor sit amet, consectetur adipiscing elit. Etiam non enim magna. Morbi dictum, velit
+        vel semper venenatis, magna odio volutpat velit, at ullamcorper nulla lacus sed turpis.
+        Pellentesque vitae metus elit, nec tincidunt tellus. Integer sed nisl sem, ullamcorper
+        ornare lacus. Duis ac mauris sed massa congue volutpat. Donec sed erat sit amet turpis
+        viverra rhoncus sit amet nec magna. Donec lacinia ligula at libero volutpat volutpat nec nec
+        tortor.
+    </string>
 </resources>

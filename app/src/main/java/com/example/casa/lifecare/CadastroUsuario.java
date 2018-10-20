@@ -1,8 +1,13 @@
 package com.example.casa.lifecare;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
+import android.os.AsyncTask;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -11,6 +16,10 @@ import android.widget.RadioGroup;
 import android.widget.Switch;
 import android.widget.Toast;
 
+import com.example.casa.lifecare.Servicos.CarregarEntidade;
+import com.example.casa.lifecare.Servicos.PostarEntidade;
+import com.example.casa.lifecare.entidades.Cidade;
+import com.example.casa.lifecare.entidades.Paciente;
 import com.example.casa.lifecare.entidades.Usuario;
 import com.example.casa.lifecare.utils.SimulaDB;
 
@@ -20,7 +29,8 @@ import java.util.Date;
 
 
 public class CadastroUsuario extends AppCompatActivity {
-
+    ProgressDialog load;
+    Paciente paciente;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,13 +81,14 @@ public class CadastroUsuario extends AppCompatActivity {
                 Integer diaNascimento = dataNascimento[0];
                 Integer mesNascimento = dataNascimento[1];
                 Integer anoNascimento = dataNascimento[2];
-                 SimulaDB.usuario = new Usuario(nome,usuarioLogin,senha,email,cpf,telefone,sexo,estadoCivil,diaNascimento,mesNascimento,anoNascimento);
-
+                // SimulaDB.usuario = new Usuario(nome,usuarioLogin,senha,email,cpf,telefone,sexo,estadoCivil,diaNascimento,mesNascimento,anoNascimento);
+                Cidade cidade=null;
+                cadastrar(nome,2018-dataNascimento[2],email,senha,cidade);
 
                 //string xml adicionar
-                Toast.makeText(CadastroUsuario.this, "Congratulations",
-                        Toast.LENGTH_LONG).show();
-                proximoForm();
+               /* Toast.makeText(CadastroUsuario.this, "Congratulations",
+                        Toast.LENGTH_LONG).show();*/
+                //proximoForm();
 
             }
         });
@@ -108,5 +119,57 @@ public class CadastroUsuario extends AppCompatActivity {
     private void proximoForm(){
         Intent intent = new Intent(this, Formulario_Primeiro.class);
         startActivity(intent);
+    }
+    private void cadastrar(String nome, Integer idade, String email, String senha, Cidade cidade){
+        cidade = new Cidade(1,"Tubarão","Santa Catarina");
+
+        paciente = new Paciente(nome,idade,email,senha,cidade);
+        PostaPaciente pp = new PostaPaciente();
+
+    }
+
+    private class PostaPaciente extends AsyncTask<String, Void, Integer> {
+        @Override
+        protected void onPreExecute() {
+            Log.i("AsyncTask", "Exibindo ProgressDialog na tela Thread: " +
+                    Thread.currentThread().getName());
+            load = ProgressDialog.show(CadastroUsuario.this, "Por favor Aguarde ...",
+                    "Conectando no servidor ...");
+        }
+
+        @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+        @Override
+        protected Integer doInBackground(String... params) {
+            try {
+
+                PostarEntidade pe = new PostarEntidade();
+                Integer retornoHTTP=pe.postar("pacientes","nome",paciente.getNome(),"idade",paciente.getIdade()+"","email",paciente.getEmail());
+
+
+                return  retornoHTTP;
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Integer retornoHTTP) {
+            String menssagem="";
+            if (retornoHTTP == 201) {
+                menssagem="Cadastrado com sucesso";
+                }
+             else {
+
+                menssagem="Não foi possivel conectar ao sistema, verifique sua Internet";
+            }
+
+            Toast toast = Toast.makeText(CadastroUsuario.this, menssagem, Toast.LENGTH_SHORT);
+            toast.show();
+            load.dismiss();
+
+        }
     }
 }

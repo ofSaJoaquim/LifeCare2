@@ -11,6 +11,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.ListView;
 
+
 import com.example.casa.lifecare.adptador.TimeLineAdptador;
 import com.example.casa.lifecare.entidade.TimeLine;
 
@@ -40,6 +41,12 @@ public class Teste1 extends AppCompatActivity {
      *
      * @return lista com todos os cursos*/
 
+
+   /* public void onPause(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_teste1);
+        startService(new Intent(getBaseContext(), Servico.class));
+    }*/
     private List<TimeLine> todosOsCursos() {
 
         return new ArrayList<>(Arrays.asList(

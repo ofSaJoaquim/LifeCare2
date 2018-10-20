@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.casa.lifecare"
-    android:name="com.orm.SugarApp">
+    android:name="com.orm.SugarApp"
+    package="com.example.casa.lifecare">
+
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -27,13 +30,11 @@
             android:name=".Tela_login"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="stateUnchanged">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
 
         <receiver android:name=".NewAppWidget">
@@ -51,24 +52,32 @@
             android:theme="@style/AppTheme" />
         <activity
             android:name=".Formulario_Primeiro"
-            android:theme="@style/AppTheme">
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".TesteRecadosGrupo"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".CadastroRemedio"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".TimeLineFront"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".Teste1"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".teste"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".CadastroUsuario"
+            android:theme="@style/AppTheme" />
 
-        </activity>
+        <service
+            android:name=".Servicos.TesteService"
+            android:enabled="true"
+            android:exported="false" />
 
-        <activity android:name=".TesteRecadosGrupo"
-            android:theme="@style/AppTheme"/>
-        <activity android:name=".CadastroRemedio"
-            android:theme="@style/AppTheme"/>
-        <activity android:name=".TimeLineFront"
-            android:theme="@style/AppTheme"/>
-        <activity android:name=".Teste1"
-            android:theme="@style/AppTheme"/>
-        <activity android:name=".teste"
-            android:theme="@style/AppTheme"></activity>
-        <activity android:name=".CadastroUsuario"
-            android:theme="@style/AppTheme"/>
-
-
+        <activity android:name=".testeAsinck"></activity>
     </application>
 
 </manifest>

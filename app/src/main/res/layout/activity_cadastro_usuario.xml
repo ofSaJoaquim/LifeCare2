@@ -8,21 +8,19 @@
     android:focusable="true"
     android:focusableInTouchMode="true"
     tools:context=".teste">
+
     <ScrollView
-        android:id="@+id/scroll3"
+        android:id="@+id/scroll1"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
 
+        >
 
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0">
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
+            android:layout_height="match_parent"
             android:layout_marginTop="@dimen/espaco_entre_componentes_agrupados"
-            >
+            android:orientation="vertical">
 
             <EditText
                 android:id="@+id/txtCadNome"
@@ -37,6 +35,18 @@
 
 
             <EditText
+                android:id="@+id/txtCadIdade"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/inicio_margem_centralizados"
+                android:layout_marginStart="@dimen/inicio_margem_centralizados"
+                android:ems="10"
+                android:hint="@string/Idade"
+                android:inputType="date"
+                android:maxLength="10"
+                android:textAppearance="@style/TextAppearance.AppCompat" />
+
+            <EditText
                 android:id="@+id/txtCadEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -48,29 +58,6 @@
                 android:textAppearance="@style/TextAppearance.AppCompat" />
 
             <EditText
-                android:id="@+id/txtCadCPF"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="@dimen/inicio_margem_centralizados"
-                android:layout_marginStart="@dimen/inicio_margem_centralizados"
-                android:ems="10"
-                android:hint="@string/cadastro_cpf"
-                android:inputType="numberDecimal"
-                android:textAppearance="@style/TextAppearance.AppCompat" />
-
-            <EditText
-                android:id="@+id/txtCadNasc"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="@dimen/inicio_margem_centralizados"
-                android:layout_marginStart="@dimen/inicio_margem_centralizados"
-                android:ems="10"
-                android:maxLength="10"
-                android:hint="@string/cadastro_nasc"
-                android:inputType="date"
-                android:textAppearance="@style/TextAppearance.AppCompat" />
-
-            <EditText
                 android:id="@+id/txtCadSenha"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -79,17 +66,6 @@
                 android:ems="10"
                 android:hint="@string/cadastro_senha"
                 android:inputType="textPassword"
-                android:textAppearance="@style/TextAppearance.AppCompat" />
-
-            <EditText
-                android:id="@+id/txtCadTelefone"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="@dimen/inicio_margem_centralizados"
-                android:layout_marginStart="@dimen/inicio_margem_centralizados"
-                android:ems="10"
-                android:hint="@string/cadastro_telefone"
-                android:inputType="phone"
                 android:textAppearance="@style/TextAppearance.AppCompat" />
 
             <TextView
@@ -123,75 +99,22 @@
                     android:layout_weight="1"
                     android:text="@string/cadastro_feminino" />
             </RadioGroup>
-            <TextView
-                android:id="@+id/txtCadEstCivil"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="@dimen/inicio_margem_centralizados"
-                android:layout_marginStart="@dimen/inicio_margem_centralizados"
-                android:text="@string/cadastro_estado_civil"
-                android:textAppearance="@style/TextAppearance.AppCompat" />
-
-            <RadioGroup
-                android:id="@+id/radioGroupEstadoCivil"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="@dimen/inicio_margem_centralizados"
-                android:layout_marginStart="@dimen/inicio_margem_centralizados"
-                android:orientation="vertical">
-
-                <RadioButton
-                    android:id="@+id/rdSolteiro"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/cadastro_solteiro" />
-
-                <RadioButton
-                    android:id="@+id/rdCasado"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/cadastro_casado" />
-
-                <RadioButton
-                    android:id="@+id/rdDivorciado"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/cadastro_divorciado" />
-
-                <RadioButton
-                    android:id="@+id/rdViuvo"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/cadastro_viuvo" />
-
-                <RadioButton
-                    android:id="@+id/rdSeparado"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/cadastro_separado" />
-
-
-            </RadioGroup>
 
             <Button
                 android:id="@+id/cadUsuarioConfirma"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
                 android:layout_weight="1"
-                android:layout_marginTop="@dimen/espaco_entre_componentes_primarios"
-                android:layout_marginBottom="@dimen/espaco_entre_componentes_primarios"
-                android:layout_marginStart="@dimen/inicio_margem_centralizados"
-                android:layout_marginEnd="@dimen/inicio_margem_centralizados"
-                android:textColor="@android:color/black"
                 android:background="@color/corTitulo2"
-                android:text="@string/cadastro_finalizar" />
-
+                android:text="@string/cadastro_finalizar"
+                android:textColor="@android:color/black"
+                app:layout_constraintEnd_toEndOf="parent" />
 
         </LinearLayout>
+
+
+
     </ScrollView>
 </android.support.constraint.ConstraintLayout>
