@@ -9,24 +9,29 @@ import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
 
-import com.example.casa.lifecare.Servicos.CarregarEntidade;
+
 import com.example.casa.lifecare.Servicos.PostarEntidade;
 import com.example.casa.lifecare.Servicos.TesteService;
 import com.example.casa.lifecare.entidades.Auxiliar;
+import com.example.casa.lifecare.entidades.Cidade;
 import com.example.casa.lifecare.entidades.Paciente;
 import com.example.casa.lifecare.entidades.Usuario;
 import com.example.casa.lifecare.utils.SimulaDB;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Tela_login extends AppCompatActivity {
     private Paciente paciente = null;
-    private boolean estaOnline =true;
-    private boolean estaLogado =false;
-    private String senhaP="";
+    private boolean estaOnline = true;
+    private boolean estaLogado = false;
+    private String senhaP = "";
     private ProgressDialog load;
 
     @Override
@@ -34,19 +39,19 @@ public class Tela_login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         SimulaDB.usuario = new Usuario("root", "root");
-        TesteService.context=this;
+        TesteService.context = this;
         //startService(new Intent(getBaseContext(), TesteService.class));
-       // TesteNofiticacao.notify(this,"teste",1);
-
-
-
-
+        // TesteNofiticacao.notify(this,"teste",1);
 
 
         final EditText usuario = (EditText) findViewById(R.id.txt_email);
         final EditText senha = (EditText) findViewById(R.id.txt_senha);
         final Button proximo = (Button) findViewById(R.id.btn_login);
         final Button cadastro = (Button) findViewById(R.id.btn_cadastro);
+        String usuarioTXT = usuario.getText().toString();
+        senhaP = senha.getText().toString();
+        PegaPaciente pg = new PegaPaciente();
+        //pg.execute(usuarioTXT, senhaP);
 
 
         proximo.setOnClickListener(new View.OnClickListener() {
@@ -56,7 +61,7 @@ public class Tela_login extends AppCompatActivity {
                 String usuarioTXT = usuario.getText().toString();
                 senhaP = senha.getText().toString();
                 PegaPaciente pg = new PegaPaciente();
-                pg.execute(usuarioTXT,senhaP);
+                pg.execute(usuarioTXT, senhaP);
 
                /*  String testes = teste();
                  usuario.setText(testes);
@@ -88,75 +93,48 @@ public class Tela_login extends AppCompatActivity {
         });
     }
 
-private void logar(){
-    Intent intent = new Intent(this, Teste1.class);
-    startActivity(intent);
-}
-private void cadastrar(){
-    Intent intent = new Intent(this, CadastroUsuario.class);
-    startActivity(intent);
-}
+    private void logar() {
+        Intent intent = new Intent(this, Teste1.class);
+        startActivity(intent);
+    }
 
-private String teste(){
-    if(paciente!=null)return paciente.getNome();
-    else return "nada";
-}
+    private void cadastrar() {
+        Intent intent = new Intent(this, CadastroUsuario.class);
+        startActivity(intent);
+    }
 
-    private class PegaPaciente extends AsyncTask<String, Void, Paciente> {
+    private String teste() {
+        if (paciente != null) return paciente.getNome();
+        else return "nada";
+    }
+
+    private class PegaPaciente extends AsyncTask<String, Void, Integer> {
         @Override
         protected void onPreExecute() {
-            Log.i("AsyncTask", "Exibindo ProgressDialog na tela Thread: " +
-                    Thread.currentThread().getName());
             load = ProgressDialog.show(Tela_login.this, "Por favor Aguarde ...",
                     "Conectando no servidor ...");
         }
 
         @RequiresApi(api = Build.VERSION_CODES.KITKAT)
         @Override
-        protected Paciente doInBackground(String... params) {
+        protected Integer doInBackground(String... params) {
             try {
-                Auxiliar.carregarEstados();
 
-                paciente = new Paciente();
-                paciente.setNome("teste");
-                paciente.setSenha("1236");
-                paciente.setIdade(40);
-                paciente.setEmail("teste@teste.com.br");
-                PostarEntidade  pe = new PostarEntidade();
-                int testar=pe.postar("pacientes","nome",paciente.getNome(),"idade",paciente.getIdade()+"","email",paciente.getEmail());
-                CarregarEntidade ce = new CarregarEntidade();
-                boolean teste=true;
-                paciente = ce.pegarEntidade(paciente, "pacientes/", params[0]);
-
-            return  paciente;
+             Auxiliar.logar("carlos@gmail.com","123");
 
             } catch (Exception e) {
                 e.printStackTrace();
             }
 
-            return null;
+            return 0;
         }
 
         @Override
-        protected void onPostExecute(Paciente paciente) {
-            String menssagem="";
-            if (paciente != null) {
-                if(paciente.getSenha().equals(senhaP)){
-                    estaLogado=true;
-                    menssagem="Você está logado online";
-                }
-                else{
-                    menssagem="Senha ou usuário incorretos";
-                }
-            } else {
+        protected void onPostExecute(Integer retornoHTTP) {
 
-               menssagem="Não foi possivel conectar ao sistema, verifique sua Internet";
-            }
-menssagem= Auxiliar.estados[0].getNome();
-            Toast toast = Toast.makeText(Tela_login.this, menssagem, Toast.LENGTH_SHORT);
-            toast.show();
-    load.dismiss();
-
+        load.dismiss();
         }
     }
+
 }
+

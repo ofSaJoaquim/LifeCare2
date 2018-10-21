@@ -1,6 +1,7 @@
 package com.example.casa.lifecare.entidades;
 
 import com.example.casa.lifecare.enums.Perfil;
+import com.google.gson.annotations.Expose;
 
 public class Paciente {
     private Integer id;
@@ -8,7 +9,10 @@ public class Paciente {
     private Integer idade;
     private String email;
     private String senha;
+
     private Cidade cidade;
+
+
     private Perfil perfil;
 
 
@@ -76,6 +80,7 @@ public class Paciente {
         this.senha = senha;
     }
 
+
     public Cidade getCidade() {
         return cidade;
     }
@@ -83,4 +88,5 @@ public class Paciente {
     public void setCidade(Cidade cidade) {
         this.cidade = cidade;
     }
+
 }

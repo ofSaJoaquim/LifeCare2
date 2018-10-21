@@ -20,10 +20,12 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.casa.lifecare.Servicos.PostarEntidade;
+import com.example.casa.lifecare.Servicos.WebService;
 import com.example.casa.lifecare.entidades.Auxiliar;
 import com.example.casa.lifecare.entidades.Cidade;
 import com.example.casa.lifecare.entidades.Estado;
 import com.example.casa.lifecare.entidades.Paciente;
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,6 +36,7 @@ public class CadastroUsuario extends AppCompatActivity {
     Paciente paciente;
     Spinner SpEstados;
     Spinner SpCidades;
+    Cidade cidade;
     Estado estado;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -130,9 +133,11 @@ public class CadastroUsuario extends AppCompatActivity {
                         break;
                     }
                     else {
-                        paciente.setEmail(senha.getText().toString());
+                        paciente.setSenha(senha.getText().toString());
                     }
+                    cidade.setUf(estado);
 
+                    paciente.setCidade(cidade);
                     cadastrar();
 
 
@@ -210,11 +215,14 @@ private boolean validarEmail(String email){
         protected Integer doInBackground(String... params) {
             try {
 
-                PostarEntidade pe = new PostarEntidade();
-                Integer retornoHTTP=pe.postar("pacientes","nome",paciente.getNome(),"idade",paciente.getIdade()+"","email",paciente.getEmail());
+               // PostarEntidade pe = new PostarEntidade();
+               // Integer retornoHTTP=pe.postar("pacientes","nome",paciente.getNome(),"idade",paciente.getIdade()+"","email",paciente.getEmail());
 
-
-                return  retornoHTTP;
+                //Gson gson = new Gson();
+               // String parametros =gson.toJson(paciente);
+                //int teste = WebService.postar(parametros);
+               int retorno= Auxiliar.postarPaciente(paciente);
+                return  retorno;
 
             } catch (Exception e) {
                 e.printStackTrace();
@@ -228,6 +236,7 @@ private boolean validarEmail(String email){
             String menssagem="";
             if (retornoHTTP == 201) {
                 menssagem="Cadastrado com sucesso";
+                proximoForm();
                 }
              else {
 
@@ -312,7 +321,7 @@ private boolean validarEmail(String email){
             ArrayAdapter<String> spinnerArrayAdapter = arrayAdapter;
             spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
             SpCidades.setAdapter(spinnerArrayAdapter);
-
+            cidade=Auxiliar.cidades[0];
             load.dismiss();
 
         }
