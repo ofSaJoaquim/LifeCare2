@@ -9,30 +9,49 @@ import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.casa.lifecare.Servicos.PostarEntidade;
+import com.example.casa.lifecare.entidades.Auxiliar;
 import com.example.casa.lifecare.entidades.Cidade;
+import com.example.casa.lifecare.entidades.Estado;
 import com.example.casa.lifecare.entidades.Paciente;
 
-
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class CadastroUsuario extends AppCompatActivity {
     ProgressDialog load;
     Paciente paciente;
+    Spinner SpEstados;
+    Spinner SpCidades;
+    Estado estado;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro_usuario);
         paciente = new Paciente();
+        SpEstados=findViewById(R.id.estadoEspiner);
+        SpCidades=findViewById(R.id.cidadeEspiner);
+        PegarEstados pe = new PegarEstados();
+        pe.execute();
         final EditText nome = findViewById(R.id.txtCadNome);
         final EditText senha = findViewById(R.id.txtCadSenha);
         final EditText email = findViewById(R.id.txtCadEmail);
         final RadioButton masc = findViewById(R.id.rdMasc);
+
+        final RadioButton fem = findViewById(R.id.rdFem);
+        final RadioGroup grupo = findViewById(R.id.radioGroupCadSexo);
+        masc.setSelected(true);
         final EditText idade =  findViewById(R.id.txtCadIdade);
 
 
@@ -105,19 +124,43 @@ public class CadastroUsuario extends AppCompatActivity {
                         paciente.setEmail(email.getText().toString());
                     }
                     if(senha.getText().toString().length()<4){
-                        email.setError("Senha no mínimo 4 caracteres");
-                        email.setFocusable(true);
-                        email.requestFocus();
+                        senha.setError("Senha no mínimo 4 caracteres");
+                        senha.setFocusable(true);
+                        senha.requestFocus();
                         break;
                     }
                     else {
                         paciente.setEmail(senha.getText().toString());
                     }
+
                     cadastrar();
 
 
 
                 }
+
+            }
+        });
+        SpEstados.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View v, int posicao, long id) {
+                //pega nome pela posição
+                //int pos = parent.getItemAtPosition(posicao).toString();
+                int pos = parent.getSelectedItemPosition();
+                //imprime um Toast na tela com o nome que foi selecionado
+                if (Auxiliar.estados.length > 0) {
+                    Log.i("teste50",Auxiliar.estados.length+"");
+
+                    estado = Auxiliar.estados[pos];
+                    Log.i("teste60",estado.getNome());
+                    PegarCidades pc = new PegarCidades();
+                    if (estado != null) pc.execute();
+
+                }
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
 
             }
         });
@@ -193,6 +236,83 @@ private boolean validarEmail(String email){
 
             Toast toast = Toast.makeText(CadastroUsuario.this, menssagem, Toast.LENGTH_SHORT);
             toast.show();
+            load.dismiss();
+
+        }
+    }
+
+    private class PegarEstados extends AsyncTask<String, Void, Integer> {
+        @Override
+        protected void onPreExecute() {
+                     load = ProgressDialog.show(CadastroUsuario.this, "Por favor Aguarde ...",
+                    "Conectando no servidor ...");
+        }
+
+        @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+        @Override
+        protected Integer doInBackground(String... params) {
+            try {
+                Auxiliar.carregarEstados();
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            return 0;
+        }
+
+        @Override
+        protected void onPostExecute(Integer retornoHTTP) {
+            List<String> estadosNome = new ArrayList<String>();
+
+            for(Estado estado: Auxiliar.estados){
+                estadosNome.add(estado.getNome());
+            }
+            Log.i("teste20",estadosNome.toString());
+            ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(CadastroUsuario.this,android.R.layout.simple_spinner_dropdown_item, estadosNome);
+            ArrayAdapter<String> spinnerArrayAdapter = arrayAdapter;
+            spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            SpEstados.setAdapter(spinnerArrayAdapter);
+
+            load.dismiss();
+
+        }
+    }
+
+    private class PegarCidades extends AsyncTask<String, Void, Integer> {
+        @Override
+        protected void onPreExecute() {
+            load = ProgressDialog.show(CadastroUsuario.this, "Por favor Aguarde ...",
+                    "Conectando no servidor ...");
+        }
+
+        @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+        @Override
+        protected Integer doInBackground(String... params) {
+            try {
+                Auxiliar.carregarCidades(estado);
+                Log.i("teste53",Auxiliar.cidades.length+"");
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            return 0;
+        }
+
+        @Override
+        protected void onPostExecute(Integer retornoHTTP) {
+            List<String> nomes = new ArrayList<String>();
+
+            for(Cidade cidade: Auxiliar.cidades){
+                nomes.add(cidade.getNome());
+            }
+            Log.i("teste30",nomes.toString());
+            ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(CadastroUsuario.this,android.R.layout.simple_spinner_dropdown_item, nomes);
+            ArrayAdapter<String> spinnerArrayAdapter = arrayAdapter;
+            spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            SpCidades.setAdapter(spinnerArrayAdapter);
+
             load.dismiss();
 
         }

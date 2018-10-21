@@ -101,6 +101,8 @@
     <string name="confirmar">CONFIRMAR</string>
     <string name="Idade">Idade</string>
     <string name="campo_obrigatorio">Campo obrigatório</string>
+    <string name="cidade">Cidade</string>
+    <string name="Estado">Estado</string>
 
 
     <string name="title_activity_lista_basica">listaBasica</string>

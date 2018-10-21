@@ -2,7 +2,6 @@ package com.example.casa.lifecare;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
@@ -18,10 +17,9 @@ import android.widget.Toast;
 import com.example.casa.lifecare.Servicos.CarregarEntidade;
 import com.example.casa.lifecare.Servicos.PostarEntidade;
 import com.example.casa.lifecare.Servicos.TesteService;
-import com.example.casa.lifecare.entidade.TimeLine;
+import com.example.casa.lifecare.entidades.Auxiliar;
 import com.example.casa.lifecare.entidades.Paciente;
 import com.example.casa.lifecare.entidades.Usuario;
-import com.example.casa.lifecare.testes.TesteAsync;
 import com.example.casa.lifecare.utils.SimulaDB;
 
 public class Tela_login extends AppCompatActivity {
@@ -117,6 +115,7 @@ private String teste(){
         @Override
         protected Paciente doInBackground(String... params) {
             try {
+                Auxiliar.carregarEstados();
 
                 paciente = new Paciente();
                 paciente.setNome("teste");
@@ -153,7 +152,7 @@ private String teste(){
 
                menssagem="Não foi possivel conectar ao sistema, verifique sua Internet";
             }
-
+menssagem= Auxiliar.estados[0].getNome();
             Toast toast = Toast.makeText(Tela_login.this, menssagem, Toast.LENGTH_SHORT);
             toast.show();
     load.dismiss();

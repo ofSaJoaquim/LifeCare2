@@ -1,5 +1,7 @@
 package com.example.casa.lifecare.entidades;
 
+import com.example.casa.lifecare.enums.Perfil;
+
 public class Paciente {
     private Integer id;
     private String nome;
@@ -7,9 +9,11 @@ public class Paciente {
     private String email;
     private String senha;
     private Cidade cidade;
+    private Perfil perfil;
 
 
     public Paciente() {
+        perfil=Perfil.PACIENTE;
     }
 
 
@@ -20,6 +24,7 @@ public class Paciente {
         this.email = email;
         this.senha = senha;
         this.cidade = cidade;
+        perfil=Perfil.PACIENTE;
     }
 
     public Paciente(Integer id, String nome, Integer idade, String email, String senha) {
@@ -28,6 +33,7 @@ public class Paciente {
         this.idade = idade;
         this.email = email;
         this.senha = senha;
+        perfil=Perfil.PACIENTE;
     }
 
     public Integer getId() {
