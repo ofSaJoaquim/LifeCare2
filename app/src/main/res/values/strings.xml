@@ -103,6 +103,8 @@
     <string name="campo_obrigatorio">Campo obrigatório</string>
     <string name="cidade">Cidade</string>
     <string name="Estado">Estado</string>
+    <string name="Infarto">Infarto</string>
+    <string name="Outrasdoencas">Outras doenças crônicas</string>
 
 
     <string name="title_activity_lista_basica">listaBasica</string>

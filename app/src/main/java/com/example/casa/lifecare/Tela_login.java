@@ -21,6 +21,7 @@ import com.example.casa.lifecare.Servicos.TesteService;
 import com.example.casa.lifecare.entidades.Auxiliar;
 import com.example.casa.lifecare.entidades.Cidade;
 import com.example.casa.lifecare.entidades.Paciente;
+import com.example.casa.lifecare.entidades.Prontuario;
 import com.example.casa.lifecare.entidades.Usuario;
 import com.example.casa.lifecare.utils.SimulaDB;
 
@@ -29,6 +30,7 @@ import java.util.List;
 
 public class Tela_login extends AppCompatActivity {
     private Paciente paciente = null;
+
     private boolean estaOnline = true;
     private boolean estaLogado = false;
     private String senhaP = "";
@@ -42,8 +44,8 @@ public class Tela_login extends AppCompatActivity {
         TesteService.context = this;
         //startService(new Intent(getBaseContext(), TesteService.class));
         // TesteNofiticacao.notify(this,"teste",1);
-
-
+Paciente p = new Paciente();
+Auxiliar.prontuario=new Prontuario(p);
         final EditText usuario = (EditText) findViewById(R.id.txt_email);
         final EditText senha = (EditText) findViewById(R.id.txt_senha);
         final Button proximo = (Button) findViewById(R.id.btn_login);
@@ -99,7 +101,8 @@ public class Tela_login extends AppCompatActivity {
     }
 
     private void cadastrar() {
-        Intent intent = new Intent(this, CadastroUsuario.class);
+        //Intent intent = new Intent(this, CadastroUsuario.class);
+        Intent intent = new Intent(this, Formulario_Primeiro.class);
         startActivity(intent);
     }
 

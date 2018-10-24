@@ -93,7 +93,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/boasVindasForm" />
 
             <TextView
-                android:id="@+id/textoPergunta1"
+                android:id="@+id/textoInternado"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/formulario1_pergunta1"
@@ -101,20 +101,20 @@
                 android:textStyle="bold" />
 
             <RadioGroup
-                android:id="@+id/radioGroupo1"
+                android:id="@+id/radioGroupInternado"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
 
                 <RadioButton
-                    android:id="@+id/radioPergunta1Sim"
+                    android:id="@+id/radioInternadoSim"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/yes" />
 
                 <RadioButton
-                    android:id="@+id/radioPergunta1Nao"
+                    android:id="@+id/radioInternadoNao"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -124,7 +124,7 @@
 
 
             <TextView
-                android:id="@+id/textoPergunta2"
+                android:id="@+id/textoDiabete"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/formulario1_pergunta2"
@@ -132,20 +132,20 @@
                 android:textStyle="bold" />
 
             <RadioGroup
-                android:id="@+id/radioGroupo2"
+                android:id="@+id/radioGroupDiabete"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
 
                 <RadioButton
-                    android:id="@+id/radioPergunta2Sim"
+                    android:id="@+id/radioDiabetesSim"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/yes" />
 
                 <RadioButton
-                    android:id="@+id/radioPergunta2Nao"
+                    android:id="@+id/radioDiabetesNao"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -155,7 +155,7 @@
 
 
             <TextView
-                android:id="@+id/textoPergunta3"
+                android:id="@+id/textoAcamado"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/formulario1_pergunta3"
@@ -163,20 +163,20 @@
                 android:textStyle="bold" />
 
             <RadioGroup
-                android:id="@+id/radioGroupo3"
+                android:id="@+id/radioGroupAcamado"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
 
                 <RadioButton
-                    android:id="@+id/radioPergunta3Sim"
+                    android:id="@+id/radioAcamadoSim"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/yes" />
 
                 <RadioButton
-                    android:id="@+id/radioPergunta3Nao"
+                    android:id="@+id/radioAcamadoNao"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -186,7 +186,7 @@
 
 
             <TextView
-                android:id="@+id/textoPergunta4"
+                android:id="@+id/textoConsulta"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/formulario1_pergunta4"
@@ -194,20 +194,20 @@
                 android:textStyle="bold" />
 
             <RadioGroup
-                android:id="@+id/radioGroupo4"
+                android:id="@+id/radioGroupoConsulta"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
 
                 <RadioButton
-                    android:id="@+id/radioPergunta4Sim"
+                    android:id="@+id/radioConsultasSim"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/yes" />
 
                 <RadioButton
-                    android:id="@+id/radioPergunta4Nao"
+                    android:id="@+id/radioConsultasNao"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -217,7 +217,7 @@
 
 
             <TextView
-                android:id="@+id/textoPergunta5"
+                android:id="@+id/textoCirugia"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/formulario1_pergunta5"
@@ -225,20 +225,20 @@
                 android:textStyle="bold" />
 
             <RadioGroup
-                android:id="@+id/radioGroupo5"
+                android:id="@+id/radioGroupoCirugia"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
 
                 <RadioButton
-                    android:id="@+id/radioPergunta5Sim"
+                    android:id="@+id/radioCirugiaSim"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/yes" />
 
                 <RadioButton
-                    android:id="@+id/radioPergunta5Nao"
+                    android:id="@+id/radioCirugiaNao"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -248,7 +248,7 @@
 
 
             <TextView
-                android:id="@+id/textoPergunta6"
+                android:id="@+id/textoDepressao"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/formulario1_pergunta6"
@@ -256,20 +256,20 @@
                 android:textStyle="bold" />
 
             <RadioGroup
-                android:id="@+id/radioGroupo6"
+                android:id="@+id/radioGroupoDepressao"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
 
                 <RadioButton
-                    android:id="@+id/radioPergunta6Sim"
+                    android:id="@+id/radioDepressaoSim"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/yes" />
 
                 <RadioButton
-                    android:id="@+id/radioPergunta6Nao"
+                    android:id="@+id/radioDepressaoNao"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -279,7 +279,7 @@
 
 
             <TextView
-                android:id="@+id/textoPergunta7"
+                android:id="@+id/textoAtividadeFisica"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/formulario1_pergunta7"
@@ -287,21 +287,21 @@
                 android:textStyle="bold" />
 
             <RadioGroup
-                android:id="@+id/radioGroupo7"
+                android:id="@+id/radioGroupoAtividadeFisica"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
 
 
                 <RadioButton
-                    android:id="@+id/radioPergunta7Sim"
+                    android:id="@+id/radioAtividadesFSim"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/yes" />
 
                 <RadioButton
-                    android:id="@+id/radioPergunta7Nao"
+                    android:id="@+id/radioAtividadesFNao"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -310,6 +310,7 @@
             </RadioGroup>
 
             <LinearLayout
+                android:id="@+id/lnAtividade"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
@@ -317,7 +318,7 @@
 
                 <EditText
 
-                    android:id="@+id/editVezesPorSemana"
+                    android:id="@+id/editVezesSemanaAt"
                     android:layout_width="50dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -336,7 +337,7 @@
                     android:textStyle="bold" />
 
                 <EditText
-                    android:id="@+id/editText1"
+                    android:id="@+id/editMinutosAtDia"
                     android:layout_width="50dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -368,77 +369,77 @@
                 android:textStyle="bold" />
 
 
-            <RadioButton
+            <CheckBox
                 android:id="@+id/arroz"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/Arroz" />
 
-            <RadioButton
+            <CheckBox
                 android:id="@+id/feijao"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/Feijao" />
 
-            <RadioButton
+            <CheckBox
                 android:id="@+id/massa"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/Massa" />
 
-            <RadioButton
+            <CheckBox
                 android:id="@+id/batata"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/Batata" />
 
-            <RadioButton
+            <CheckBox
                 android:id="@+id/acucar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/Acucar" />
 
-            <RadioButton
+            <CheckBox
                 android:id="@+id/carne"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/Carne" />
 
-            <RadioButton
+            <CheckBox
                 android:id="@+id/ovos"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/Ovos" />
 
-            <RadioButton
+            <CheckBox
                 android:id="@+id/leite"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/Leite" />
 
-            <RadioButton
+            <CheckBox
                 android:id="@+id/queijo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/Queijo" />
 
-            <RadioButton
+            <CheckBox
                 android:id="@+id/vegetais"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/Vegetais" />
 
-            <RadioButton
+            <CheckBox
                 android:id="@+id/sal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -447,7 +448,7 @@
 
 
             <TextView
-                android:id="@+id/textoPergunta9"
+                android:id="@+id/textoBebe"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/formulario1_pergunta9"
@@ -455,21 +456,21 @@
                 android:textStyle="bold" />
 
             <RadioGroup
-                android:id="@+id/radioGroupo9"
+                android:id="@+id/radioGroupoBebe"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
 
 
                 <RadioButton
-                    android:id="@+id/radioPergunta9Sim"
+                    android:id="@+id/radioBebidaAcolicaSim"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/yes" />
 
                 <RadioButton
-                    android:id="@+id/radioPergunta9Nao"
+                    android:id="@+id/radioBebidaAcolicaNao"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -477,12 +478,13 @@
             </RadioGroup>
 
             <LinearLayout
+                android:id="@+id/lnBebe"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
 
                 <EditText
-                    android:id="@+id/textBebeVezes"
+                    android:id="@+id/editBebeVezes"
                     android:layout_width="50dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -504,7 +506,7 @@
 
 
             <TextView
-                android:id="@+id/textoPergunta10"
+                android:id="@+id/textoFuma"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/formulario1_pergunta10"
@@ -512,21 +514,21 @@
                 android:textStyle="bold" />
 
             <RadioGroup
-                android:id="@+id/radioGroupo10"
+                android:id="@+id/radioGroupFuma"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
 
 
                 <RadioButton
-                    android:id="@+id/radioPergunta10Sim"
+                    android:id="@+id/radioFumaSim"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/yes" />
 
                 <RadioButton
-                    android:id="@+id/radioPergunta10Nao"
+                    android:id="@+id/radioFumaNao"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -534,12 +536,13 @@
             </RadioGroup>
 
             <LinearLayout
+                android:id="@+id/lnFuma"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
 
                 <EditText
-                    android:id="@+id/textFumaVezes"
+                    android:id="@+id/editFumaVezes"
                     android:layout_width="50dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -560,7 +563,7 @@
             </LinearLayout>
 
             <TextView
-                android:id="@+id/textoPergunta11"
+                android:id="@+id/textoPararFumar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/formulario1_pergunta11"
@@ -568,21 +571,21 @@
                 android:textStyle="bold" />
 
             <RadioGroup
-                android:id="@+id/radioGroupo11"
+                android:id="@+id/radioGroupPararFumar"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
 
 
                 <RadioButton
-                    android:id="@+id/radioPergunta11Sim"
+                    android:id="@+id/radioQrPararFumarSim"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/yes" />
 
                 <RadioButton
-                    android:id="@+id/radioPergunta11Nao"
+                    android:id="@+id/radioQrPararFumarSimNao"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -591,7 +594,7 @@
 
 
             <TextView
-                android:id="@+id/textoPergunta12"
+                android:id="@+id/textoAvc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/formulario1_pergunta12"
@@ -599,28 +602,28 @@
                 android:textStyle="bold" />
 
             <RadioGroup
-                android:id="@+id/radioGroupo12"
+                android:id="@+id/radioGroupAvc"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
 
                 <RadioButton
-                    android:id="@+id/radioPergunta12mais"
+                    android:id="@+id/radioAvcMaisAno"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/Ha_mais_de_um_ano" />
 
                 <RadioButton
-                    android:id="@+id/radioPergunta12menos"
+                    android:id="@+id/radioAvcMenosAno"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/Ha_menos_de_um_ano" />
 
                 <RadioButton
-                    android:id="@+id/radioPergunta12Nao"
+                    android:id="@+id/radioAvcNao"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -629,29 +632,29 @@
 
 
             <TextView
-                android:id="@+id/textoPergunta13"
+                android:id="@+id/textoInfarto"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/formulario1_pergunta12"
+                android:text="@string/Infarto"
                 android:textColor="@android:color/black"
                 android:textStyle="bold" />
 
             <RadioGroup
-                android:id="@+id/radioGroupo13"
+                android:id="@+id/radioGroupoInfarto"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
 
                 <RadioButton
-                    android:id="@+id/radioPergunta13mais"
+                    android:id="@+id/radioInfartoMais"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/Ha_mais_de_um_ano" />
 
                 <RadioButton
-                    android:id="@+id/radioPergunta13menos"
+                    android:id="@+id/radioInfartoMenos"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -659,7 +662,7 @@
                     tools:ignore="TooManyViews" />
 
                 <RadioButton
-                    android:id="@+id/radioPergunta13Nao"
+                    android:id="@+id/radioInfartoNao"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -668,55 +671,58 @@
 
 
             <TextView
-                android:id="@+id/textoPergunta14"
+                android:id="@+id/txtOutrasDoencas"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/formulario1_pergunta12"
+                android:text="@string/Outrasdoencas"
                 android:textColor="@android:color/black"
                 android:textStyle="bold" />
 
-            <RadioGroup
-                android:id="@+id/radioGroupo14"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
 
 
-                <RadioButton
-                    android:id="@+id/radioPergunta14obstrutiva"
+
+                <CheckBox
+                    android:id="@+id/radioObstrutiva"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/Doenca_pulmonar_cronica" />
 
-                <RadioButton
-                    android:id="@+id/radioPergunta14bronquite"
+                <CheckBox
+                    android:id="@+id/radioBronquite"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/Bronquite" />
 
-                <RadioButton
-                    android:id="@+id/radioPergunta14asma"
+                <CheckBox
+                    android:id="@+id/radioAsma"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/Asma" />
 
-                <RadioButton
-                    android:id="@+id/radioPergunta14outras"
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/radioOutras"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/Outras" />
 
-                <RadioButton
-                    android:id="@+id/radioPergunta14Nao"
+                <EditText
+                    android:id="@+id/editOutrasDoencas"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/no" />
-            </RadioGroup>
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
+                    android:ems="10"
+                    android:inputType="textPersonName" />
+            </LinearLayout>
 
 
             <Button
@@ -733,6 +739,8 @@
 
 
         </LinearLayout>
+
+
 
 
     </ScrollView>

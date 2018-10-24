@@ -13,7 +13,8 @@ public class Auxiliar {
     public static Cidade cidades[];
     public static Estado estados[];
     public static String chave;
-    public static FormularioPaciente formularioPaciente;
+    public static Prontuario prontuario;
+
     public static Chat chat;
     public static String servidor="https://lifecare-unisul.herokuapp.com/";
 
@@ -24,6 +25,7 @@ public class Auxiliar {
 
 
     }
+
 
     public static void carregarCidades(Estado estado) {
         Gson gson = new Gson();
