@@ -42,6 +42,7 @@ public class Tela_login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         SimulaDB.usuario = new Usuario("root", "root");
         TesteService.context = this;
+        cadastrar();
         //startService(new Intent(getBaseContext(), TesteService.class));
         // TesteNofiticacao.notify(this,"teste",1);
 Paciente p = new Paciente();
@@ -102,7 +103,8 @@ Auxiliar.prontuario=new Prontuario(p);
 
     private void cadastrar() {
         //Intent intent = new Intent(this, CadastroUsuario.class);
-        Intent intent = new Intent(this, Formulario_Primeiro.class);
+       // Intent intent = new Intent(this, Formulario_Primeiro.class);
+        Intent intent = new Intent(this, TelaChat.class);
         startActivity(intent);
     }
 

@@ -10,7 +10,8 @@
     <color name="background">#008d50</color>
     <color name="botao_login">#f47920</color>
     <color name="botao_cadastro">#a3c714</color>
-
+    <color name="balaoMensagemRecebida">#0d4e6e</color>
+    <color name="balaoMensagemEnviada">#1889a6</color>
     <color name="branco">#FFFFFF</color>
 
 
