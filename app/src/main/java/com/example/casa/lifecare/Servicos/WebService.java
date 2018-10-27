@@ -218,7 +218,7 @@ public  class  WebService {
             //////
             int http_status = connection.getResponseCode();
 
-
+            httpStatus=http_status;
             Log.i("Estatus HTTP",http_status+"");
             connection.disconnect();
 

@@ -7,11 +7,28 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     >
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_chat"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@color/colorPrimary"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
 
+        android:visibility="visible"
+
+        app:logo="@drawable/lifecare"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:title="">
+
+    </android.support.v7.widget.Toolbar>
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recicla"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="0dp"
+        android:layout_marginBottom="70dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="60dp"/>
 
     <!-- A horizontal line between the chatbox and RecyclerView -->
     <View
@@ -43,7 +60,7 @@
             android:layout_marginRight="16dp"
             android:layout_weight="1"
             android:background="@android:color/transparent"
-            android:hint="Enter message"
+            android:hint="Entre com a menssagem aqui."
             android:maxLines="6" />
 
         <Button
@@ -54,7 +71,7 @@
             android:background="?attr/selectableItemBackground"
             android:clickable="true"
             android:gravity="center"
-            android:text="SEND"
+            android:text="ENVIAR"
             android:textSize="14dp" />
 
     </LinearLayout>

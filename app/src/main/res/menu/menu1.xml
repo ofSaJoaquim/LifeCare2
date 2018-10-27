@@ -2,14 +2,26 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <item
-        android:id="@+id/menuSearch"
-        android:actionLayout="@drawable/unimed"
 
-        android:icon="@drawable/unimed"
+    <item
+        android:id="@+id/button_chat"
+        android:icon="@drawable/ic_chat"
         android:orderInCategory="100"
-        android:title="logo2"
+        android:title=""
         app:showAsAction="always" />
+    <item
+        android:id="@+id/button_remedio"
+        android:icon="@drawable/ic_remedio"
+        android:orderInCategory="100"
+        android:title=""
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/button_prontuario"
+        android:icon="@drawable/ic_prontuario"
+        android:orderInCategory="100"
+        android:title=""
+        app:showAsAction="always" />
+
 
 
 </menu>

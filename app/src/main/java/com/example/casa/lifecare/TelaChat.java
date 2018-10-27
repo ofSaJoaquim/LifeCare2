@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 
 import com.example.casa.lifecare.adptador.MenssagemAdptador;
@@ -26,8 +27,8 @@ public class TelaChat extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela_chat);
-        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recicla);
-        LinearLayoutManager  mLayoutManager = new LinearLayoutManager(this);
+        final RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recicla);
+        LinearLayoutManager  mLayoutManager = new LinearLayoutManager(this, LinearLayout.VERTICAL,false);
 
 
         recyclerView.setLayoutManager(mLayoutManager);
@@ -40,10 +41,13 @@ public class TelaChat extends AppCompatActivity {
         enviar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ma.insertItem(new Menssagem(new Medico("Plantão"), "Toma doril que a dor sumiu", "00:55"));
+
                 ma.insertItem(new Menssagem(new Paciente(),menssagemE.getText().toString(),"00:55"));
+                ma.insertItem(new Menssagem(new Medico("Plantão"), "Toma doril que a dor sumiu", "00:55"));
                 menssagemE.setText("");
+
                 hideSoftKeyboard(menssagemE);
+                recyclerView.smoothScrollToPosition(ma.getItemCount()-1);
             }
 
         });

@@ -81,7 +81,9 @@
         <activity android:name=".ItemChat" />
         <activity android:name=".ItemChatEnviado" />
         <activity android:name=".TelaChat" />
-        <activity android:name=".testeRecicle"></activity>
+        <activity android:name=".testeRecicle" />
+        <activity android:name=".Principal" />
+        <activity android:name=".ItemTimeLine"></activity>
     </application>
 
 </manifest>
