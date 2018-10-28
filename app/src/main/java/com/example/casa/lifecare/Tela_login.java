@@ -48,6 +48,8 @@ public class Tela_login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+
         final EditText email = (EditText) findViewById(R.id.txt_email);
         final EditText senha = (EditText) findViewById(R.id.txt_senha);
         final Button proximo = (Button) findViewById(R.id.btn_login);
@@ -72,7 +74,7 @@ public class Tela_login extends AppCompatActivity {
         cadastro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                proximaTela(new Intent(Tela_login.this,Formulario_Primeiro.class));
+                proximaTela(new Intent(Tela_login.this,CadastroUsuario.class));
             }
 
         });

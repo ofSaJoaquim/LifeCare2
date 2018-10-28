@@ -20,6 +20,7 @@ import android.widget.Toast;
 
 
 import com.example.casa.lifecare.entidades.Auxiliar;
+import com.example.casa.lifecare.entidades.Prontuario;
 import com.example.casa.lifecare.entidades.Risco;
 
 import java.util.ArrayList;
@@ -36,9 +37,9 @@ public class Formulario_Primeiro extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_formulario__primeiro);
-        Toolbar toolbar = findViewById(R.id.my_toolbar); // get the reference of Toolbar
-        setSupportActionBar(toolbar); // Setting/replace toolbar as the ActionBar
-        toolbar.setTitle("");
+       // Toolbar toolbar = findViewById(R.id.my_toolbar); // get the reference of Toolbar
+       // setSupportActionBar(toolbar); // Setting/replace toolbar as the ActionBar
+        //toolbar.setTitle("");
 
 
         final RadioGroup internado = findViewById(R.id.radioGroupInternado);
@@ -328,6 +329,7 @@ public class Formulario_Primeiro extends AppCompatActivity {
                 if (valida) {
                     Toast.makeText(Formulario_Primeiro.this, "Formulário preenchido corretamente",
                             Toast.LENGTH_LONG).show();
+                Auxiliar.prontuario=new Prontuario();
                     Auxiliar.prontuario.setRiscos(riscos);
                     proximoFormulario();
                 }
@@ -343,13 +345,7 @@ public class Formulario_Primeiro extends AppCompatActivity {
 
     }
 
-    @Override
-    //infla o menu no toolbar
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu1, menu);
-        return true;
-    }
+
 
     public void proximoFormulario() {
         Intent intent = new Intent(this, Formulario_segundo.class);

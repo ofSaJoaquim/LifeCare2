@@ -5,6 +5,7 @@ public class Medico {
     private Integer id;
     private String nome;
 
+
     public Integer getId() {
         return id;
     }
@@ -21,8 +22,14 @@ public class Medico {
         this.nome = nome;
     }
 
+    public Medico(Integer id, String nome) {
+        this.id = id;
+        this.nome = nome;
+    }
+
     public Medico(String nome) {
 
         this.nome = nome;
+
     }
 }

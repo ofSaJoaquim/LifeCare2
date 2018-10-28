@@ -9,6 +9,7 @@ import com.example.casa.lifecare.entidades.Auxiliar;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
@@ -28,7 +29,7 @@ public  class  WebService {
         try {
             Log.i("Webservice get","Entidade:  "+entidades);
             URL url = new URL("https://lifecare-unisul.herokuapp.com/"+entidades);
-
+    Log.i("URL",url.getHost());
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("GET");
             connection.setRequestProperty("Content-type", "application/json");
@@ -40,7 +41,9 @@ public  class  WebService {
             Log.i("Resposta do Servidor:",httpStatus+"");
             Scanner scanner = new Scanner(url.openStream());
             while (scanner.hasNext()) {
-                lista.append(scanner.next());
+               lista.append(scanner.next());
+
+
             }
         } catch (MalformedURLException e) {
             e.printStackTrace();
@@ -71,7 +74,9 @@ public  class  WebService {
             Log.i("Resposta do Servidor:",httpStatus+"");
             Scanner scanner = new Scanner(url.openStream());
             while (scanner.hasNext()) {
-                entidade.append(scanner.next());
+               entidade.append(scanner.next());
+
+
             }
         } catch (MalformedURLException e) {
             e.printStackTrace();
@@ -82,6 +87,38 @@ public  class  WebService {
             return entidade.toString();
         }
     }
+
+    public static String pegarEntidadeSimples(String entidades){
+        StringBuilder entidade = new StringBuilder();
+        try {
+            Log.i("Webservice get","Entidade:  "+entidades);
+            URL url = new URL("https://lifecare-unisul.herokuapp.com/"+entidades);
+
+            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+            connection.setRequestMethod("GET");
+            connection.setRequestProperty("Content-type", "application/json");
+            connection.setRequestProperty("Accept", "application/json");
+            connection.setDoOutput(true);
+            connection.setConnectTimeout(5000);
+            connection.connect();
+            httpStatus=connection.getResponseCode();
+            Log.i("Resposta do Servidor:",httpStatus+"");
+            Scanner scanner = new Scanner(url.openStream());
+            while (scanner.hasNext()) {
+                entidade.append(scanner.next());
+
+
+            }
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        finally {
+            return entidade.toString();
+        }
+    }
+
 
 
     @TargetApi(Build.VERSION_CODES.KITKAT)
@@ -231,6 +268,44 @@ public  class  WebService {
             return retorno;
         }
     }
+    public static String listarEntidadesTeste(String entidades){
+        StringBuilder lista = new StringBuilder();
+        try {
+            Log.i("Webservice get","Entidade:  "+entidades);
+            URL url = new URL("https://lifecare-unisul.herokuapp.com/"+entidades);
+            Log.i("URL",url.getHost());
+            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+            connection.setRequestMethod("GET");
+            connection.setRequestProperty("Content-type", "application/json");
+            connection.setRequestProperty("Accept", "application/json");
+            connection.setDoOutput(true);
+            connection.setConnectTimeout(5000);
+            connection.connect();
+            httpStatus=connection.getResponseCode();
+            Log.i("Resposta do Servidor:",httpStatus+"");
+           // Scanner scanner = new Scanner(url.openStream());
+            InputStream is = url.openStream();
+            InputStreamReader isr = new InputStreamReader(is);
+            BufferedReader br = new BufferedReader(isr);
+            String linha = br.readLine();
+            while (linha!=null) {
+                // lista.append(scanner.next());
+
+                Log.i("linha",linha);
+                lista.append(linha);
+                linha=br.readLine();
+            }
+
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        finally {
+            return lista.toString();
+        }
+    }
+
 }
 
 

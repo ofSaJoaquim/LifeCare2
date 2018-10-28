@@ -77,12 +77,16 @@
             android:enabled="true"
             android:exported="false" />
 
-        <activity android:name=".testeAsinck" />
+
         <activity android:name=".ItemChat" />
         <activity android:name=".ItemChatEnviado" />
-        <activity android:name=".TelaChat" />
+        <activity android:name=".TelaChat"
+            android:theme="@style/AppTheme"
+            android:screenOrientation="portrait"/>
         <activity android:name=".testeRecicle" />
-        <activity android:name=".Principal" />
+        <activity android:name=".Principal"
+            android:theme="@style/AppTheme"
+            android:screenOrientation="portrait"/>
         <activity android:name=".ItemTimeLine"></activity>
     </application>
 

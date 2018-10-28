@@ -222,6 +222,7 @@ private boolean validarEmail(String email){
                // String parametros =gson.toJson(paciente);
                 //int teste = WebService.postar(parametros);
                int retorno= Auxiliar.postarPaciente(paciente);
+               if(retorno == 201) Auxiliar.logar(paciente.getEmail(),paciente.getSenha());
                 return  retorno;
 
             } catch (Exception e) {
@@ -235,7 +236,9 @@ private boolean validarEmail(String email){
         protected void onPostExecute(Integer retornoHTTP) {
             String menssagem="";
             if (retornoHTTP == 201) {
-                menssagem="Cadastrado com sucesso";
+
+
+                menssagem="Cadastrado com sucesso Nome: "+Auxiliar.paciente.getNome()+"--ID: "+Auxiliar.paciente.getId();
                 proximoForm();
                 }
              else {

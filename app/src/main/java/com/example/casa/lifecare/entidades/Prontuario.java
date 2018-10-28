@@ -14,6 +14,9 @@ public class Prontuario {
         this.paciente = paciente;
     }
 
+    public Prontuario() {
+    }
+
     public Integer getId() {
         return id;
     }

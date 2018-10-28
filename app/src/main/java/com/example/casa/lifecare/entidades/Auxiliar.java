@@ -1,13 +1,17 @@
 package com.example.casa.lifecare.entidades;
 
+import android.util.JsonReader;
 import android.util.Log;
 
 import com.example.casa.lifecare.Servicos.CarregarEntidade;
 import com.example.casa.lifecare.Servicos.HttpRetorno;
 import com.example.casa.lifecare.Servicos.WebService;
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 public class Auxiliar {
@@ -16,9 +20,11 @@ public class Auxiliar {
     public static Estado estados[];
     public static String chave;
     public static Prontuario prontuario;
-
+    public static List<Mensagem>mensagems;
     public static Chat chat;
-    public static String servidor="https://lifecare-unisul.herokuapp.com/";
+
+
+    public  static  String  servidor="https://lifecare-unisul.herokuapp.com/";
 
 
     public static void carregarEstados() {
@@ -39,6 +45,7 @@ public class Auxiliar {
 
 
     }
+
 
 
     public static boolean logar(String email, String senha) {
@@ -88,5 +95,71 @@ public class Auxiliar {
                 "cidadeId",paciente.getCidade().getId().toString());
         return retorno;
     }
+
+    public static boolean criarChat(){
+        /* Falta implementar testar se tem chat criado
+        Gson gson = new Gson();
+        StringBuilder parametros = new StringBuilder();
+        parametros.append("chats");
+        Chat pacientes[]= gson.fromJson(WebService.listarEntidades(parametros.toString()), Chat[].class); /*/
+       return true;
+    }
+   public static boolean carregarMenssagens(){
+        try {
+           /* GsonBuilder gsonBuilder = new GsonBuilder();
+            gsonBuilder.setLenient();
+            Gson gson = gsonBuilder.create();*/
+           Gson gson = new Gson();
+
+            StringBuilder paramentros = new StringBuilder();
+            paramentros.append("chats/");
+            paramentros.append(paciente.getId());
+            paramentros.append("/mensagens");
+            mensagems = new ArrayList<Mensagem>();
+            TypeToken<List<Mensagem>> token = new TypeToken<List<Mensagem>>() { };
+            Log.i("Recber menssagem",paramentros.toString());
+           mensagems = gson.fromJson(WebService.listarEntidadesTeste(paramentros.toString()), token.getType());
+            for(int count=0;count<mensagems.size();count++){
+                Log.i("carregar medico",count+"");
+                Log.i("tamanho me",mensagems.size()+"");
+                Log.i("Medicoid",mensagems.get(count).getMedicoId()+"");
+                if(mensagems.get(count).getMedicoId()!=null){
+                    Log.i("Medicoid",mensagems.get(count).getMedicoId()+"");
+                    mensagems.get(count).pegaMedico();
+
+                }
+
+
+            }
+
+
+
+
+            chat.setMensagens(mensagems);
+            if(mensagems.size()>0)return true;
+            return false;
+        }
+        catch (Exception e){
+            Log.i("Auxiliar C Menssagens",e.getMessage());
+            return false;
+        }
+   }
+   public static  boolean enviarMenssagens(String mensagem){
+        try {
+            StringBuilder entidade = new StringBuilder();
+            entidade.append("mensagens/pacientes/");
+            entidade.append(paciente.getId());
+            HttpRetorno httpRetorno = WebService.postar(entidade.toString(), false, false, "texto", mensagem);
+            if (WebService.httpStatus == 201){
+
+                return true;
+            }
+            return false;
+        }catch (Exception e){
+            Log.i("Aux Enviar",e.getMessage());
+            return  false;
+
+        }
+   }
 
 }

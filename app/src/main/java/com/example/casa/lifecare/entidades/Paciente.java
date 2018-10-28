@@ -9,7 +9,6 @@ public class Paciente {
     private Integer idade;
     private String email;
     private String senha;
-
     private Cidade cidade;
 
 

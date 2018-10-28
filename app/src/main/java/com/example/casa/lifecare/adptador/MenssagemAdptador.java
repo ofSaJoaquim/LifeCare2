@@ -9,23 +9,24 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.casa.lifecare.R;
-import com.example.casa.lifecare.entidades.Menssagem;
+import com.example.casa.lifecare.entidades.Mensagem;
+
 
 import java.util.List;
 
 public class MenssagemAdptador extends RecyclerView.Adapter {
-    private List<Menssagem>menssagens;
+    private List<Mensagem>menssagens;
     private Context context;
     private static final int MSN_ENVIA=1;
     private static final int MSN_RECEBE=0;
 
-    public MenssagemAdptador(List<Menssagem> menssagens) {
+    public MenssagemAdptador(List<Mensagem> menssagens) {
         this.menssagens = menssagens;
     }
     @Override
     public int getItemViewType(int position) {
        // return super.getItemViewType(position);
-        if(menssagens.get(position).isTipo())return MSN_ENVIA;
+        if(menssagens.get(position).getMedicoId()==null)return  MSN_ENVIA;
         else return MSN_RECEBE;
     }
     @NonNull
@@ -48,28 +49,29 @@ public class MenssagemAdptador extends RecyclerView.Adapter {
         }
     }
 
-    public MenssagemAdptador(List<Menssagem> menssagens, Context context) {
+    public MenssagemAdptador(List<Mensagem> menssagens, Context context) {
         this.menssagens = menssagens;
         this.context = context;
     }
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int position) {
-       if(menssagens.get(position).isTipo()){
+       if(menssagens.get(position).getMedicoId()==null){
            EnviaMsnHolder holder = (EnviaMsnHolder) viewHolder;
-           Menssagem m = menssagens.get(position);
+           Mensagem m = menssagens.get(position);
 
 
            holder.corpo.setText(m.getTexto());
-           holder.hora.setText(m.getHora());
+           Log.i("corpo",m.getTexto());
+           holder.hora.setText(m.getInstante());
        }
        else {
            MenssagemHolder holder = (MenssagemHolder) viewHolder;
-           Menssagem m = menssagens.get(position);
+           Mensagem m = menssagens.get(position);
 
            holder.nome.setText(m.getMedico().getNome());
            holder.corpo.setText(m.getTexto());
-           holder.hora.setText(m.getHora());
+           holder.hora.setText(m.getInstante());
 
        }
 
@@ -79,7 +81,7 @@ public class MenssagemAdptador extends RecyclerView.Adapter {
     public int getItemCount() {
         return menssagens.size();
     }
-public void insertItem(Menssagem me){
+public void insertItem(Mensagem me){
         menssagens.add(me);
     notifyItemInserted(getItemCount());
 }

@@ -10,21 +10,7 @@
     tools:context=".Formulario_Primeiro"
     android:orientation="vertical">
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/my_toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
-        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
 
-        android:visibility="visible"
-
-        app:logo="@drawable/lifecare"
-
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-        app:title="">
-
-    </android.support.v7.widget.Toolbar>
 
     <ScrollView
         android:id="@+id/scroll3"

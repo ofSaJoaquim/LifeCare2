@@ -4,9 +4,9 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Build;
+import android.os.Bundle;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -15,12 +15,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.LinearLayout;
 
-import com.example.casa.lifecare.Servicos.DataScraping;
 import com.example.casa.lifecare.Servicos.WebScraping;
-import com.example.casa.lifecare.Servicos.WebService;
 import com.example.casa.lifecare.adptador.AdptadorNoticias;
-import com.example.casa.lifecare.adptador.MenssagemAdptador;
-import com.example.casa.lifecare.entidades.Menssagem;
 
 import java.util.ArrayList;
 import java.util.List;
