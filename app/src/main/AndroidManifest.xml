@@ -77,17 +77,21 @@
             android:enabled="true"
             android:exported="false" />
 
-
         <activity android:name=".ItemChat" />
         <activity android:name=".ItemChatEnviado" />
-        <activity android:name=".TelaChat"
-            android:theme="@style/AppTheme"
-            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".TelaChat"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
         <activity android:name=".testeRecicle" />
-        <activity android:name=".Principal"
-            android:theme="@style/AppTheme"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".ItemTimeLine"></activity>
+        <activity
+            android:name=".Principal"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".ItemTimeLine" />
+        <activity android:name=".ItemRemedio" />
+        <activity android:name=".ListaMeusRemedios" />
+        <activity android:name=".AdicionarRemedio"></activity>
     </application>
 
 </manifest>

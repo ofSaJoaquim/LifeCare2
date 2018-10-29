@@ -27,6 +27,7 @@ import com.example.casa.lifecare.Servicos.WebScraping;
 import com.example.casa.lifecare.entidades.Auxiliar;
 import com.example.casa.lifecare.entidades.Cidade;
 import com.example.casa.lifecare.entidades.Estado;
+import com.example.casa.lifecare.entidades.Medicamento;
 import com.example.casa.lifecare.entidades.Paciente;
 import com.example.casa.lifecare.entidades.Prontuario;
 import com.example.casa.lifecare.entidades.Usuario;
@@ -44,11 +45,12 @@ public class Tela_login extends AppCompatActivity {
     private boolean estaLogado = false;
     private ProgressDialog load;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
+        Auxiliar.meusMedicamentos=new ArrayList<Medicamento>();
 
         final EditText email = (EditText) findViewById(R.id.txt_email);
         final EditText senha = (EditText) findViewById(R.id.txt_senha);

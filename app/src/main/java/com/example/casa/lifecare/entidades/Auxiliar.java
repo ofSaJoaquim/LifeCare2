@@ -22,7 +22,7 @@ public class Auxiliar {
     public static Prontuario prontuario;
     public static List<Mensagem>mensagems;
     public static Chat chat;
-
+    public static List<Medicamento>meusMedicamentos;
 
     public  static  String  servidor="https://lifecare-unisul.herokuapp.com/";
 
@@ -161,5 +161,11 @@ public class Auxiliar {
 
         }
    }
-
+public static boolean carregarMeusRemedios(){
+        meusMedicamentos=new ArrayList<Medicamento>();
+        meusMedicamentos.add(new Medicamento(1,20,"Gardenau","ANTI DEPESSIVO",true));
+    meusMedicamentos.add(new Medicamento(2,0,"Prozac","ANTI DEPESSIVO",true));
+    meusMedicamentos.add(new Medicamento(3,20,"Doril","Resolve tudo",true));
+    return  true;
+}
 }

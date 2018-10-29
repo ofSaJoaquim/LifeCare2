@@ -222,7 +222,7 @@ private boolean validarEmail(String email){
                // String parametros =gson.toJson(paciente);
                 //int teste = WebService.postar(parametros);
                int retorno= Auxiliar.postarPaciente(paciente);
-               if(retorno == 201) Auxiliar.logar(paciente.getEmail(),paciente.getSenha());
+               if(retorno == 201)
                 return  retorno;
 
             } catch (Exception e) {

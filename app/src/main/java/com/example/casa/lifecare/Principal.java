@@ -41,6 +41,10 @@ private ProgressDialog load;
                Log.i("chat",R.id.button_chat+"");
                 return true;
             case R.id.button_prontuario:
+
+                return true;
+            case R.id.button_remedio:
+                proximaTela(new Intent(this,ListaMeusRemedios.class));
                 Log.i("prontuario",R.id.button_chat+"");
                 return true;
 
