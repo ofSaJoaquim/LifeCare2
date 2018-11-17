@@ -1,29 +1,37 @@
 package com.example.casa.lifecare;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
+import android.os.AsyncTask;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.Toast;
 
 import com.example.casa.lifecare.entidades.Auxiliar;
+import com.example.casa.lifecare.entidades.Cidade;
 import com.example.casa.lifecare.entidades.Risco;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Formulario_segundo extends AppCompatActivity {
-
+    ProgressDialog load;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_formulario_segundo);
-        final Button proximo = (Button) findViewById(R.id.botaoFormulario);
+        final Button proximo =  findViewById(R.id.botaoFormulario);
         proximo.setOnClickListener(new  View.OnClickListener(){
             @Override
             public  void  onClick(View v){
-                Toast.makeText(Formulario_segundo.this, "Congratulations your form is finish",
+                Toast.makeText(Formulario_segundo.this, "Parabéns Formulário Cadastrado com sucesso",
                         Toast.LENGTH_LONG).show();
                 proximoFormulario();
 
@@ -31,196 +39,236 @@ public class Formulario_segundo extends AppCompatActivity {
             }
         } );
     }
-    public void proximoFormulario(){
-      List<Risco> riscos = Auxiliar.prontuario.getRiscos();
-      int contar = riscos.size();
+    public void proximoFormulario() {
+        List<Risco> riscos = Auxiliar.prontuario.getRiscos();
+
         if (((CheckBox) findViewById(R.id.radioDiabetesAvo)).isChecked())
-            riscos.add(new Risco(contar, "DIABETES,AVO,1"));
-        else riscos.add(new Risco(contar, "DIABETES,AVO,0"));
-        contar++;
+            riscos.add(new Risco("DIABETES_AVO", 1, "NAO_MODIFICAVEL"));
+        else riscos.add(new Risco("DIABETES_AVO", 0, "NAO_MODIFICAVEL"));
+
         if (((CheckBox) findViewById(R.id.radioDiabetesVo)).isChecked())
-            riscos.add(new Risco(contar, "DIABETES,VO,1"));
-        else riscos.add(new Risco(contar, "DIABETES,VO,0"));
-        contar++;
+            riscos.add(new Risco("DIABETES_VO", 1, "NAO_MODIFICAVEL"));
+        else riscos.add(new Risco("DIABETES_VO", 0, "NAO_MODIFICAVEL"));
+
         if (((CheckBox) findViewById(R.id.radioDiabetesMae)).isChecked())
-            riscos.add(new Risco(contar, "DIABETES,MAE,1"));
-        else riscos.add(new Risco(contar, "DIABETES,MAE,0"));
-        contar++;
+            riscos.add(new Risco("DIABETES_MAE", 1, "NAO_MODIFICAVEL"));
+        else riscos.add(new Risco("DIABETES_MAE", 0, "NAO_MODIFICAVEL"));
+
         if (((CheckBox) findViewById(R.id.radioDiabetesPai)).isChecked())
-            riscos.add(new Risco(contar, "DIABETES,PAI,1"));
-        else riscos.add(new Risco(contar, "DIABETES,PAI,0"));
-        contar++;
+            riscos.add(new Risco("DIABETES_PAI", 1, "NAO_MODIFICAVEL"));
+        else riscos.add(new Risco("DIABETES_PAI", 0, "NAO_MODIFICAVEL"));
+
         if (((CheckBox) findViewById(R.id.radioDiabetesIrma)).isChecked())
-            riscos.add(new Risco(contar, "DIABETES,IRMA,1"));
-        else riscos.add(new Risco(contar, "DIABETES,IRMA,0"));
-        contar++;
+            riscos.add(new Risco("DIABETES_IRMA", 1, "NAO_MODIFICAVEL"));
+        else riscos.add(new Risco("DIABETES_IRMA", 0, "NAO_MODIFICAVEL"));
+
         if (((CheckBox) findViewById(R.id.radioDiabetesIrmao)).isChecked())
-            riscos.add(new Risco(contar, "DIABETES,IRMAO,1"));
-        else riscos.add(new Risco(contar, "DIABETES,IRMAO,0"));
-        contar++;
+            riscos.add(new Risco("DIABETES_IRMAO", 1, "NAO_MODIFICAVEL"));
+        else riscos.add(new Risco("DIABETES_IRMAO", 0, "NAO_MODIFICAVEL"));
+
 
         //HIPERTENSAO
         if (((CheckBox) findViewById(R.id.radioHipertencaoAvo)).isChecked())
-            riscos.add(new Risco(contar, "HIPERTENSAO,AVO,1"));
-        else riscos.add(new Risco(contar, "HIPERTENSAO,AVO,0"));
-        contar++;
+            riscos.add(new Risco("HIPERTENSAO_AVO", 1, "NAO_MODIFICAVEL"));
+        else riscos.add(new Risco("HIPERTENSAO_AVO", 0, "NAO_MODIFICAVEL"));
+
         if (((CheckBox) findViewById(R.id.radioHipertencaoVo)).isChecked())
-            riscos.add(new Risco(contar, "HIPERTENSAO,VO,1"));
-        else riscos.add(new Risco(contar, "HIPERTENSAO,VO,0"));
-        contar++;
+            riscos.add(new Risco("HIPERTENSAO_VO", 1, "NAO_MODIFICAVEL"));
+        else riscos.add(new Risco("HIPERTENSAO_VO", 0, "NAO_MODIFICAVEL"));
+
         if (((CheckBox) findViewById(R.id.radioHipertencaoMae)).isChecked())
-            riscos.add(new Risco(contar, "HIPERTENSAO,MAE,1"));
-        else riscos.add(new Risco(contar, "HIPERTENSAO,MAE,0"));
-        contar++;
+            riscos.add(new Risco("HIPERTENSAO_MAE", 1, "NAO_MODIFICAVEL"));
+        else riscos.add(new Risco("HIPERTENSAO_MAE", 0, "NAO_MODIFICAVEL"));
+
         if (((CheckBox) findViewById(R.id.radioHipertencaoPai)).isChecked())
-            riscos.add(new Risco(contar, "HIPERTENSAO,PAI,1"));
-        else riscos.add(new Risco(contar, "HIPERTENSAO,PAI,0"));
-        contar++;
+            riscos.add(new Risco("HIPERTENSAO_MAE", 1, "NAO_MODIFICAVEL"));
+        else riscos.add(new Risco("HIPERTENSAO_MAE", 0, "NAO_MODIFICAVEL"));
+
         if (((CheckBox) findViewById(R.id.radioHipertencaoIrma)).isChecked())
-            riscos.add(new Risco(contar, "HIPERTENSAO,IRMA,1"));
-        else riscos.add(new Risco(contar, "HIPERTENSAO,IRMA,0"));
-        contar++;
+            riscos.add(new Risco("HIPERTENSAO_IRMA", 1, "NAO_MODIFICAVEL"));
+        else riscos.add(new Risco("HIPERTENSAO_IRMA", 0, "NAO_MODIFICAVEL"));
+
         if (((CheckBox) findViewById(R.id.radioHipertencaoIrmao)).isChecked())
-            riscos.add(new Risco(contar, "HIPERTENSAO,IRMAO,1"));
-        else riscos.add(new Risco(contar, "HIPERTENSAO,IRMAO,0"));
-        contar++;
+            riscos.add(new Risco("HIPERTENSAO_IRMAO", 1, "NAO_MODIFICAVEL"));
+        else riscos.add(new Risco("HIPERTENSAO_IRMAO", 0, "NAO_MODIFICAVEL"));
+
 
         //cardiacas
         if (((CheckBox) findViewById(R.id.radioCardiacoAvo)).isChecked())
-            riscos.add(new Risco(contar, "HIPERTENSAO,AVO,1"));
-        else riscos.add(new Risco(contar, "HIPERTENSAO,AVO,0"));
-        contar++;
+            riscos.add(new Risco("CARDIACO_AVO", 1, "NAO_MODIFICAVEL"));
+        else riscos.add(new Risco("CARDIACO_AVO", 0, "NAO_MODIFICAVEL"));
+
         if (((CheckBox) findViewById(R.id.radioCardiacoVo)).isChecked())
-            riscos.add(new Risco(contar, "HIPERTENSAO,VO,1"));
-        else riscos.add(new Risco(contar, "HIPERTENSAO,VO,0"));
-        contar++;
+            riscos.add(new Risco("CARDIACO_VO", 1, "NAO_MODIFICAVEL"));
+        else riscos.add(new Risco("CARDIACO_VO", 0, "NAO_MODIFICAVEL"));
+
         if (((CheckBox) findViewById(R.id.radioCardiacoMae)).isChecked())
-            riscos.add(new Risco(contar, "HIPERTENSAO,MAE,1"));
-        else riscos.add(new Risco(contar, "HIPERTENSAO,MAE,0"));
-        contar++;
+            riscos.add(new Risco("CARDIACO_MAE", 1, "NAO_MODIFICAVEL"));
+        else riscos.add(new Risco("CARDIACO_MAE", 0, "NAO_MODIFICAVEL"));
+
         if (((CheckBox) findViewById(R.id.radioCardiacoPai)).isChecked())
-            riscos.add(new Risco(contar, "HIPERTENSAO,PAI,1"));
-        else riscos.add(new Risco(contar, "HIPERTENSAO,PAI,0"));
-        contar++;
+            riscos.add(new Risco("CARDIACO_PAI", 1, "NAO_MODIFICAVEL"));
+        else riscos.add(new Risco("CARDIACO_PAI", 0, "NAO_MODIFICAVEL"));
+
         if (((CheckBox) findViewById(R.id.radioCardiacoIrma)).isChecked())
-            riscos.add(new Risco(contar, "HIPERTENSAO,IRMA,1"));
-        else riscos.add(new Risco(contar, "HIPERTENSAO,IRMA,0"));
-        contar++;
+            riscos.add(new Risco("CARDIACO_IRMA", 1, "NAO_MODIFICAVEL"));
+        else riscos.add(new Risco("CARDIACO_IRMA", 0, "NAO_MODIFICAVEL"));
+
         if (((CheckBox) findViewById(R.id.radioCardiacoIrmao)).isChecked())
-            riscos.add(new Risco(contar, "HIPERTENSAO,IRMAO,1"));
-        else riscos.add(new Risco(contar, "HIPERTENSAO,IRMAO,0"));
-        contar++;
+            riscos.add(new Risco("CARDIACO_IRMAO", 1, "NAO_MODIFICAVEL"));
+        else riscos.add(new Risco("CARDIACO_IRMAO", 0, "NAO_MODIFICAVEL"));
+
 
         //neuro
 
         if (((CheckBox) findViewById(R.id.radioNeuroAvo)).isChecked())
-            riscos.add(new Risco(contar, "NEUROLOGICAS,AVO,1"));
-        else riscos.add(new Risco(contar, "NEUROLOGICAS,AVO,0"));
-        contar++;
+            riscos.add(new Risco("NEUROLOGIA_AVO", 1, "NAO_MODIFICAVEL"));
+        else riscos.add(new Risco("NEUROLOGIA_AVO", 0, "NAO_MODIFICAVEL"));
+
         if (((CheckBox) findViewById(R.id.radioNeuroVo)).isChecked())
-            riscos.add(new Risco(contar, "NEUROLOGICAS,VO,1"));
-        else riscos.add(new Risco(contar, "NEUROLOGICAS,VO,0"));
-        contar++;
+            riscos.add(new Risco("NEUROLOGIA_VO", 1, "NAO_MODIFICAVEL"));
+        else riscos.add(new Risco("NEUROLOGIA_VO", 0, "NAO_MODIFICAVEL"));
+
         if (((CheckBox) findViewById(R.id.radioNeuroMae)).isChecked())
-            riscos.add(new Risco(contar, "NEUROLOGICAS,MAE,1"));
-        else riscos.add(new Risco(contar, "NEUROLOGICAS,MAE,0"));
-        contar++;
+            riscos.add(new Risco("NEUROLOGIA_MAE", 1, "NAO_MODIFICAVEL"));
+        else riscos.add(new Risco("NEUROLOGIA_MAE", 0, "NAO_MODIFICAVEL"));
+
         if (((CheckBox) findViewById(R.id.radioNeuroPai)).isChecked())
-            riscos.add(new Risco(contar, "NEUROLOGICAS,PAI,1"));
-        else riscos.add(new Risco(contar, "NEUROLOGICAS,PAI,0"));
-        contar++;
+            riscos.add(new Risco("NEUROLOGIA_PAI", 1, "NAO_MODIFICAVEL"));
+        else riscos.add(new Risco("NEUROLOGIA_PAI", 0, "NAO_MODIFICAVEL"));
+
         if (((CheckBox) findViewById(R.id.radioNeuroIrma)).isChecked())
-            riscos.add(new Risco(contar, "NEUROLOGICAS,IRMA,1"));
-        else riscos.add(new Risco(contar, "NEUROLOGICAS,IRMA,0"));
-        contar++;
+            riscos.add(new Risco("NEUROLOGIA_IRMA", 1, "NAO_MODIFICAVEL"));
+        else riscos.add(new Risco("NEUROLOGIA_IRMA", 0, "NAO_MODIFICAVEL"));
+
         if (((CheckBox) findViewById(R.id.radioNeuroIrmao)).isChecked())
-            riscos.add(new Risco(contar, "NEUROLOGICAS,IRMAO,1"));
-        else riscos.add(new Risco(contar, "NEUROLOGICAS,IRMAO,0"));
-        contar++;
+            riscos.add(new Risco("NEUROLOGIA_IRMAO", 1, "NAO_MODIFICAVEL"));
+        else riscos.add(new Risco("NEUROLOGIA_IRMAO", 0, "NAO_MODIFICAVEL"));
+
 
         //renal
 
         if (((CheckBox) findViewById(R.id.radioRenalAvo)).isChecked())
-            riscos.add(new Risco(contar, "RENAL,AVO,1"));
-        else riscos.add(new Risco(contar, "RENAL,AVO,0"));
-        contar++;
+            riscos.add(new Risco("RENAL_AVO", 1, "NAO_MODIFICAVEL"));
+        else riscos.add(new Risco("RENAL_AVO", 0, "NAO_MODIFICAVEL"));
+
         if (((CheckBox) findViewById(R.id.radioRenalVo)).isChecked())
-            riscos.add(new Risco(contar, "RENAL,VO,1"));
-        else riscos.add(new Risco(contar, "RENAL,VO,0"));
-        contar++;
+            riscos.add(new Risco("RENAL_VO", 1, "NAO_MODIFICAVEL"));
+        else riscos.add(new Risco("RENAL_VO", 0, "NAO_MODIFICAVEL"));
+
         if (((CheckBox) findViewById(R.id.radioRenalMae)).isChecked())
-            riscos.add(new Risco(contar, "RENAL,MAE,1"));
-        else riscos.add(new Risco(contar, "RENAL,MAE,0"));
-        contar++;
+            riscos.add(new Risco("RENAL_MAE", 1, "NAO_MODIFICAVEL"));
+        else riscos.add(new Risco("RENAL_MAE", 0, "NAO_MODIFICAVEL"));
+
         if (((CheckBox) findViewById(R.id.radioRenalPai)).isChecked())
-            riscos.add(new Risco(contar, "RENAL,PAI,1"));
-        else riscos.add(new Risco(contar, "RENAL,PAI,0"));
-        contar++;
+            riscos.add(new Risco("RENAL_PAI", 1, "NAO_MODIFICAVEL"));
+        else riscos.add(new Risco("RENAL_PAI", 0, "NAO_MODIFICAVEL"));
+
         if (((CheckBox) findViewById(R.id.radioNRenalIrma)).isChecked())
-            riscos.add(new Risco(contar, "RENAL,IRMA,1"));
-        else riscos.add(new Risco(contar, "RENAL,IRMA,0"));
-        contar++;
+            riscos.add(new Risco("RENAL_IRMA", 1, "NAO_MODIFICAVEL"));
+        else riscos.add(new Risco("RENAL_IRMA", 0, "NAO_MODIFICAVEL"));
+
         if (((CheckBox) findViewById(R.id.radioRenalrmao)).isChecked())
-            riscos.add(new Risco(contar, "RENAL,IRMAO,1"));
-        else riscos.add(new Risco(contar, "RENAL,IRMAO,0"));
-        contar++;
+            riscos.add(new Risco("RENAL_IRMAO", 1, "NAO_MODIFICAVEL"));
+        else riscos.add(new Risco("RENAL_IRMAO", 0, "NAO_MODIFICAVEL"));
 
 
         //dst
 
         if (((CheckBox) findViewById(R.id.radioDSTAvo)).isChecked())
-            riscos.add(new Risco(contar, "DST,AVO,1"));
-        else riscos.add(new Risco(contar, "DST,AVO,0"));
-        contar++;
+            riscos.add(new Risco("DST_AVO", 1, "NAO_MODIFICAVEL"));
+        else riscos.add(new Risco("DST_AVO", 0, "NAO_MODIFICAVEL"));
+
         if (((CheckBox) findViewById(R.id.radioDSTVo)).isChecked())
-            riscos.add(new Risco(contar, "DST,VO,1"));
-        else riscos.add(new Risco(contar, "DST,VO,0"));
-        contar++;
+            riscos.add(new Risco("DST_VO", 1, "NAO_MODIFICAVEL"));
+        else riscos.add(new Risco("DST_VO", 0, "NAO_MODIFICAVEL"));
+
         if (((CheckBox) findViewById(R.id.radioDSTMae)).isChecked())
-            riscos.add(new Risco(contar, "DST,MAE,1"));
-        else riscos.add(new Risco(contar, "DST,MAE,0"));
-        contar++;
+            riscos.add(new Risco("DST_MAE", 1, "NAO_MODIFICAVEL"));
+        else riscos.add(new Risco("DST_MAE", 0, "NAO_MODIFICAVEL"));
+
         if (((CheckBox) findViewById(R.id.radioDSTPai)).isChecked())
-            riscos.add(new Risco(contar, "DST,PAI,1"));
-        else riscos.add(new Risco(contar, "DST,PAI,0"));
-        contar++;
+            riscos.add(new Risco("DST_PAI", 1, "NAO_MODIFICAVEL"));
+        else riscos.add(new Risco("DST_PAI", 0, "NAO_MODIFICAVEL"));
+
         if (((CheckBox) findViewById(R.id.radioDSTIrma)).isChecked())
-            riscos.add(new Risco(contar, "DST,IRMA,1"));
-        else riscos.add(new Risco(contar, "DST,IRMA,0"));
-        contar++;
+            riscos.add(new Risco("DST_IRMA", 1, "NAO_MODIFICAVEL"));
+        else riscos.add(new Risco("DST_IRMA", 0, "NAO_MODIFICAVEL"));
+
         if (((CheckBox) findViewById(R.id.radioDSTrmao)).isChecked())
-            riscos.add(new Risco(contar, "DST,IRMAO,1"));
-        else riscos.add(new Risco(contar, "DST,IRMAO,0"));
-        contar++;
+            riscos.add(new Risco("DST_IRMAO", 1, "NAO_MODIFICAVEL"));
+        else riscos.add(new Risco("DST_IRMAO", 0, "NAO_MODIFICAVEL"));
+
 
         //obesidade
 
         if (((CheckBox) findViewById(R.id.radioObesidadeAvo)).isChecked())
-            riscos.add(new Risco(contar, "OBESIDADE,AVO,1"));
-        else riscos.add(new Risco(contar, "OBESIDADE,AVO,0"));
-        contar++;
+            riscos.add(new Risco("OBESIDADE_AVO", 1, "NAO_MODIFICAVEL"));
+        else riscos.add(new Risco("OBESIDADE_AVO", 0, "NAO_MODIFICAVEL"));
+
         if (((CheckBox) findViewById(R.id.radioObesidadeVo)).isChecked())
-            riscos.add(new Risco(contar, "OBESIDADE,VO,1"));
-        else riscos.add(new Risco(contar, "OBESIDADE,VO,0"));
-        contar++;
+            riscos.add(new Risco("OBESIDADE_VO", 1, "NAO_MODIFICAVEL"));
+        else riscos.add(new Risco("OBESIDADE_VO", 0, "NAO_MODIFICAVEL"));
+
         if (((CheckBox) findViewById(R.id.radioObesidadeMae)).isChecked())
-            riscos.add(new Risco(contar, "OBESIDADE,MAE,1"));
-        else riscos.add(new Risco(contar, "OBESIDADE,MAE,0"));
-        contar++;
+            riscos.add(new Risco("OBESIDADE_MAE", 1, "NAO_MODIFICAVEL"));
+        else riscos.add(new Risco("OBESIDADE_MAE", 0, "NAO_MODIFICAVEL"));
+
         if (((CheckBox) findViewById(R.id.radioObesidadePai)).isChecked())
-            riscos.add(new Risco(contar, "OBESIDADE,PAI,1"));
-        else riscos.add(new Risco(contar, "OBESIDADE,PAI,0"));
-        contar++;
+            riscos.add(new Risco("OBESIDADE_PAI", 1, "NAO_MODIFICAVEL"));
+        else riscos.add(new Risco("OBESIDADE_PAI", 0, "NAO_MODIFICAVEL"));
+
         if (((CheckBox) findViewById(R.id.radioObesidadeIrma)).isChecked())
-            riscos.add(new Risco(contar, "OBESIDADE,IRMA,1"));
-        else riscos.add(new Risco(contar, "OBESIDADE,IRMA,0"));
-        contar++;
+            riscos.add(new Risco("OBESIDADE_IRMA", 1, "NAO_MODIFICAVEL"));
+        else riscos.add(new Risco("OBESIDADE_IRMA", 0, "NAO_MODIFICAVEL"));
+
         if (((CheckBox) findViewById(R.id.radioObesidadermao)).isChecked())
-            riscos.add(new Risco(contar, "OBESIDADE,IRMAO,1"));
-        else riscos.add(new Risco(contar, "OBESIDADE,IRMAO,0"));
-        contar++;
-        Intent intent = new Intent(this, Principal.class);
-        startActivity(intent);
+            riscos.add(new Risco("OBESIDADE_IRMAO", 1, "NAO_MODIFICAVEL"));
+        else riscos.add(new Risco("OBESIDADE_IRMAO", 0, "NAO_MODIFICAVEL"));
+        AdicionarRiscos ar = new AdicionarRiscos();
+        ar.execute();
+    }
+
+        private  class AdicionarRiscos extends AsyncTask<String, Void, Integer> {
+            @Override
+            protected void onPreExecute() {
+                load = ProgressDialog.show(Formulario_segundo.this, "Por favor Aguarde ...",
+                        "Salvando dados no servidor ...");
+            }
+
+            @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+            @Override
+            protected Integer doInBackground(String... params) {
+                int retorno=0;
+                try {
+                 retorno =Auxiliar.adicionarRiscos();
+
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+                return retorno;
+            }
+
+            @Override
+            protected void onPostExecute(Integer retornoHTTP) {
+
+                load.dismiss();
+                if(retornoHTTP==201){
+                    Toast toast = Toast.makeText(Formulario_segundo.this, "Dados salvos com sucesso!!",Toast.LENGTH_LONG);
+                    toast.show();
+                    Intent intent = new Intent(Formulario_segundo.this, Principal.class);
+                    startActivity(intent);
+                }
+                else{
+                    Toast toast = Toast.makeText(Formulario_segundo.this, "Não foi possivel salvar os dados, tente mais tarde. \n Erro: "+retornoHTTP,Toast.LENGTH_LONG);
+                    toast.show();
+                }
+
+            }
+        }
+
 
     }
-}
+

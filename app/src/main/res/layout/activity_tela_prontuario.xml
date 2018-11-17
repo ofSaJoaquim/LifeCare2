@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".TelaProntuario">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_prontuario"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@color/colorPrimary"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+
+        android:visibility="visible"
+
+        app:logo="@drawable/lifecare"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:title="">
+
+    </android.support.v7.widget.Toolbar>
+
+    <ScrollView
+        android:id="@+id/scrollProntuario"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Paciente:"
+                android:textColor="@color/colorPrimaryDark" />
+
+            <TextView
+                android:id="@+id/textPaciente"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="NOME"
+                android:layout_marginLeft="10dp"
+                android:textSize="24sp" />
+
+            <View
+                android:id="@+id/divider5"
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:background="@color/branco" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/labelRisco"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Risco:" />
+
+                    <TextView
+                        android:id="@+id/textRisco"
+                        android:layout_width="242dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="300"
+                        android:textSize="24sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+
+
+                    >
+
+                    <TextView
+                        android:id="@+id/labelIdade"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Idade:" />
+
+                    <TextView
+                        android:id="@+id/textIdade"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="30"
+                        android:textSize="24sp" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+            <View
+                android:id="@+id/divider7"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:background="@color/branco" />
+
+            <TextView
+                android:id="@+id/labelMedico"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Medico:" />
+
+            <TextView
+                android:id="@+id/textMedico"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="DR"
+                android:layout_marginLeft="10dp"
+                android:textSize="24sp" />
+
+            <View
+                android:id="@+id/divider4"
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:background="@color/branco" />
+
+            <TextView
+                android:id="@+id/labelEspecialidade"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Especialidade:" />
+
+            <TextView
+                android:id="@+id/textEspecialidade"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="Gastro"
+                android:textSize="24sp" />
+
+            <View
+                android:id="@+id/divider8"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:background="@color/branco" />
+
+            <TextView
+                android:id="@+id/labelMeusRemedios"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:text="Remedios"
+                android:textSize="24sp" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recicleRemediosProntuario"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp">
+
+
+            </android.support.v7.widget.RecyclerView>
+
+            <View
+                android:id="@+id/divider6"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:background="@color/branco" />
+
+            <TextView
+                android:id="@+id/labelRiscos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Riscos" /><![CDATA[
+
+
+                android:background="@color/branco" />
+            ]]>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/reciclerRiscosProntuario"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+            </android.support.v7.widget.RecyclerView>
+
+            <View
+                android:id="@+id/divider9"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"/>
+            <TextView
+
+                android:id="@+id/labelLinha"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Linha de Cuidados" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recicleLinhaProntuario"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

@@ -15,6 +15,7 @@ import java.util.Collection;
 import java.util.List;
 
 public class Auxiliar {
+    public static String falhaServidorIndisponivel="Servidor indisponível, verifique sua Internet e tente mais tarde!";
     public static Paciente paciente;
     public static Cidade cidades[];
     public static Estado estados[];
@@ -24,8 +25,8 @@ public class Auxiliar {
     public static Chat chat;
     public static List<Medicamento>meusMedicamentos;
 
-    public  static  String  servidor="https://lifecare-unisul.herokuapp.com/";
-
+    //public  static  String  servidor="https://lifecare-unisul.herokuapp.com/";
+    public static  String servidor ="http://192.168.0.2:8082/";
 
     public static void carregarEstados() {
         Gson gson = new Gson();
@@ -73,9 +74,10 @@ public class Auxiliar {
                Paciente pacientes[]= gson.fromJson(WebService.listarEntidades(parametros.toString()), Paciente[].class);
               // if(WebService.httpStatus==200) {
                    for (Paciente p : pacientes) {
+                       Log.i("Paciente",p.getNome());
                        if (p.getEmail().equals(email)) {
                            Auxiliar.paciente = p;
-                           return true;
+                           if (carregarProntuario())return true;
                        }
                    }
               // }
@@ -92,7 +94,7 @@ public class Auxiliar {
 
     public static int postarPaciente(Paciente paciente){
         int retorno =WebService.postar("pacientes","nome",paciente.getNome(),"idade",paciente.getIdade().toString(),"email",paciente.getEmail(),"senha",paciente.getSenha(),
-                "cidadeId",paciente.getCidade().getId().toString());
+                "cidadeId",paciente.getCidade().getId().toString(),"sexo",paciente.getSexo());
         return retorno;
     }
 
@@ -168,4 +170,57 @@ public static boolean carregarMeusRemedios(){
     meusMedicamentos.add(new Medicamento(3,20,"Doril","Resolve tudo",true));
     return  true;
 }
+
+public static boolean carregarProntuario(){
+        boolean retorno =false;
+        try {
+            Gson gson = new Gson();
+            StringBuilder entidade = new StringBuilder();
+            entidade.append("prontuarios");
+            entidade.append("/");
+            entidade.append("pacientes");
+            entidade.append("/");
+            entidade.append(paciente.getId());
+            prontuario=gson.fromJson(WebService.pegarEntidadeSimples(entidade.toString()),Prontuario.class);
+            Log.i("teste pront",prontuario.getPaciente().getId().toString());
+            retorno = true;
+        }
+
+        catch (Exception e){
+            Log.i("CProntuario",e.getMessage());
+        }
+        finally {
+            return retorno;
+        }
+
+}
+
+    public static  int adicionarRiscos(){
+        int retorno=0;
+        try {
+            for(Risco risco: prontuario.getRiscos()) {
+                StringBuilder entidade = new StringBuilder();
+                entidade.append("prontuarios/pacientes/");
+                entidade.append(paciente.getId());
+                entidade.append("/riscos");
+                HttpRetorno httpRetorno = WebService.postar(entidade.toString(), false, false, "nome", risco.getNome(),"intensidade",risco.getIntensidade().toString(),"tipo",risco.getTipo());
+                retorno =WebService.httpStatus;
+                if(WebService.httpStatus!=201){
+
+                    break;
+            }
+
+
+
+            }
+
+        }catch (Exception e){
+            Log.i("Aux Enviar",e.getMessage());
+
+
+        }
+        finally {
+            return retorno;
+        }
+    }
 }

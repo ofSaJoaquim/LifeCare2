@@ -56,8 +56,9 @@ public class ListaMeusRemedios extends AppCompatActivity {
         @Override
         protected Integer doInBackground(String... params) {
             try {
-                Auxiliar.carregarMeusRemedios();
-                Log.i("tamanho",Auxiliar.meusMedicamentos.size()+"");
+               // Auxiliar.carregarMeusRemedios();
+               // Log.i("tamanho",Auxiliar.meusMedicamentos.size()+"");
+                Auxiliar.meusMedicamentos=Auxiliar.prontuario.getMedicamentos();
 
             } catch (Exception e) {
                 e.printStackTrace();

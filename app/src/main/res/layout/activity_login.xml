@@ -7,78 +7,106 @@
     tools:context=".Tela_login"
     android:orientation="vertical"
     tools:layout_editor_absoluteY="25dp">
-
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="match_parent"
-        android:layout_height="256dp"
-        android:scaleType="centerCrop"
-        app:srcCompat="@drawable/cabecalho_login" />
-
-
-
-    <EditText
-        android:id="@+id/txt_email"
-        android:layout_width="272dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginBottom="20dp"
-        android:layout_marginTop="75dp"
-        android:ems="10"
-        android:hint="@string/email"
-        android:inputType="textEmailAddress"
-        android:textAppearance="@style/TextAppearance.AppCompat" />
-
-
-    <EditText
-        android:id="@+id/txt_senha"
-        android:layout_width="272dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:ems="10"
-        android:hint="@string/senha"
-        android:inputType="textEmailAddress"
-        android:textAppearance="@style/TextAppearance.AppCompat" />
-
-
-    <TextView
-        android:id="@+id/txt_esqueceu_senha"
+    <ScrollView
+        android:id="@+id/scrollLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="@string/esqueceu_senha"
-        android:textColor="#000000" />
 
-    <Button
-        android:id="@+id/btn_login"
-        android:layout_width="186dp"
-        android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
-        android:layout_marginTop="45dp"
-        android:layout_gravity="center"
-        android:text="@string/login"
-        android:textColor="#fff"
-        android:textStyle="bold" />
+        >
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <Button
-            android:id="@+id/btn_cadastro"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/botao_cadastro"
-            android:text="@string/cadastro"
-            android:layout_marginTop="30dp"
-            android:textColor="@color/background"
-            android:textStyle="bold"
-            android:layout_alignParentBottom="true"/>
+            android:layout_marginTop="@dimen/espaco_entre_componentes_agrupados"
+            android:orientation="vertical">
 
-    </RelativeLayout>
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="match_parent"
+                android:layout_height="256dp"
+                android:scaleType="centerCrop"
+                app:srcCompat="@drawable/cabecalho_login" />
 
 
+            <EditText
+                android:id="@+id/txt_email"
+                android:layout_width="272dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="20dp"
+                android:layout_marginTop="75dp"
+                android:ems="10"
+                android:hint="@string/email"
+                android:inputType="textEmailAddress"
+                android:textAppearance="@style/TextAppearance.AppCompat" />
 
 
+            <EditText
+                android:id="@+id/txt_senha"
+                android:layout_width="272dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:ems="10"
+                android:hint="@string/senha"
+                android:inputType="textEmailAddress"
+                android:textAppearance="@style/TextAppearance.AppCompat" />
+
+
+            <TextView
+                android:id="@+id/txt_esqueceu_senha"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/esqueceu_senha"
+                android:textColor="#000000" />
+
+            <Button
+                android:id="@+id/btn_login"
+                android:layout_width="186dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="45dp"
+                android:background="@color/colorPrimary"
+                android:text="@string/login"
+                android:textColor="#fff"
+                android:textStyle="bold" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <Button
+                    android:id="@+id/btn_cadastro"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginTop="30dp"
+                    android:background="@color/botao_cadastro"
+                    android:text="@string/cadastro"
+                    android:textColor="@color/background"
+                    android:textStyle="bold" />
+
+            </RelativeLayout>
+
+            <EditText
+                android:id="@+id/endServer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="10dp"
+                android:maxLines="1"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/confirma_servidor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:layout_marginTop="5dp"
+                android:background="@color/colorPrimaryDark"
+                android:text="Confirma"
+                android:visibility="gone" />
+        </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>

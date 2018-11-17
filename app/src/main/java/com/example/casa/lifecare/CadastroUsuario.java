@@ -27,6 +27,7 @@ import com.example.casa.lifecare.entidades.Estado;
 import com.example.casa.lifecare.entidades.Paciente;
 import com.google.gson.Gson;
 
+import java.net.ConnectException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -138,6 +139,9 @@ public class CadastroUsuario extends AppCompatActivity {
                     cidade.setUf(estado);
 
                     paciente.setCidade(cidade);
+                    String sexo="F";
+                    if(masc.isChecked())sexo="M";
+                    paciente.setSexo(sexo);
                     cadastrar();
 
 
@@ -192,6 +196,10 @@ private boolean validarEmail(String email){
         Intent intent = new Intent(this, Formulario_Primeiro.class);
         startActivity(intent);
     }
+    private void voltarForm(){
+        Intent intent = new Intent(this, Tela_login.class);
+        startActivity(intent);
+    }
     private void cadastrar(){
 
 
@@ -223,7 +231,9 @@ private boolean validarEmail(String email){
                 //int teste = WebService.postar(parametros);
                int retorno= Auxiliar.postarPaciente(paciente);
                if(retorno == 201)
-                return  retorno;
+                   Auxiliar.logar(paciente.getEmail(),paciente.getSenha());
+
+                return  201;
 
             } catch (Exception e) {
                 e.printStackTrace();
@@ -237,18 +247,24 @@ private boolean validarEmail(String email){
             String menssagem="";
             if (retornoHTTP == 201) {
 
-
+                load.dismiss();
                 menssagem="Cadastrado com sucesso Nome: "+Auxiliar.paciente.getNome()+"--ID: "+Auxiliar.paciente.getId();
+                Toast toast = Toast.makeText(CadastroUsuario.this, menssagem, Toast.LENGTH_SHORT);
+                toast.show();
+
                 proximoForm();
                 }
              else {
+                load.dismiss();
+                menssagem=Auxiliar.falhaServidorIndisponivel;
+                Toast toast = Toast.makeText(CadastroUsuario.this, menssagem, Toast.LENGTH_SHORT);
+                toast.show();
 
-                menssagem="Não foi possivel conectar ao sistema, verifique sua Internet";
+                voltarForm();
+
             }
 
-            Toast toast = Toast.makeText(CadastroUsuario.this, menssagem, Toast.LENGTH_SHORT);
-            toast.show();
-            load.dismiss();
+
 
         }
     }
@@ -266,27 +282,42 @@ private boolean validarEmail(String email){
             try {
                 Auxiliar.carregarEstados();
 
+
             } catch (Exception e) {
                 e.printStackTrace();
             }
+            Log.i("Estados",WebService.httpStatus+"");
 
-            return 0;
+            return WebService.httpStatus;
         }
 
         @Override
         protected void onPostExecute(Integer retornoHTTP) {
-            List<String> estadosNome = new ArrayList<String>();
+            String menssagem="";
+            if(retornoHTTP==201) {
+                List<String> estadosNome = new ArrayList<String>();
 
-            for(Estado estado: Auxiliar.estados){
-                estadosNome.add(estado.getNome());
+                for (Estado estado : Auxiliar.estados) {
+                    estadosNome.add(estado.getNome());
+                }
+                Log.i("teste20", estadosNome.toString());
+                ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(CadastroUsuario.this, android.R.layout.simple_spinner_dropdown_item, estadosNome);
+                ArrayAdapter<String> spinnerArrayAdapter = arrayAdapter;
+                spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                SpEstados.setAdapter(spinnerArrayAdapter);
+                load.dismiss();
             }
-            Log.i("teste20",estadosNome.toString());
-            ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(CadastroUsuario.this,android.R.layout.simple_spinner_dropdown_item, estadosNome);
-            ArrayAdapter<String> spinnerArrayAdapter = arrayAdapter;
-            spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-            SpEstados.setAdapter(spinnerArrayAdapter);
+            if(retornoHTTP==-1){
+                load.dismiss();
+                menssagem=Auxiliar.falhaServidorIndisponivel;
+                Toast toast = Toast.makeText(CadastroUsuario.this, menssagem, Toast.LENGTH_SHORT);
+                toast.show();
 
-            load.dismiss();
+                voltarForm();
+            }
+
+
+
 
         }
     }
@@ -308,24 +339,40 @@ private boolean validarEmail(String email){
             } catch (Exception e) {
                 e.printStackTrace();
             }
-
-            return 0;
+            Log.i("Cidade",WebService.httpStatus+"");
+            return WebService.httpStatus;
         }
 
         @Override
         protected void onPostExecute(Integer retornoHTTP) {
-            List<String> nomes = new ArrayList<String>();
+            String menssagem="";
+            if(retornoHTTP==201) {
+                List<String> nomes = new ArrayList<String>();
 
-            for(Cidade cidade: Auxiliar.cidades){
-                nomes.add(cidade.getNome());
+                for (Cidade cidade : Auxiliar.cidades) {
+                    nomes.add(cidade.getNome());
+                }
+                Log.i("teste30", nomes.toString());
+                ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(CadastroUsuario.this, android.R.layout.simple_spinner_dropdown_item, nomes);
+                ArrayAdapter<String> spinnerArrayAdapter = arrayAdapter;
+                spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                SpCidades.setAdapter(spinnerArrayAdapter);
+                cidade = Auxiliar.cidades[0];
+                load.dismiss();
             }
-            Log.i("teste30",nomes.toString());
-            ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(CadastroUsuario.this,android.R.layout.simple_spinner_dropdown_item, nomes);
-            ArrayAdapter<String> spinnerArrayAdapter = arrayAdapter;
-            spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-            SpCidades.setAdapter(spinnerArrayAdapter);
-            cidade=Auxiliar.cidades[0];
-            load.dismiss();
+            if(retornoHTTP==-1){
+                load.dismiss();
+                menssagem=Auxiliar.falhaServidorIndisponivel;
+                Toast toast = Toast.makeText(CadastroUsuario.this, menssagem, Toast.LENGTH_SHORT);
+                toast.show();
+
+                voltarForm();
+            }
+
+
+
+
+
 
         }
     }

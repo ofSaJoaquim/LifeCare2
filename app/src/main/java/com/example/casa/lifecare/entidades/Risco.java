@@ -2,9 +2,34 @@ package com.example.casa.lifecare.entidades;
 
 public class Risco {
     private Integer id;
+    private String nome;
+    private Integer intensidade;
     private String tipo;
 
     public Risco() {
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public Integer getIntensidade() {
+        return intensidade;
+    }
+
+    public void setIntensidade(Integer intensidade) {
+        this.intensidade = intensidade;
+    }
+
+    public Risco(String nome, Integer intensidade, String tipo) {
+
+        this.nome = nome;
+        this.intensidade = intensidade;
+        this.tipo = tipo;
     }
 
     public Integer getId() {
@@ -25,13 +50,4 @@ public class Risco {
 
 
 
-    public Risco(Integer id, String tipo) {
-        this.id = id;
-        this.tipo = tipo;
-
-
-
-
-
-    }
 }

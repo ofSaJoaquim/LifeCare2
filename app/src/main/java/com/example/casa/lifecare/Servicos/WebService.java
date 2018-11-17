@@ -12,12 +12,14 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
+import java.net.ConnectException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.concurrent.TimeoutException;
 
 public  class  WebService {
 
@@ -28,7 +30,7 @@ public  class  WebService {
         StringBuilder lista = new StringBuilder();
         try {
             Log.i("Webservice get","Entidade:  "+entidades);
-            URL url = new URL("https://lifecare-unisul.herokuapp.com/"+entidades);
+            URL url = new URL(Auxiliar.servidor+entidades);
     Log.i("URL",url.getHost());
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("GET");
@@ -45,7 +47,14 @@ public  class  WebService {
 
 
             }
-        } catch (MalformedURLException e) {
+            if (entidades.length()>0)httpStatus=201;
+            else httpStatus=405;
+        }catch (ConnectException e){
+            httpStatus=-1;
+            Log.i("Falha de conexão","timeout codigo: "+e.getMessage());
+
+
+        }catch (MalformedURLException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
@@ -61,7 +70,7 @@ public  class  WebService {
         StringBuilder entidade = new StringBuilder();
         try {
             Log.i("Webservice get","Entidade:  "+entidades+"...Paramentros:"+parametros);
-            URL url = new URL("https://lifecare-unisul.herokuapp.com/"+entidades+"/"+parametros);
+            URL url = new URL(Auxiliar.servidor+entidades+"/"+parametros);
 
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("GET");
@@ -78,7 +87,13 @@ public  class  WebService {
 
 
             }
-        } catch (MalformedURLException e) {
+        }catch (ConnectException e){
+            httpStatus=-1;
+            Log.i("Falha de conexão","timeout codigo: "+e.getMessage());
+
+
+        }
+        catch (MalformedURLException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
@@ -92,7 +107,7 @@ public  class  WebService {
         StringBuilder entidade = new StringBuilder();
         try {
             Log.i("Webservice get","Entidade:  "+entidades);
-            URL url = new URL("https://lifecare-unisul.herokuapp.com/"+entidades);
+            URL url = new URL(Auxiliar.servidor+entidades);
 
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("GET");
@@ -109,7 +124,13 @@ public  class  WebService {
 
 
             }
-        } catch (MalformedURLException e) {
+        }catch (ConnectException e){
+            httpStatus=-1;
+            Log.i("Falha de conexão","timeout codigo: "+e.getMessage());
+
+
+        }
+        catch (MalformedURLException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
@@ -142,6 +163,7 @@ public  class  WebService {
                 enviar.append("\n");
             }
             enviar.append("}");
+
             Log.i("Json string:",entidade);
 
            /* enviar.append("{");
@@ -159,7 +181,7 @@ public  class  WebService {
 
 
             Log.i("enviar post",enviar.toString());
-            URL url = new URL("https://lifecare-unisul.herokuapp.com/"+entidade);
+            URL url = new URL(Auxiliar.servidor+entidade);
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setDoOutput(true);
             connection.setDoInput(true);
@@ -191,7 +213,13 @@ public  class  WebService {
 
 
 
-        } catch (Exception e) {
+        }catch (ConnectException e){
+            httpStatus=-1;
+            Log.i("Falha de conexão","timeout codigo: "+e.getMessage());
+
+
+        }
+        catch (Exception e) {
             e.printStackTrace();
         }
         finally {
@@ -222,6 +250,8 @@ public  class  WebService {
             }
             enviar.append("}");
             URL url = new URL(Auxiliar.servidor+entidade);
+            Log.i("entidade",entidade);
+            Log.i("URL",url.getHost().toString());
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setDoOutput(true);
             connection.setDoInput(true);
@@ -261,10 +291,15 @@ public  class  WebService {
 
 
 
-        } catch (Exception e) {
+        } catch (ConnectException e){
+            Log.i("Falha de conexão","timeout codigo: "+e.getMessage());
+           httpStatus=-1;
+        }
+        catch (Exception e) {
             e.printStackTrace();
         }
         finally {
+            Log.i("Retorno com",httpStatus+"");
             return retorno;
         }
     }
@@ -272,7 +307,7 @@ public  class  WebService {
         StringBuilder lista = new StringBuilder();
         try {
             Log.i("Webservice get","Entidade:  "+entidades);
-            URL url = new URL("https://lifecare-unisul.herokuapp.com/"+entidades);
+            URL url = new URL(Auxiliar.servidor+entidades);
             Log.i("URL",url.getHost());
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("GET");

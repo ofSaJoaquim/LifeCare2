@@ -32,39 +32,13 @@
         android:id="@+id/buttonAplicarRemedio"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginEnd="72dp"
-        android:layout_marginRight="72dp"
-        android:layout_marginTop="16dp"
-        android:background="@android:color/background_light"
-        app:layout_constrainedHeight="true"
-        app:layout_constraintEnd_toStartOf="@+id/buttonAlterarRemedio"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_pirulas" />
-
-    <ImageButton
-        android:id="@+id/buttonAlterarRemedio"
-        android:layout_width="50dp"
-
-        android:layout_height="50dp"
-
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="16dp"
-        android:background="@android:color/white"
+        android:background="@android:color/background_light"
+        app:layout_constrainedHeight="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_menu3" />
-
-    <ImageButton
-        android:id="@+id/buttonCancelarAlerta"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginEnd="68dp"
-        android:layout_marginRight="68dp"
-        android:layout_marginTop="16dp"
-        android:background="@android:color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_cancelar" />
+        app:srcCompat="@drawable/ic_pirulas" />
 
 </android.support.constraint.ConstraintLayout>

@@ -10,7 +10,16 @@ public class Paciente {
     private String email;
     private String senha;
     private Cidade cidade;
+    private Medico medico;
+    private String sexo;
 
+    public Medico getMedico() {
+        return medico;
+    }
+
+    public void setMedico(Medico medico) {
+        this.medico = medico;
+    }
 
     private Perfil perfil;
 
@@ -79,6 +88,13 @@ public class Paciente {
         this.senha = senha;
     }
 
+    public String getSexo() {
+        return sexo;
+    }
+
+    public void setSexo(String sexo) {
+        this.sexo = sexo;
+    }
 
     public Cidade getCidade() {
         return cidade;

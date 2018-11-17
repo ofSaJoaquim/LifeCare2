@@ -35,25 +35,22 @@ public class AdptadorMeusRemedios extends RecyclerView.Adapter {
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
-Medicamento remedio = meusMedicamentos.get(position);
-MeusRemediosHolder remediosHolder = (MeusRemediosHolder)holder;
+final Medicamento remedio = meusMedicamentos.get(position);
+final MeusRemediosHolder remediosHolder = (MeusRemediosHolder)holder;
 remediosHolder.remedio.setText(remedio.getNome());
-remediosHolder.proxima.setText(remedio.getQtDias().toString());
+
+remediosHolder.proxima.setText(remedio.horaDose());
+if(remedio.proximaDose()<=0)remediosHolder.aplicar.setVisibility(View.VISIBLE);
+else remediosHolder.aplicar.setVisibility(View.INVISIBLE);
         remediosHolder.aplicar.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                if(remedio.getUltimoUso()==0)remedio.iniciaTempo();
 
+                remediosHolder.aplicar.setVisibility(View.INVISIBLE);
+                remedio.aplicar();
             }
         });
-        remediosHolder.cancelar.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
 
-            }
-        });
-        remediosHolder.alterar.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-
-            }
-        });
 
     }
 

@@ -14,9 +14,12 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
+import com.example.casa.lifecare.Servicos.TesteService;
 import com.example.casa.lifecare.Servicos.WebScraping;
 import com.example.casa.lifecare.adptador.AdptadorNoticias;
+import com.example.casa.lifecare.entidades.Auxiliar;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,14 +43,26 @@ private ProgressDialog load;
                 proximaTela(new Intent(this,TelaChat.class));
                Log.i("chat",R.id.button_chat+"");
                 return true;
-            case R.id.button_prontuario:
 
-                return true;
             case R.id.button_remedio:
-                proximaTela(new Intent(this,ListaMeusRemedios.class));
-                Log.i("prontuario",R.id.button_chat+"");
-                return true;
+                if(Auxiliar.prontuario.getMedicamentos()==null){
+                    Toast.makeText(this, "Você não possue rémedios cadastrados",
+                            Toast.LENGTH_SHORT).show();
+                    return false;}
 
+                else if(Auxiliar.prontuario.getMedicamentos().size()>0){
+                proximaTela(new Intent(this,ListaMeusRemedios.class));
+                Log.i("Lista Remedio",R.id.button_chat+"");
+                return true;}
+                else{
+                    Toast.makeText(this, "Você não possue rémedios cadastrados",
+                            Toast.LENGTH_SHORT).show();
+                    return false;
+                }
+            case R.id.button_prontuario:
+                proximaTela(new Intent(this,TelaProntuario.class));
+                Log.i("Tela Pronuario",R.id.button_prontuario+"");
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -111,6 +126,8 @@ private ProgressDialog load;
 
            adptadorNoticias = new AdptadorNoticias(menssagens, Principal.this);
            recyclerView.setAdapter(adptadorNoticias);
+            TesteService ts= new TesteService();
+           // startService(new Intent(Principal.this,TesteService.class));
             load.dismiss();
         }
     }

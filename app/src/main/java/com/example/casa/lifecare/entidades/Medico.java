@@ -1,10 +1,20 @@
 package com.example.casa.lifecare.entidades;
 
+import java.util.List;
+
 public class Medico {
 
     private Integer id;
     private String nome;
+    private List<String>especialidades;
 
+    public List<String> getEspecialidades() {
+        return especialidades;
+    }
+
+    public void setEspecialidades(List<String> especialidades) {
+        this.especialidades = especialidades;
+    }
 
     public Integer getId() {
         return id;

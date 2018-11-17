@@ -11,14 +11,12 @@ public class MeusRemediosHolder extends RecyclerView.ViewHolder {
     final TextView remedio;
     final TextView proxima;
     final ImageButton aplicar;
-    final ImageButton cancelar;
-    final ImageButton alterar;
+
     public MeusRemediosHolder(View itemView) {
         super(itemView);
         remedio = itemView.findViewById(R.id.textViewRemedio);
         proxima = itemView.findViewById(R.id.textViewProxima);
         aplicar = itemView.findViewById(R.id.buttonAplicarRemedio);
-        cancelar = itemView.findViewById(R.id.buttonCancelarAlerta);
-        alterar = itemView.findViewById(R.id.buttonAlterarRemedio);
+
     }
 }

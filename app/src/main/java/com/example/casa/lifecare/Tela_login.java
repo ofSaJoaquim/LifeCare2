@@ -44,6 +44,7 @@ public class Tela_login extends AppCompatActivity {
     private boolean estaOnline = true;
     private boolean estaLogado = false;
     private ProgressDialog load;
+    private int toques=0;
 
 
     @Override
@@ -56,7 +57,41 @@ public class Tela_login extends AppCompatActivity {
         final EditText senha = (EditText) findViewById(R.id.txt_senha);
         final Button proximo = (Button) findViewById(R.id.btn_login);
         final Button cadastro = (Button) findViewById(R.id.btn_cadastro);
+        final ImageView imagem = findViewById(R.id.imageView2);
+        final EditText servidor = findViewById(R.id.endServer);
+        final Button confirmaServidor = findViewById(R.id.confirma_servidor);
 
+
+        imagem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+               if(toques<3){
+                   toques++;
+                }
+                else{
+                   toques=0;
+                   servidor.setVisibility(View.VISIBLE);
+                   confirmaServidor.setVisibility(View.VISIBLE);
+                   servidor.setFocusable(true);
+                   servidor.requestFocus();
+               }
+            }
+
+
+        });
+        confirmaServidor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(servidor.getText().toString().equals(""))Auxiliar.servidor="https://lifecare-unisul.herokuapp.com/";
+                else Auxiliar.servidor=servidor.getText().toString()+"/";
+
+                servidor.setVisibility(View.GONE);
+                confirmaServidor.setVisibility(View.GONE);
+            }
+
+
+        });
 
         proximo.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -174,6 +209,8 @@ public class Tela_login extends AppCompatActivity {
             Toast toast = Toast.makeText(Tela_login.this, menssagem,Toast.LENGTH_LONG);
             toast.show();
             if(estaLogado)proximaTela(new Intent(Tela_login.this,Principal.class));
+            //if(estaLogado)proximaTela(new Intent(Tela_login.this,TelaProntuario.class));
+           // if(estaLogado)proximaTela(new Intent(Tela_login.this,ListaMeusRemedios.class));
         }
     }
 
