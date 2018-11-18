@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:scrollbarAlwaysDrawHorizontalTrack="false"
+    tools:context=".FormularioDiario"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/boasVindasText1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Como está se sentido hoje?"
+        android:textColor="@color/corTitulo1"
+        android:textStyle="bold"
+        android:textSize="20sp"/>
+    <TextView
+        android:id="@+id/boasVindasText2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Responde essas perguntas rapidinho para sabermos como vocês está hoje"
+        android:textColor="@color/corTitulo2"
+        android:textStyle="bold" />
+
+    <ScrollView
+        android:id="@+id/scrollDiario"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+android:layout_marginTop="10dp"
+        >
+
+        <LinearLayout
+            android:id="@+id/layoutprincipal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/inicio_margem_centralizados"
+            android:layout_marginStart="@dimen/inicio_margem_centralizados"
+            android:layout_marginTop="@dimen/espaco_entre_componentes_primarios"
+            android:orientation="vertical"
+
+
+            >
+
+            <CheckBox
+                android:id="@+id/checkDDorNoPeito"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Dor no peito" />
+
+
+
+            <CheckBox
+                android:id="@+id/checkDEnjoos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Sente enjoos freqêntes?" />
+
+            <CheckBox
+                android:id="@+id/checkDAr"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Falta de Ar" />
+
+            <CheckBox
+                android:id="@+id/checkDCansaco"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Cansaço" />
+
+            <CheckBox
+                android:id="@+id/checkDTontutras"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tonturas" />
+
+            <CheckBox
+                android:id="@+id/checkDSuorFrio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Suor Frio" />
+
+            <CheckBox
+                android:id="@+id/checkDParelisia"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Paralisia de um lado do corpo" />
+
+            <CheckBox
+                android:id="@+id/checkDVisaoDupla"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Visão dupla ou embassada" />
+
+            <CheckBox
+                android:id="@+id/checkDPerdaVisao"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Perda temporária de visão de um olho ou ambos" />
+            <CheckBox
+                android:id="@+id/checkDFala"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Perda capacidade de falar ou alguma dificuldade na fala" />
+            <CheckBox
+                android:id="@+id/checkDConfusao"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Dificuldade de entender ou falar o própio idioma ou outra tipo de confusão mental." />
+            <CheckBox
+                android:id="@+id/checkDDoresCabeça"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Dor de cabeça constante." />
+            <CheckBox
+                android:id="@+id/checkDFaltaApetite"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Falta de apetite" />
+            <CheckBox
+                android:id="@+id/checkDDesanimo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Desânimo ou falta de paciência" />
+            <CheckBox
+                android:id="@+id/checkDInsonia"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Insônia ou falta de sono a noite." />
+            <Button
+                android:id="@+id/botaoFormularioDiario"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="25dp"
+                android:layout_marginEnd="@dimen/inicio_margem_centralizados"
+                android:layout_marginStart="@dimen/inicio_margem_centralizados"
+                android:layout_marginTop="@dimen/espaco_entre_componentes_primarios"
+                android:background="@color/colorPrimary"
+                android:text="@string/TERMINAR"
+
+                android:textColor="@color/branco"/>
+        </LinearLayout>
+
+    </ScrollView>
+</LinearLayout>

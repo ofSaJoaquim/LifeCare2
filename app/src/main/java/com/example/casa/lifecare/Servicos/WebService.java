@@ -118,11 +118,16 @@ public  class  WebService {
             connection.connect();
             httpStatus=connection.getResponseCode();
             Log.i("Resposta do Servidor:",httpStatus+"");
-            Scanner scanner = new Scanner(url.openStream());
-            while (scanner.hasNext()) {
-                entidade.append(scanner.next());
+            InputStream is = url.openStream();
+            InputStreamReader isr = new InputStreamReader(is);
+            BufferedReader br = new BufferedReader(isr);
+            String linha = br.readLine();
+            while (linha!=null) {
+                // lista.append(scanner.next());
 
-
+                Log.i("linha",linha);
+                entidade.append(linha);
+                linha=br.readLine();
             }
         }catch (ConnectException e){
             httpStatus=-1;

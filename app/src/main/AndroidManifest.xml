@@ -90,15 +90,18 @@
             android:theme="@style/AppTheme" />
         <activity android:name=".ItemTimeLine" />
         <activity android:name=".ItemRemedio" />
-        <activity android:name=".ListaMeusRemedios"
+        <activity
+            android:name=".ListaMeusRemedios"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
         <activity android:name=".AdicionarRemedio" />
-        <activity android:name=".TelaProntuario"
+        <activity
+            android:name=".TelaProntuario"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
         <activity android:name=".ItemRisco" />
-        <activity android:name=".ItemLinhaDeCuidado"></activity>
+        <activity android:name=".ItemLinhaDeCuidado" />
+        <activity android:name=".FormularioDiario"></activity>
     </application>
 
 </manifest>

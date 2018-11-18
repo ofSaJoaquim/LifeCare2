@@ -168,6 +168,7 @@ public class Medicamento {
             intervaloUso = (long) ((24 / qtDias) * 1000 * 60 * 60);
             StringBuilder sb = new StringBuilder();
             sb.append(intervaloUso / (1000 * 60 * 60));
+            aplicar();
             Log.i("Tempo",nome+";;;"+ sb.toString());
         }
     }

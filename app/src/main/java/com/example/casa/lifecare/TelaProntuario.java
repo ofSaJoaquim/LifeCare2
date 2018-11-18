@@ -10,6 +10,7 @@ import android.support.v7.widget.RecyclerView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.example.casa.lifecare.Servicos.TesteService;
 import com.example.casa.lifecare.adptador.AdaptadorLinhaCuidados;
 import com.example.casa.lifecare.adptador.AdaptadorRiscos;
 import com.example.casa.lifecare.adptador.AdptadorMeusRemedios;
@@ -53,11 +54,13 @@ public class TelaProntuario extends AppCompatActivity {
 
         }
         protected void onPostExecute(Integer retorno) {
-            if(Auxiliar.prontuario.getMedicamentos().size()>0){
+
+            if(Auxiliar.prontuario.getMedicamentos().size()>=0){
+             if(TesteService.medicamentos.size()!=Auxiliar.prontuario.getMedicamentos().size())  TesteService.medicamentos=Auxiliar.prontuario.getMedicamentos();
             recyclerView = (RecyclerView) findViewById(R.id.recicleRemediosProntuario);
             LinearLayoutManager mLayoutManager = new LinearLayoutManager(TelaProntuario.this, LinearLayout.VERTICAL, false);
             recyclerView.setLayoutManager(mLayoutManager);
-            adptadorMeusRemedios = new AdptadorMeusRemedios(Auxiliar.prontuario.getMedicamentos(), TelaProntuario.this);
+            adptadorMeusRemedios = new AdptadorMeusRemedios(TesteService.medicamentos, TelaProntuario.this);
             recyclerView.setAdapter(adptadorMeusRemedios);}
 
             if(Auxiliar.prontuario.getLinhasDeCuidado().size()>0){

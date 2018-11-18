@@ -22,6 +22,11 @@
         android:title=""
         app:showAsAction="always" />
 
-
+    <item
+        android:id="@+id/button_sair"
+        android:icon="@drawable/ic_sair"
+        android:orderInCategory="100"
+        android:title=""
+        app:showAsAction="always" />
 
 </menu>

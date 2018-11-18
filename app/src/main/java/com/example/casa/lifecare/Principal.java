@@ -1,11 +1,13 @@
 package com.example.casa.lifecare;
 
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -27,6 +29,10 @@ import java.util.List;
 public class Principal extends AppCompatActivity {
 AdptadorNoticias adptadorNoticias;
     RecyclerView recyclerView;
+    boolean retornoInfarto;
+    boolean retornoAVC;
+    boolean retornoComoEstou;
+    TesteService ts;
 private ProgressDialog load;
     List<WebScraping> menssagens;
 
@@ -63,6 +69,16 @@ private ProgressDialog load;
                 proximaTela(new Intent(this,TelaProntuario.class));
                 Log.i("Tela Pronuario",R.id.button_prontuario+"");
                 return true;
+            case R.id.button_sair:
+                TesteService.logado=false;
+                TesteService.ativo=false;
+                Auxiliar.paciente=null;
+                Auxiliar.prontuario=null;
+                Auxiliar.meusMedicamentos=null;
+
+                proximaTela( new Intent(this, Tela_login.class));
+
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -72,6 +88,7 @@ private ProgressDialog load;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_principal);
         setToolbar();
+        if(!TesteService.comoEsta)comoEstouAgora();
         menssagens = new ArrayList<WebScraping>();
         menssagens.add(new WebScraping("https://www.iped.com.br/materias/odontologia/saude-bucal-funcionamento-organismo.html"));
         menssagens.add(new WebScraping("https://www.noticiasaominuto.com.br/lifestyle/560632/dieta-rica-em-fibras-pode-ajudar-a-controlardiabetes-tipo-2"));
@@ -81,6 +98,11 @@ private ProgressDialog load;
 
         Log.i("testeRec",menssagens.toString());
 
+
+
+
+
+
     }
 
     private void setToolbar() {
@@ -88,6 +110,27 @@ private ProgressDialog load;
         getSupportActionBar().setDisplayHomeAsUpEnabled(false);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
     }
+    private void comoEstouAgora(){
+        new AlertDialog.Builder(this).setTitle("Bom dia").
+                setMessage("Como esta se sentido hoje?")
+                .setPositiveButton("Estou Bem", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+
+                    }
+                })
+                .setNegativeButton("Estou Mal", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        TesteService.comoEsta=true;
+                        proximaTela(new Intent(Principal.this,FormularioDiario.class));
+
+                    }
+                })
+
+                .show();
+
+    }
+
+
 
     private void proximaTela(Intent intent) {
          startActivity(intent);
@@ -126,8 +169,15 @@ private ProgressDialog load;
 
            adptadorNoticias = new AdptadorNoticias(menssagens, Principal.this);
            recyclerView.setAdapter(adptadorNoticias);
-            TesteService ts= new TesteService();
-           // startService(new Intent(Principal.this,TesteService.class));
+            ts= new TesteService();
+            if(!TesteService.logado){
+                TesteService.ativo=true;
+                startService(new Intent(Principal.this,TesteService.class));
+                TesteService.medicamentos=Auxiliar.prontuario.getMedicamentos();
+
+
+            }
+
             load.dismiss();
         }
     }

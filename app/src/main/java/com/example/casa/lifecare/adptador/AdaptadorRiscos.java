@@ -37,9 +37,13 @@ public class AdaptadorRiscos extends RecyclerView.Adapter {
        final Risco risco = riscos.get(position);
         Log.i("risco",risco.getNome());
      final   RiscosHolder riscosHolder = (RiscosHolder)holder;
-        riscosHolder.nome.setText(risco.getNome());
+     String texto = risco.getNome();
+     texto=texto.replaceAll("_","\t");
+        riscosHolder.nome.setText(texto);
        riscosHolder.grau.setText(risco.getIntensidade().toString());
-        riscosHolder.tipo.setText(risco.getTipo());
+       texto=risco.getTipo();
+        texto=texto.replaceAll("_","\t");
+        riscosHolder.tipo.setText(texto);
     }
 
     @Override

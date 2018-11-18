@@ -15,6 +15,7 @@ import android.view.Menu;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.example.casa.lifecare.Servicos.TesteService;
 import com.example.casa.lifecare.adptador.AdptadorMeusRemedios;
 import com.example.casa.lifecare.adptador.AdptadorNoticias;
 import com.example.casa.lifecare.entidades.Auxiliar;
@@ -57,8 +58,9 @@ public class ListaMeusRemedios extends AppCompatActivity {
         protected Integer doInBackground(String... params) {
             try {
                // Auxiliar.carregarMeusRemedios();
-               // Log.i("tamanho",Auxiliar.meusMedicamentos.size()+"");
-                Auxiliar.meusMedicamentos=Auxiliar.prontuario.getMedicamentos();
+               // Log.i("tamanho",TesteService.medicamentos.size()+"");
+                if(TesteService.medicamentos.size()!=Auxiliar.prontuario.getMedicamentos().size()) TesteService.medicamentos=Auxiliar.prontuario.getMedicamentos();
+
 
             } catch (Exception e) {
                 e.printStackTrace();
@@ -72,7 +74,7 @@ public class ListaMeusRemedios extends AppCompatActivity {
             recyclerView = (RecyclerView) findViewById(R.id.recliceRemedios);
             LinearLayoutManager mLayoutManager = new LinearLayoutManager(ListaMeusRemedios.this, LinearLayout.VERTICAL, false);
             recyclerView.setLayoutManager(mLayoutManager);
-            adptadorMeusRemedios = new AdptadorMeusRemedios(Auxiliar.meusMedicamentos, ListaMeusRemedios.this);
+            adptadorMeusRemedios = new AdptadorMeusRemedios(TesteService.medicamentos, ListaMeusRemedios.this);
             recyclerView.setAdapter(adptadorMeusRemedios);
             load.dismiss();
 

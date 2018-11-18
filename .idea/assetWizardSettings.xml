@@ -23,7 +23,7 @@
                                           <PersistentState>
                                             <option name="values">
                                               <map>
-                                                <entry key="paddingPercent" value="-10" />
+                                                <entry key="paddingPercent" value="-5" />
                                               </map>
                                             </option>
                                           </PersistentState>
@@ -34,9 +34,10 @@
                                   <option name="values">
                                     <map>
                                       <entry key="assetType" value="IMAGE" />
-                                      <entry key="imageAsset" value="C:\Users\casa\Downloads\icons8-desfazer-filled-50.png" />
-                                      <entry key="outputName" value="ic_voltar" />
-                                      <entry key="theme" value="HOLO_DARK" />
+                                      <entry key="imageAsset" value="C:\Users\casa\Downloads\icons8-desligar-50.png" />
+                                      <entry key="outputName" value="ic_sair" />
+                                      <entry key="theme" value="CUSTOM" />
+                                      <entry key="themeColor" value="e51b22" />
                                     </map>
                                   </option>
                                 </PersistentState>

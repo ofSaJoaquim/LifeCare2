@@ -60,7 +60,9 @@ public class Tela_login extends AppCompatActivity {
         final ImageView imagem = findViewById(R.id.imageView2);
         final EditText servidor = findViewById(R.id.endServer);
         final Button confirmaServidor = findViewById(R.id.confirma_servidor);
-
+if(TesteService.logado){
+    proximaTela(new Intent(Tela_login.this,Principal.class));
+}
 
         imagem.setOnClickListener(new View.OnClickListener() {
             @Override

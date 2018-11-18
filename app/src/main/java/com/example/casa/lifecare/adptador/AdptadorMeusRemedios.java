@@ -34,7 +34,7 @@ public class AdptadorMeusRemedios extends RecyclerView.Adapter {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, final int position) {
 final Medicamento remedio = meusMedicamentos.get(position);
 final MeusRemediosHolder remediosHolder = (MeusRemediosHolder)holder;
 remediosHolder.remedio.setText(remedio.getNome());
@@ -47,7 +47,8 @@ else remediosHolder.aplicar.setVisibility(View.INVISIBLE);
                 if(remedio.getUltimoUso()==0)remedio.iniciaTempo();
 
                 remediosHolder.aplicar.setVisibility(View.INVISIBLE);
-                remedio.aplicar();
+              updateItem(position);
+
             }
         });
 
@@ -57,5 +58,10 @@ else remediosHolder.aplicar.setVisibility(View.INVISIBLE);
     @Override
     public int getItemCount() {
         return meusMedicamentos.size();
+    }
+    private void updateItem(int position) {
+        Medicamento me = meusMedicamentos.get(position);
+        me.aplicar();
+        notifyItemChanged(position);
     }
 }
