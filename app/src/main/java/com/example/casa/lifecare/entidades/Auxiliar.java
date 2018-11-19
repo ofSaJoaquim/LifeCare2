@@ -27,7 +27,7 @@ public class Auxiliar {
     public static boolean logado=false;
     public static int numeroMsn=0;
     //public  static  String  servidor="https://lifecare-unisul.herokuapp.com/";
-    public static String servidor = "http://192.168.0.2:8082/";
+    public static String servidor = "https://lifecare-unisul.herokuapp.com/";
 
     public static void carregarEstados() {
         Gson gson = new Gson();
@@ -92,6 +92,7 @@ public class Auxiliar {
     }
 
     public static int postarPaciente(Paciente paciente) {
+        Log.i("Sexo",paciente.getSexo());
         int retorno = WebService.postar("pacientes", "nome", paciente.getNome(), "idade", paciente.getIdade().toString(), "email", paciente.getEmail(), "senha", paciente.getSenha(),
                 "cidadeId", paciente.getCidade().getId().toString(), "sexo", paciente.getSexo());
         return retorno;
@@ -269,4 +270,26 @@ public class Auxiliar {
         }
 
     }
+    public static int enviarEscore(Integer escore) {
+        int httpRetorno=0;
+        try {
+
+            StringBuilder entidade = new StringBuilder();
+            entidade.append("prontuarios/pacientes/");
+            entidade.append(paciente.getId());
+            entidade.append("/score/");
+            entidade.append(escore);
+             httpRetorno = WebService.postarVazio(entidade.toString());
+Log.i("Postar Score",entidade.toString());
+Log.i("Resposta",httpRetorno+"");
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        finally {
+            return httpRetorno;
+        }
+
+    }
+
 }

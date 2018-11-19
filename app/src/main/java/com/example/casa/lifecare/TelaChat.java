@@ -38,7 +38,9 @@ public class TelaChat extends AppCompatActivity {
                 EnviarMensagens enviarMensagens = new EnviarMensagens();
                 enviarMensagens.execute(((EditText)findViewById(R.id.editChat)).getText().toString());
                 hideSoftKeyboard(menssagemE);
-                recyclerView.smoothScrollToPosition(ma.getItemCount()-1);
+               /* if(ma!=null){
+                    if(ma.getItemCount()>5)recyclerView.smoothScrollToPosition(ma.getItemCount()-1);
+                }*/
 
             }
 

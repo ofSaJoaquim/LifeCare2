@@ -22,6 +22,7 @@ import com.example.casa.lifecare.Servicos.TesteService;
 import com.example.casa.lifecare.Servicos.WebScraping;
 import com.example.casa.lifecare.adptador.AdptadorNoticias;
 import com.example.casa.lifecare.entidades.Auxiliar;
+import com.example.casa.lifecare.entidades.Risco;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -89,14 +90,11 @@ private ProgressDialog load;
         setContentView(R.layout.activity_principal);
         setToolbar();
         if(!TesteService.comoEsta)comoEstouAgora();
-        menssagens = new ArrayList<WebScraping>();
-        menssagens.add(new WebScraping("https://www.iped.com.br/materias/odontologia/saude-bucal-funcionamento-organismo.html"));
-        menssagens.add(new WebScraping("https://www.noticiasaominuto.com.br/lifestyle/560632/dieta-rica-em-fibras-pode-ajudar-a-controlardiabetes-tipo-2"));
-        menssagens.add(new WebScraping("https://www.saudedica.com.br/como-preparar-agua-de-arroz-para-aliviar-a-diarreia/amp/"));
+
          Carregar carregar = new Carregar();
          carregar.execute();
 
-        Log.i("testeRec",menssagens.toString());
+
 
 
 
@@ -130,7 +128,14 @@ private ProgressDialog load;
 
     }
 
-
+    public static int calcularRisco(){
+        Integer valorRisco=0;
+        for(Risco risco: Auxiliar.prontuario.getRiscos()){
+            if(risco.getTipo().equalsIgnoreCase("NAO_MODIFICAVEL"))valorRisco+=risco.getIntensidade();
+            else if(risco.getTipo().equalsIgnoreCase("MODIFICAVEL"))valorRisco+=risco.getIntensidade();
+        }
+        return valorRisco;
+    }
 
     private void proximaTela(Intent intent) {
          startActivity(intent);
@@ -147,9 +152,23 @@ private ProgressDialog load;
         protected Integer doInBackground(String... params) {
             Log.i("teste","teste11133");
             try {
-               menssagens.get(0).pegarMetaDados();
-                menssagens.get(1).pegarMetaDados();
-                menssagens.get(2).pegarMetaDados();
+                Auxiliar.carregarProntuario();
+                Auxiliar.enviarEscore(calcularRisco());
+                menssagens = new ArrayList<WebScraping>();
+
+
+                menssagens.add(new WebScraping("https://www.iped.com.br/materias/odontologia/saude-bucal-funcionamento-organismo.html"));
+                menssagens.add(new WebScraping("https://www.noticiasaominuto.com.br/lifestyle/560632/dieta-rica-em-fibras-pode-ajudar-a-controlardiabetes-tipo-2"));
+                menssagens.add(new WebScraping("https://www.saudedica.com.br/como-preparar-agua-de-arroz-para-aliviar-a-diarreia/amp/"));
+                menssagens.add(new WebScraping("http://www.faleconnosco-saude.pt/15-dicas-para-melhorar-a-seguranca-e-independencia-da-pessoa-com-avc-em-casa/"));
+                menssagens.add(new WebScraping("https://www.vix.com/pt/saude/543408/o-que-o-cigarro-faz-no-corpo-destruicao-no-cerebro-pulmao-e-outros-orgaos-impressiona"));
+                menssagens.add(new WebScraping("http://www.asfitness.com.br/noticias/asf314567/beneficios-da-atividade-fisica-nos-efeitos-psicologicos-e-cognitivos"));
+
+
+
+                for(WebScraping we: menssagens){
+                    we.pegarMetaDados();
+                }
 
             } catch (Exception e) {
                 Log.i("teste",e.getMessage());
@@ -174,6 +193,8 @@ private ProgressDialog load;
                 TesteService.ativo=true;
                 startService(new Intent(Principal.this,TesteService.class));
                 TesteService.medicamentos=Auxiliar.prontuario.getMedicamentos();
+                Auxiliar.prontuario.setScore(calcularRisco());
+
 
 
             }

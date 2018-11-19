@@ -20,6 +20,7 @@ import com.example.casa.lifecare.Formulario_segundo;
 import com.example.casa.lifecare.ListaMeusRemedios;
 import com.example.casa.lifecare.Principal;
 import com.example.casa.lifecare.R;
+import com.example.casa.lifecare.TelaChat;
 import com.example.casa.lifecare.Tela_login;
 import com.example.casa.lifecare.TesteNofiticacao;
 import com.example.casa.lifecare.entidades.Auxiliar;
@@ -38,12 +39,13 @@ public class TesteService extends Service {
  static public boolean comoEsta=true;
  static public boolean comoEstaRestart=false;
     static public boolean ativo =false;
+    static int ultimoCheckMenssagem=0;
  static public Paciente paciente;
   public static List<Medicamento> medicamentos=new ArrayList<Medicamento>();
     public int ultimaHoraFormD=0;
 
     NotificationManager notify;
-     Uri alarmSound = Uri.parse(Environment.getExternalStorageDirectory().getAbsolutePath()+"/Music/tomarremedio.mp3");
+     Uri alarmSound =  RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
     public TesteService() {
 
     }
@@ -81,9 +83,13 @@ public class TesteService extends Service {
         .setSound(alarmSound);
 // Creates an explicit intent for an Activity in your app
         Intent resultIntent;
-        if(id>0){
+        if(titulo.equalsIgnoreCase("Nova menssagem?")){
+            resultIntent = new Intent(this, TelaChat.class);
+        }
+        else if(id>0){
              resultIntent = new Intent(this, ListaMeusRemedios.class);
         }
+
         else {
              resultIntent = new Intent(this, Principal.class);
         }
@@ -132,69 +138,84 @@ public class TesteService extends Service {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                int count=1;
-                if(segundos<59)segundos++;
+                int count = 1;
+                if (segundos < 59) segundos++;
                 else {
-                    segundos=0;
-                    if(minutos<59)minutos++;
-                    else{
-                        minutos=0;
-                        if(horas<23)horas++;
-                        else horas =0;
+                    segundos = 0;
+                    if (minutos < 59) minutos++;
+                    else {
+                        minutos = 0;
+                        if (horas < 23) horas++;
+                        else horas = 0;
                     }
                 }
-                if(ativo==false)break;
-                paciente=Auxiliar.prontuario.getPaciente();
-               logado=true;
-               if(segundos==59){
-                for(Medicamento medicamento : medicamentos) {
-                    if(!medicamento.getAguardaUso()) {
-                        if (medicamento.proximaDose() <= 0) {
-                            count++;
-                            medicamento.setAguardaUso(true);
-                            if(ativo==false)break;
-                            criarNotificacaoSimples(count,medicamento.getNome()," Hora: "+medicamento.horaDose());
-
-                            //TesteNofiticacao.notify(context, remedio.getDescricao(), count);
-
-
-                            Log.i("Script", "COUNT: " + count);
-                        }
-                    }
-                    if(ativo==false)break;
-                    else if(medicamento.proximaDose()<=0) {
-                     if (medicamento.getReavisos() < medicamento.getMaxReaviso()) {
-                            if (medicamento.getReaviso() > medicamento.getMuliplica()) {
+                if (ativo == false) break;
+                paciente = Auxiliar.prontuario.getPaciente();
+                logado = true;
+                if (segundos == 59) {
+                    for (Medicamento medicamento : medicamentos) {
+                        if (!medicamento.getAguardaUso()) {
+                            if (medicamento.proximaDose() <= 0) {
                                 count++;
-                                medicamento.setReavisos(medicamento.getReavisos() + 1);
-                                medicamento.setReaviso(0);
-                                criarNotificacaoSimples(count, medicamento.getNome(), "Não esqueça seu remédio é muinto importante!!!  Hora: " + medicamento.horaDose());
-                                Auxiliar.adicionarRiscos(new Risco(medicamento.getNome(), count, "Remedio_Atrasado"));
-                            } else medicamento.setReaviso(medicamento.getReaviso() + 1);
-                         if(ativo==false)break;
-                        } else if (medicamento.getReavisos() == medicamento.getMaxReaviso()) {
-                            count++;
-                            criarNotificacaoSimples(count, medicamento.getNome(), "Que pena esqueceu seu remédio!!!  Hora: " + medicamento.horaDose());
-                            medicamento.setReavisos(medicamento.getReavisos() + 1);
-                            Auxiliar.adicionarRiscos(new Risco(medicamento.getNome(), count, "Remedio_Nao_Aplicado"));
+                                medicamento.setAguardaUso(true);
+                                if (ativo == false) break;
+                                criarNotificacaoSimples(count, medicamento.getNome(), " Hora: " + medicamento.horaDose());
 
+                                //TesteNofiticacao.notify(context, remedio.getDescricao(), count);
+
+
+                                Log.i("Script", "COUNT: " + count);
+                            }
                         }
-                    }
-                  //  Log.i("Script", medicamento.getNome()+"   Reavisos: " + medicamento.getReavisos());
-                  //  Log.i("Script", medicamento.getNome()+"   Reaviso: " + medicamento.getReaviso());
+                        if (ativo == false) break;
+                        else if (medicamento.proximaDose() <= 0) {
+                            if (medicamento.getReavisos() < medicamento.getMaxReaviso()) {
+                                if (medicamento.getReaviso() > medicamento.getMuliplica()) {
+                                    count++;
+                                    medicamento.setReavisos(medicamento.getReavisos() + 1);
+                                    medicamento.setReaviso(0);
+                                    criarNotificacaoSimples(count, medicamento.getNome(), "Não esqueça seu remédio é muinto importante!!!  Hora: " + medicamento.horaDose());
+                                    Auxiliar.adicionarRiscos(new Risco(medicamento.getNome(), count, "Remedio_Atrasado"));
+                                } else medicamento.setReaviso(medicamento.getReaviso() + 1);
+                                if (ativo == false) break;
+                            } else if (medicamento.getReavisos() == medicamento.getMaxReaviso()) {
+                                count++;
+                                criarNotificacaoSimples(count, medicamento.getNome(), "Que pena esqueceu seu remédio!!!  Hora: " + medicamento.horaDose());
+                                medicamento.setReavisos(medicamento.getReavisos() + 1);
+                                Auxiliar.adicionarRiscos(new Risco(medicamento.getNome(), count, "Remedio_Nao_Aplicado"));
 
-                }}
-                if(ativo==false)break;
-                if(!comoEstaRestart) {
+                            }
+                        }
+                        //  Log.i("Script", medicamento.getNome()+"   Reavisos: " + medicamento.getReavisos());
+                        //  Log.i("Script", medicamento.getNome()+"   Reaviso: " + medicamento.getReaviso());
+
+                    }
+                }
+                if (ativo == false) break;
+                if (!comoEstaRestart) {
                     if (horas == ultimaHoraFormD) {
                         comoEsta = false;
-                        comoEstaRestart=true;
-                        criarNotificacaoSimples(0,"Como você está agora?","Clique aqui vamos falar sobre um pouco de você!");
+                        comoEstaRestart = true;
+                        criarNotificacaoSimples(0, "Como você está agora?", "Clique aqui vamos falar sobre um pouco de você!");
 
 
                     }
+                } else if (horas != ultimaHoraFormD) comoEstaRestart = false;
+
+                if (minutos == 2) {
+                    if (segundos == 0) {
+                        int teste = Auxiliar.mensagems.size();
+                        Auxiliar.carregarMenssagens();
+                        int teste2 = Auxiliar.mensagems.size();
+                        if (teste < teste2) {
+                            if (Auxiliar.mensagems.get(teste2 - 1).getMedicoId() != null) {
+
+                                criarNotificacaoSimples(count, "Nova menssagem?", Auxiliar.mensagems.get(teste2 - 1).getTexto());
+                                count++;
+                            }
+                        }
+                    }
                 }
-                else if(horas!=ultimaHoraFormD)comoEstaRestart=false;
             }
             stopSelf(startId);
         }

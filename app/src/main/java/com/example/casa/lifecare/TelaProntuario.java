@@ -46,7 +46,7 @@ public class TelaProntuario extends AppCompatActivity {
         @Override
         protected Integer doInBackground(String... strings) {
            if(Auxiliar.carregarProntuario()){
-
+Auxiliar.prontuario.setScore(Principal.calcularRisco());
                return 1;
 
            }

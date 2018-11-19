@@ -145,7 +145,7 @@ public class Formulario_Primeiro extends AppCompatActivity {
 
                 if (validar(internado, (TextView) findViewById(R.id.textoInternado))) {
                     if (internado.getCheckedRadioButtonId() == R.id.radioInternadoSim)
-                        riscos.add(new Risco( "INTERNADO",1,"NAO_MODIFICAVEL"));
+                        riscos.add(new Risco( "INTERNADO",50,"NAO_MODIFICAVEL"));
                     else riscos.add(new Risco( "INTERNADO",0,"NAO_MODIFICAVEL"));
 
                 } else valida = false;
@@ -153,34 +153,34 @@ public class Formulario_Primeiro extends AppCompatActivity {
 
                 if (validar(diabete, (TextView) findViewById(R.id.textoDiabete))) {
                     if (diabete.getCheckedRadioButtonId() == R.id.radioDiabetesSim)
-                        riscos.add(new Risco("DIABETES",1,"NAO_MODIFICAVEL"));
+                        riscos.add(new Risco("DIABETES",100,"NAO_MODIFICAVEL"));
                     else riscos.add(new Risco( "DIABETES",0,"NAO_MODIFICAVEL"));
 
                 } else valida = false;
 
                 if (validar(acamado, (TextView) findViewById(R.id.textoAcamado))) {
                     if (acamado.getCheckedRadioButtonId() == R.id.radioAcamadoSim)
-                        riscos.add(new Risco("ACAMADO",1,"MODIFICAVEL"));
+                        riscos.add(new Risco("ACAMADO",200,"MODIFICAVEL"));
                     else riscos.add(new Risco("ACAMADO",0,"MODIFICAVEL"));
 
                 } else valida = false;
                 if (validar(consulta, (TextView) findViewById(R.id.textoConsulta))) {
                     if (consulta.getCheckedRadioButtonId() == R.id.radioConsultasSim)
-                        riscos.add(new Risco("CONSULTA",1,"MODIFICAVEL"));
-                    else riscos.add(new Risco("CONSULTA",0,"MODIFICAVEL"));
+                        riscos.add(new Risco("CONSULTA",-40,"MODIFICAVEL"));
+                    else riscos.add(new Risco("CONSULTA",40,"MODIFICAVEL"));
 
                 } else valida = false;
 
                 if (validar(cirugia, (TextView) findViewById(R.id.textoCirugia))) {
                     if (consulta.getCheckedRadioButtonId() == R.id.radioCirugiaSim)
-                        riscos.add(new Risco("CIRUGIA",1,"NAO_MODIFICAVEL"));
+                        riscos.add(new Risco("CIRUGIA",30,"NAO_MODIFICAVEL"));
                     else riscos.add(new Risco("CIRUGIA",0,"NAO_MODIFICAVEL"));
 
                 } else valida = false;
 
                 if (validar(depressao, (TextView) findViewById(R.id.textoDepressao))) {
                     if (depressao.getCheckedRadioButtonId() == R.id.radioDepressaoSim)
-                        riscos.add(new Risco("DEPRESSAO",1,"MODIFICAVEL"));
+                        riscos.add(new Risco("DEPRESSAO",50,"MODIFICAVEL"));
                     else riscos.add(new Risco("DEPRESSAO",0,"MODIFICAVEL"));
 
                 } else valida = false;
@@ -188,16 +188,16 @@ public class Formulario_Primeiro extends AppCompatActivity {
                 if (validar(atividade, (TextView) findViewById(R.id.textoAtividadeFisica))) {
                     if (atividade.getCheckedRadioButtonId() == R.id.radioAtividadesFSim) {
                         if (validarNumero(atividadeVezes) && validarNumero(atividadeDuracao)) {
-                            riscos.add(new Risco("ATIVIDADE",Integer.parseInt(atividadeVezes.getText().toString())*Integer.parseInt(atividadeDuracao.getText().toString()),"MODIFICAVEL"));
+                            riscos.add(new Risco("ATIVIDADE",Integer.parseInt(atividadeVezes.getText().toString())*Integer.parseInt(atividadeDuracao.getText().toString())*-10,"MODIFICAVEL"));
                         } else valida = false;
-                    } else riscos.add(new Risco("ATIVIDADE",0,"MODIFICAVEL"));
+                    } else riscos.add(new Risco("ATIVIDADE",100,"MODIFICAVEL"));
 
                 } else valida = false;
 
                 if (validar(bebe, (TextView) findViewById(R.id.textoBebe))) {
                     if (bebe.getCheckedRadioButtonId() == R.id.radioBebidaAcolicaSim) {
                         if (validarNumero(bebeVezes)) {
-                            riscos.add(new Risco("BEBE",0,"MODIFICAVEL"));
+                            riscos.add(new Risco("BEBE",80,"MODIFICAVEL"));
                         } else valida = false;
                     } else riscos.add(new Risco("BEBE",0,"MODIFICAVEL"));
 
@@ -207,7 +207,7 @@ public class Formulario_Primeiro extends AppCompatActivity {
                 if (validar(fuma, (TextView) findViewById(R.id.textoFuma))) {
                     if (fuma.getCheckedRadioButtonId() == R.id.radioFumaSim) {
                         if (validarNumero(fumaVezes))
-                            riscos.add(new Risco( "FUMA",Integer.parseInt(fumaVezes.getText().toString()),"MODIFICAVEL"));
+                            riscos.add(new Risco( "FUMA",Integer.parseInt(fumaVezes.getText().toString())*10,"MODIFICAVEL"));
                         else valida = false;
                     } else riscos.add(new Risco("FUMA",0,"MODIFICAVEL"));
 
@@ -216,7 +216,7 @@ public class Formulario_Primeiro extends AppCompatActivity {
                 if (abreFuma) {
                     if (validar(fumarParar, (TextView) findViewById(R.id.textoPararFumar))) {
                         if (fumarParar.getCheckedRadioButtonId() == R.id.radioQrPararFumarSim)
-                            riscos.add(new Risco("PARAR-FUMAR",1,"MODIFICAVEL"));
+                            riscos.add(new Risco("PARAR-FUMAR",-30,"MODIFICAVEL"));
                         else riscos.add(new Risco("PARAR-FUMAR",0,"MODIFICAVEL"));
                     } else valida = false;
 
@@ -226,9 +226,9 @@ public class Formulario_Primeiro extends AppCompatActivity {
 
                 if (validar(avc, (TextView) findViewById(R.id.textoAvc))) {
                     if (avc.getCheckedRadioButtonId() == R.id.radioAvcMenosAno)
-                        riscos.add(new Risco("AVC",2,"NAO_MODIFICAVEL"));
+                        riscos.add(new Risco("AVC",200,"NAO_MODIFICAVEL"));
                     else if (avc.getCheckedRadioButtonId() == R.id.radioAvcMaisAno)
-                        riscos.add(new Risco("AVC",1,"NAO_MODIFICAVEL"));
+                        riscos.add(new Risco("AVC",100,"NAO_MODIFICAVEL"));
                     else
                         riscos.add(new Risco("AVC",0,"NAO_MODIFICAVEL"));
 
@@ -236,41 +236,41 @@ public class Formulario_Primeiro extends AppCompatActivity {
 
                 if (validar(infarto, (TextView) findViewById(R.id.textoInfarto))) {
                     if (avc.getCheckedRadioButtonId() == R.id.radioInfartoMenos)
-                        riscos.add(new Risco("INFARTO",2,"NAO_MODIFICAVEL"));
+                        riscos.add(new Risco("INFARTO",200,"NAO_MODIFICAVEL"));
                     else if (avc.getCheckedRadioButtonId() == R.id.radioInfartoMais)
-                        riscos.add(new Risco("INFARTO",1,"NAO_MODIFICAVEL"));
+                        riscos.add(new Risco("INFARTO",100,"NAO_MODIFICAVEL"));
                     else
                         riscos.add(new Risco("INFARTO",0,"NAO_MODIFICAVEL"));
 
                 } else valida = false;
                 Log.i("2teste", valida + "");
                 if (((CheckBox) findViewById(R.id.arroz)).isChecked())
-                    riscos.add(new Risco("ARROZ",1,"ALIMENTACAO"));
-                else riscos.add(new Risco("ARROZ",0,"ALIMENTACAO"));
+                    riscos.add(new Risco("ARROZ",0,"ALIMENTACAO"));
+                else riscos.add(new Risco("ARROZ",20,"ALIMENTACAO"));
 
                 if (((CheckBox) findViewById(R.id.feijao)).isChecked())
-                    riscos.add(new Risco("FEIJAO",1,"ALIMENTACAO"));
-                else riscos.add(new Risco("FEIJAO",0,"ALIMENTACAO"));
+                    riscos.add(new Risco("FEIJAO",0,"ALIMENTACAO"));
+                else riscos.add(new Risco("FEIJAO",20,"ALIMENTACAO"));
 
                 if (((CheckBox) findViewById(R.id.massa)).isChecked())
-                    riscos.add(new Risco("MASSA",1,"ALIMENTACAO"));
+                    riscos.add(new Risco("MASSA",5,"ALIMENTACAO"));
                 else riscos.add(new Risco("MASSA",0,"ALIMENTACAO"));
 
                 if (((CheckBox) findViewById(R.id.batata)).isChecked())
                     riscos.add(new Risco("BATATA",1,"ALIMENTACAO"));
-                else riscos.add(new Risco("BATATA",1,"ALIMENTACAO"));
+                else riscos.add(new Risco("BATATA",10,"ALIMENTACAO"));
 
                 if (((CheckBox) findViewById(R.id.acucar)).isChecked())
-                    riscos.add(new Risco("ACUCAR",1,"ALIMENTACAO"));
+                    riscos.add(new Risco("ACUCAR",15,"ALIMENTACAO"));
                 else riscos.add(new Risco("ACUCAR",0,"ALIMENTACAO"));
 
                 if (((CheckBox) findViewById(R.id.carne)).isChecked())
-                    riscos.add(new Risco("CARNE",1,"ALIMENTACAO"));
-                else riscos.add(new Risco("CARNE",0,"ALIMENTACAO"));
+                    riscos.add(new Risco("CARNE",0,"ALIMENTACAO"));
+                else riscos.add(new Risco("CARNE",20,"ALIMENTACAO"));
 
                 if (((CheckBox) findViewById(R.id.ovos)).isChecked())
-                    riscos.add(new Risco("OVOS",1,"ALIMENTACAO"));
-                else riscos.add(new Risco("OVOS",0,"ALIMENTACAO"));
+                    riscos.add(new Risco("OVOS",0,"ALIMENTACAO"));
+                else riscos.add(new Risco("OVOS",10,"ALIMENTACAO"));
 
                 if (((CheckBox) findViewById(R.id.leite)).isChecked())
                     riscos.add(new Risco("LEITE",1,"ALIMENTACAO"));
@@ -281,23 +281,23 @@ public class Formulario_Primeiro extends AppCompatActivity {
                 else riscos.add(new Risco("QUEIJO",0,"ALIMENTACAO"));
 
                 if (((CheckBox) findViewById(R.id.vegetais)).isChecked())
-                    riscos.add(new Risco("VEGETAIS",1,"ALIMENTACAO"));
-                else riscos.add(new Risco("VEGETAIS",0,"ALIMENTACAO"));
+                    riscos.add(new Risco("VEGETAIS",0,"ALIMENTACAO"));
+                else riscos.add(new Risco("VEGETAIS",20,"ALIMENTACAO"));
 
                 if (((CheckBox) findViewById(R.id.sal)).isChecked())
-                    riscos.add(new Risco("SAL",1,"ALIMENTACAO"));
-                else riscos.add(new Risco("SAL",0,"ALIMENTACAO"));
+                    riscos.add(new Risco("SAL",10,"ALIMENTACAO"));
+                else riscos.add(new Risco("SAL",1,"ALIMENTACAO"));
 
                 if (((CheckBox) findViewById(R.id.radioObstrutiva)).isChecked())
-                    riscos.add(new Risco("PULMONAR_OBSTRUTIVA",1,"NAO_MODIFICAVEL"));
+                    riscos.add(new Risco("PULMONAR_OBSTRUTIVA",150,"NAO_MODIFICAVEL"));
                 else riscos.add(new Risco("PULMONAR_OBSTRUTIVA",0,"NAO_MODIFICAVEL"));
 
                 if (((CheckBox) findViewById(R.id.radioBronquite)).isChecked())
-                    riscos.add(new Risco("BRONQUITE",1,"NAO_MODIFICAVEL"));
+                    riscos.add(new Risco("BRONQUITE",35,"NAO_MODIFICAVEL"));
                 else riscos.add(new Risco("BRONQUITE",0,"NAO_MODIFICAVEL"));
 
                 if (((CheckBox) findViewById(R.id.radioBronquite)).isChecked())
-                    riscos.add(new Risco("ASMA",1,"NAO_MODIFICAVEL"));
+                    riscos.add(new Risco("ASMA",50,"NAO_MODIFICAVEL"));
                 else riscos.add(new Risco("ASMA",0,"NAO_MODIFICAVEL"));
 
                 if (abreOutras) {

@@ -182,11 +182,7 @@
                 android:id="@+id/labelRiscos"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Riscos" /><![CDATA[
-
-
-                android:background="@color/branco" />
-            ]]>
+                android:text="Riscos" />
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/reciclerRiscosProntuario"
@@ -210,7 +206,8 @@
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/recicleLinhaProntuario"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"/>
         </LinearLayout>
     </ScrollView>
 

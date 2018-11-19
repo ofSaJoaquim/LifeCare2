@@ -37,7 +37,7 @@ public  class  WebService {
             connection.setRequestProperty("Content-type", "application/json");
             connection.setRequestProperty("Accept", "application/json");
             connection.setDoOutput(true);
-            connection.setConnectTimeout(5000);
+            connection.setConnectTimeout(10000);
             connection.connect();
             httpStatus=connection.getResponseCode();
             Log.i("Resposta do Servidor:",httpStatus+"");
@@ -77,7 +77,7 @@ public  class  WebService {
             connection.setRequestProperty("Content-type", "application/json");
             connection.setRequestProperty("Accept", "application/json");
             connection.setDoOutput(true);
-            connection.setConnectTimeout(5000);
+            connection.setConnectTimeout(10000);
             connection.connect();
             httpStatus=connection.getResponseCode();
             Log.i("Resposta do Servidor:",httpStatus+"");
@@ -114,7 +114,7 @@ public  class  WebService {
             connection.setRequestProperty("Content-type", "application/json");
             connection.setRequestProperty("Accept", "application/json");
             connection.setDoOutput(true);
-            connection.setConnectTimeout(5000);
+            connection.setConnectTimeout(10000);
             connection.connect();
             httpStatus=connection.getResponseCode();
             Log.i("Resposta do Servidor:",httpStatus+"");
@@ -193,8 +193,8 @@ public  class  WebService {
             Log.i("dados",enviar.toString());
             connection.setRequestProperty("Content-Type", "application/json");
             connection.setRequestMethod("POST");
-            connection.setConnectTimeout(5000);
-            connection.setReadTimeout(5000);
+            connection.setConnectTimeout(10000);
+            connection.setReadTimeout(10000);
             connection.connect();
             try (OutputStream outputStream = connection.getOutputStream()) {
                 outputStream.write(enviar.toString().getBytes("UTF-8"));
@@ -263,8 +263,8 @@ public  class  WebService {
             Log.i("dados",enviar.toString());
             connection.setRequestProperty("Content-Type", "application/json");
             connection.setRequestMethod("POST");
-            connection.setConnectTimeout(5000);
-            connection.setReadTimeout(5000);
+            connection.setConnectTimeout(10000);
+            connection.setReadTimeout(10000);
             connection.connect();
             try (OutputStream outputStream = connection.getOutputStream()) {
                 outputStream.write(enviar.toString().getBytes("UTF-8"));
@@ -319,7 +319,7 @@ public  class  WebService {
             connection.setRequestProperty("Content-type", "application/json");
             connection.setRequestProperty("Accept", "application/json");
             connection.setDoOutput(true);
-            connection.setConnectTimeout(5000);
+            connection.setConnectTimeout(10000);
             connection.connect();
             httpStatus=connection.getResponseCode();
             Log.i("Resposta do Servidor:",httpStatus+"");
@@ -345,6 +345,72 @@ public  class  WebService {
             return lista.toString();
         }
     }
+
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+    public static int postarVazio(String entidade) {
+        int  retorno=0;
+        try {
+            //String produtoJson = gson.toJson(produto);
+
+
+
+            Log.i("Json string:",entidade);
+
+           /* enviar.append("{");
+            enviar.append("\n");
+            enviar.append("\"nome\": ");
+            enviar.append("\""+paciente.getNome()+"\",");
+            enviar.append("\n");
+            enviar.append("\"idade\": ");
+            enviar.append("\""+paciente.getIdade()+"\",");
+            enviar.append("\n");
+            enviar.append("\"email\": ");
+            enviar.append("\""+paciente.getEmail()+"\"");
+            enviar.append("\n");
+            enviar.append("}");*/
+
+
+
+            URL url = new URL(Auxiliar.servidor+entidade);
+            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+            connection.setDoOutput(true);
+            connection.setDoInput(true);
+
+            connection.setRequestProperty("Content-Type", "application/json");
+            connection.setRequestMethod("PUT");
+            connection.setConnectTimeout(10000);
+            connection.setReadTimeout(10000);
+            connection.connect();
+           /* try (OutputStream outputStream = connection.getOutputStream()) {
+                outputStream.write("".getBytes("UTF-8"));
+                //////
+                outputStream.flush();
+            }*/
+            /////
+
+
+            int http_status = connection.getResponseCode();
+            retorno = http_status;
+
+            Log.i("Estatus HTTP",http_status+"");
+            connection.disconnect();
+
+
+
+        }catch (ConnectException e){
+            httpStatus=-1;
+            Log.i("Falha de conexão","timeout codigo: "+e.getMessage());
+
+
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+        finally {
+            return retorno;
+        }
+    }
+
 
 }
 

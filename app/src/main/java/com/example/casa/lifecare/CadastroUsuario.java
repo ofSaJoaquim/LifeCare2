@@ -52,6 +52,7 @@ public class CadastroUsuario extends AppCompatActivity {
         final EditText senha = findViewById(R.id.txtCadSenha);
         final EditText email = findViewById(R.id.txtCadEmail);
         final RadioButton masc = findViewById(R.id.rdMasc);
+        masc.setSelected(true);
 
         final RadioButton fem = findViewById(R.id.rdFem);
         final RadioGroup grupo = findViewById(R.id.radioGroupCadSexo);
