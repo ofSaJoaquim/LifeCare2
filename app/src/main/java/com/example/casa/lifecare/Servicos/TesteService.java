@@ -1,7 +1,6 @@
 package com.example.casa.lifecare.Servicos;
 
 
-import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
@@ -9,26 +8,21 @@ import android.content.Context;
 import android.content.Intent;
 import android.media.RingtoneManager;
 import android.net.Uri;
-import android.os.Environment;
 import android.os.IBinder;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.TaskStackBuilder;
 import android.util.Log;
-import android.widget.Toast;
 
-import com.example.casa.lifecare.Formulario_segundo;
 import com.example.casa.lifecare.ListaMeusRemedios;
 import com.example.casa.lifecare.Principal;
 import com.example.casa.lifecare.R;
 import com.example.casa.lifecare.TelaChat;
 import com.example.casa.lifecare.Tela_login;
-import com.example.casa.lifecare.TesteNofiticacao;
 import com.example.casa.lifecare.entidades.Auxiliar;
 import com.example.casa.lifecare.entidades.Medicamento;
 import com.example.casa.lifecare.entidades.Paciente;
 import com.example.casa.lifecare.entidades.Risco;
 import com.example.casa.lifecare.utils.TesteMeusRemedios;
-import com.example.casa.lifecare.utils.TesteRemedios;
 
 import java.util.ArrayList;
 import java.util.List;

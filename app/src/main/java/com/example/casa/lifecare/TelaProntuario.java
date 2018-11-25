@@ -2,11 +2,13 @@ package com.example.casa.lifecare;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -85,7 +87,17 @@ Auxiliar.prontuario.setScore(Principal.calcularRisco());
             if(Auxiliar.prontuario.getPaciente()==null)voltarForm();
             else ((TextView)findViewById(R.id.textPaciente)).setText(Auxiliar.prontuario.getPaciente().getNome());
             if(Auxiliar.prontuario.getScore()==null) ((TextView)findViewById(R.id.textRisco)).setText("Não Calculado");
-            else ((TextView)findViewById(R.id.textRisco)).setText(Auxiliar.prontuario.getScore().toString());
+            else {
+                ((TextView)findViewById(R.id.textRisco)).setText(Auxiliar.prontuario.getScore().toString());
+
+                        ((TextView)findViewById(R.id.textRisco)).setTextColor(Color.rgb(120,0,0));
+                        if(Auxiliar.prontuario.getScore()<700)((TextView)findViewById(R.id.textRisco)).setTextColor(Color.rgb(255,140,0));
+                if(Auxiliar.prontuario.getScore()<250)((TextView)findViewById(R.id.textRisco)).setTextColor(Color.rgb(0,100,0));
+                if(Auxiliar.prontuario.getScore()<1)((TextView)findViewById(R.id.textRisco)).setText("0");
+            }
+
+
+
             if(Auxiliar.prontuario.getPaciente().getIdade()==null)((TextView)findViewById(R.id.textIdade)).setText("Idade?");
             else ((TextView)findViewById(R.id.textIdade)).setText(Auxiliar.prontuario.getPaciente().getIdade().toString());
             if(Auxiliar.prontuario.getPaciente().getMedico()==null)voltarForm();
@@ -93,6 +105,7 @@ Auxiliar.prontuario.setScore(Principal.calcularRisco());
            if(Auxiliar.prontuario.getPaciente().getMedico().getEspecialidades()==null)((TextView)findViewById(R.id.textEspecialidade)).setText("Clínico");
            else if(Auxiliar.prontuario.getPaciente().getMedico().getEspecialidades().size()<=0)((TextView)findViewById(R.id.textEspecialidade)).setText("Clínico");
                else((TextView)findViewById(R.id.textEspecialidade)).setText(Auxiliar.prontuario.getPaciente().getMedico().getEspecialidades().get(0).toString());
+
             load.dismiss();
         }
     }

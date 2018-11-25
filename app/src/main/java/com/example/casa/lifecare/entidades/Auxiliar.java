@@ -1,5 +1,7 @@
 package com.example.casa.lifecare.entidades;
 
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.util.JsonReader;
 import android.util.Log;
 
@@ -27,7 +29,7 @@ public class Auxiliar {
     public static boolean logado=false;
     public static int numeroMsn=0;
     //public  static  String  servidor="https://lifecare-unisul.herokuapp.com/";
-    public static String servidor = "https://lifecare-unisul.herokuapp.com/";
+    public static String servidor ="https://lifecare-unisul.herokuapp.com/";   // //"http://192.168.0.5:8082/";
 
     public static void carregarEstados() {
         Gson gson = new Gson();
@@ -270,6 +272,7 @@ public class Auxiliar {
         }
 
     }
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     public static int enviarEscore(Integer escore) {
         int httpRetorno=0;
         try {
@@ -291,5 +294,59 @@ Log.i("Resposta",httpRetorno+"");
         }
 
     }
+    public static int adicionarLinhasDeCuidado(List<LinhaDeCuidado> linhasDeCuidado) {
+        HttpRetorno httpRetorno;
+        try {
+
+            StringBuilder entidade = new StringBuilder();
+            entidade.append("prontuarios/pacientes/");
+            entidade.append(paciente.getId());
+            entidade.append("/linhasDeCuidado");
+
+
+            for(LinhaDeCuidado linha : linhasDeCuidado ) {
+                 httpRetorno = WebService.postar(entidade.toString(), false, false, "titulo", linha.getTitulo(), "acoes", linha.getAcoes());
+
+            }
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        finally {
+            return WebService.httpStatus;
+        }
+
+    }
+
+    public static int adicionarSites(Site site, int linhaDeCuidado) {
+        HttpRetorno httpRetorno;
+        try {
+
+            StringBuilder entidade = new StringBuilder();
+            entidade.append("prontuarios/pacientes/");
+            entidade.append(paciente.getId());
+            entidade.append("/linhasDeCuidado/");
+            entidade.append(linhaDeCuidado);
+            entidade.append("/sites");
+            Log.i("teste site",entidade.toString());
+
+
+
+                httpRetorno = WebService.postar(entidade.toString(), false, false, "url",site.getUrl(), "descricao", site.getDescricao());
+                Log.i("retorno site",WebService.httpStatus+"");
+
+
+
+        } catch (Exception e) {
+            Log.i("Sites",e.getMessage());
+            e.printStackTrace();
+        }
+        finally {
+            return WebService.httpStatus;
+        }
+
+    }
+
 
 }

@@ -13,6 +13,6 @@
     <color name="balaoMensagemRecebida">#0d4e6e</color>
     <color name="balaoMensagemEnviada">#1889a6</color>
     <color name="branco">#FFFFFF</color>
-
+<color name="teste">#d60d0d</color>
 
 </resources>

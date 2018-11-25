@@ -48,9 +48,6 @@
         </receiver>
 
         <activity
-            android:name=".Formulario_segundo"
-            android:theme="@style/AppTheme" />
-        <activity
             android:name=".Formulario_Primeiro"
             android:theme="@style/AppTheme" />
         <activity

@@ -22,6 +22,7 @@ import com.example.casa.lifecare.Servicos.TesteService;
 import com.example.casa.lifecare.Servicos.WebScraping;
 import com.example.casa.lifecare.adptador.AdptadorNoticias;
 import com.example.casa.lifecare.entidades.Auxiliar;
+import com.example.casa.lifecare.entidades.LinhaDeCuidado;
 import com.example.casa.lifecare.entidades.Risco;
 
 import java.util.ArrayList;
@@ -157,12 +158,12 @@ private ProgressDialog load;
                 menssagens = new ArrayList<WebScraping>();
 
 
-                menssagens.add(new WebScraping("https://www.iped.com.br/materias/odontologia/saude-bucal-funcionamento-organismo.html"));
-                menssagens.add(new WebScraping("https://www.noticiasaominuto.com.br/lifestyle/560632/dieta-rica-em-fibras-pode-ajudar-a-controlardiabetes-tipo-2"));
-                menssagens.add(new WebScraping("https://www.saudedica.com.br/como-preparar-agua-de-arroz-para-aliviar-a-diarreia/amp/"));
-                menssagens.add(new WebScraping("http://www.faleconnosco-saude.pt/15-dicas-para-melhorar-a-seguranca-e-independencia-da-pessoa-com-avc-em-casa/"));
-                menssagens.add(new WebScraping("https://www.vix.com/pt/saude/543408/o-que-o-cigarro-faz-no-corpo-destruicao-no-cerebro-pulmao-e-outros-orgaos-impressiona"));
-                menssagens.add(new WebScraping("http://www.asfitness.com.br/noticias/asf314567/beneficios-da-atividade-fisica-nos-efeitos-psicologicos-e-cognitivos"));
+             for(LinhaDeCuidado linha : Auxiliar.prontuario.getLinhasDeCuidado()){
+                 if(linha.getSites()!=null){
+                     if(linha.getSites().size()>0) menssagens.add(new WebScraping(linha.getSites().get(0).getUrl()));
+                 }
+
+             }
 
 
 
